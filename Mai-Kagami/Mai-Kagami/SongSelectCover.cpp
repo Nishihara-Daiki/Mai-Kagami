@@ -37,15 +37,15 @@ void SongSelectCover::Update(int num, int max) {
 	float y = CalcY();
 
 	if (n == -2 && num > 0 || n == max - 3 && num < 0) {
-		coverGraph->SetDuration(0);
+		coverGraph->SetAnimationTime(0, 60);
 		coverGraph->SetPosAnimation(WIDTH * 0.5, y);
-		coverWhite->SetDuration(0);
+		coverWhite->SetAnimationTime(0, 60);
 		coverWhite->SetPosAnimation(WIDTH * 0.5, y);
 	}
 	else if (coverGraph->GetTime() == 0) { // Å‰‚¾‚¯
-		coverGraph->SetDuration(duration);
+		coverGraph->SetAnimationTime(duration, 60);
 		coverGraph->SetPosAnimation(WIDTH * 0.5, y, Animation::EaseOut_SINE);
-		coverWhite->SetDuration(duration);
+		coverWhite->SetAnimationTime(duration, 60);
 		coverWhite->SetPosAnimation(WIDTH * 0.5, y, Animation::EaseOut_SINE);
 	}
 

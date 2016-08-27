@@ -12,7 +12,7 @@ class Animation {
 public:
 	MyTime GetTime();
 	void Reset();
-	void SetDuration(MyTime);
+	void SetAnimationTime(MyTime duration, MyTime delay = 0);
 	enum Easing {
 		LINER,			// 線形
 		EaseInOut_SINE,	// 正弦波(遅早遅)
@@ -29,6 +29,7 @@ protected:
 private:
 	MyTime t = 0;		// アニメーションの現在時刻
 	MyTime duration;	// アニメーション動作時間
+	MyTime delay;
 //	int ease = LINER;	// アニメーション種類
 };
 
