@@ -50,13 +50,19 @@ PartOption::PartOption(Font *font, Songs *songs, Touch *touch) {
 	button[3] = new TriangleButton(font, touch, "", 1, 3);
 	float height = BUTTON_POS + BUTTON_INTERVAL / 2;
 	part[0] = new MyDrawText(font, "始め：", WIDTH * 0.67, height, 0, 30);
-	part[1] = new MyDrawText(font, "イントロ", WIDTH * 0.79, height, 0, 30, "Yellow");
+	part[1] = new MyDrawText(font, "", WIDTH * 0.79, height, 0, 30, "Yellow");
 	part[2] = new MyDrawText(font, "終わり：", WIDTH * 0.67, height + BUTTON_INTERVAL * 2, 0, 30);
-	part[3] = new MyDrawText(font, "Aパート１", WIDTH * 0.79, height + BUTTON_INTERVAL * 2, 0, 30, "Yellow");
+	part[3] = new MyDrawText(font, "", WIDTH * 0.79, height + BUTTON_INTERVAL * 2, 0, 30, "Yellow");
+}
+
+void PartOption::Init() {
+	song = songs->GetSong(songs->GetNowSong());
+	part[1]->ChangeText(song->GetPart(song->StartPart())->GetName());
+	part[3]->ChangeText(song->GetPart(song->EndPart())->GetName());
 }
 
 void PartOption::Check() {
-	Song *song = songs->GetSong(songs->GetNowSong());
+	song = songs->GetSong(songs->GetNowSong());
 	if (button[0]->GetTouch() == 1)
 		song->ChangeStart(1);
 	if (button[1]->GetTouch() == 1)
@@ -136,6 +142,10 @@ void PartPop::ContentView() {
 	partOption->View();
 	button->View();
 	text->View();
+}
+
+void PartPop::Init() {
+	partOption->Init();
 }
 
 PartPop::~PartPop() {

@@ -18,7 +18,9 @@ public:
 	int GetSongNum(); //曲数取得
 	Song *GetSong(int x);
 	int GetNowSong();
-	int LoadHistory(const char *userId); //履歴ロード
+	//履歴ロード
+	//成功したら0,エラーならば-1を返す
+	int LoadHistory(const char *userId);
 private:
 	Song *song[256];
 	int Search(const int songId);

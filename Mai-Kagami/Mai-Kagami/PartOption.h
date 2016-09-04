@@ -2,60 +2,22 @@
 #define __PARTOPTION_H_INCLUDED__
 
 #include "DxLib.h"
-#include "Scene.h"
-#include "Font.h"
-#include "Songs.h"
-#include "Song.h"
-#include "Touch.h"
+#include "PartOptionPop.h"
 #include "SongSelectDefine.h"
-#include "SeetingPop.h"
-#include "Button.h"
 
-//区間変更用ポップアップ
-class PartOptionSpeedPop : public SpeedPop {
+class PartOptionPreview2 : public PartOptionPreview {
 public:
-	PartOptionSpeedPop(Font *font, Songs *songs, Touch *touch);
+	PartOptionPreview2(Font *font, Songs *songs, Touch *touch);
 	int Switch(const int scene);
+	~PartOptionPreview2();
 private:
-	void ContentUpdate();
-};
-
-//スピード変更用ポップアップ
-class PartOptionPartPop : public PartPop {
-public:
-	PartOptionPartPop(Font *font, Songs *songs, Touch *touch);
-	int Switch(const int scene);
-private:
-	void ContentUpdate();
-};
-
-//オプション画面の動画とボタン
-class PartOptionPreview : public SubScene {
-public:
-	PartOptionPreview(Font *font, Songs *songs, Touch *touch);
-	int Switch(const int scene);
-	~PartOptionPreview();
-private:
-	void ContentUpdate();
 	void ContentView();
-	Button *button[4];
-	MyDrawText *message, *caption[3], *para[3];
+	Button *button[2];
 };
 
-class PartOptionButton : public SubScene {
+class PartOptionButton : public PartOptionPop {
 public:
 	PartOptionButton(Font *font, Songs *songs, Touch *touch);
-	int Switch(const int scene);
-	void Load();
-	void Delete();
-	~PartOptionButton();
-private:
-	Songs *songs;
-	void ContentUpdate();
-	void ContentView();
-	PartOptionSpeedPop *speedPop;
-	PartOptionPartPop *partPop;
-	PartOptionPreview *partOptionPreview;
 };
 
 

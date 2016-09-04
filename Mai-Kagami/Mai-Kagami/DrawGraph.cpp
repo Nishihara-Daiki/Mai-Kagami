@@ -1,17 +1,21 @@
 #include "DrawGraph.h"
 
 
-//画像初期化
+//画像初期化(座標指定なし、あとから指定する場合)
+//MyDrawGraph（ファイル名）
 MyDrawGraph::MyDrawGraph(const char *fileName) {
 	ex = 1.0;
-	MyDrawGraph::fileName = fileName;
-}
-//画像初期化
-MyDrawGraph::MyDrawGraph(const float x, const float y, const char *fileName, const double ExRate) : Draw(x, y) {
-	ex = ExRate;
-	MyDrawGraph::fileName = fileName;
+	this->fileName = fileName;
 }
 
+//画像初期化
+//MyDrawGraph（x座標、y座標、ファイル名、拡大率） //拡大率は省略可能、省略した場合等倍
+MyDrawGraph::MyDrawGraph(const float x, const float y, const char *fileName, const double ExRate) : Draw(x, y) {
+	ex = ExRate;
+	this->fileName = fileName;
+}
+
+//画像ロード
 void MyDrawGraph::Load() {
 	handle = LoadGraph(fileName.c_str()); // 画像のロード
 }
@@ -23,11 +27,11 @@ void MyDrawGraph::ContentView() {
 	SetDrawMode(DX_DRAWMODE_NEAREST);
 }
 
-//大きさ変更
+//画像大きさ変更
 void MyDrawGraph::ChangeEx(const double ExRate) {
 	ex = ExRate;
 }
-
+//画像大きさ取得
 double MyDrawGraph::GetEx() {
 	return ex;
 }
@@ -85,7 +89,7 @@ void MyDrawMovie::Seek(const int flame) {
 void MyDrawMovie::Start() {
 	if (!CheckHandleASyncLoad(handle)) {
 		SetSpeed();
-		if (GetNowFlame() == GetAllFlame())
+		if (GetNowFlame() == GetEndFlame())
 			Seek();
 		if(GetMovieStateToGraph(handle) == 0)
 			PlayMovieToGraph(handle);
@@ -99,7 +103,7 @@ void MyDrawMovie::Stop() {
 
 //スピード変更
 void MyDrawMovie::ChangeSpeed(double speed) {
-	MyDrawMovie::sp = speed;
+	this->sp = speed;
 }
 
 //スピードセット
@@ -109,6 +113,15 @@ void MyDrawMovie::SetSpeed() {
 		Seek();
 		speed = sp;
 		SetPlaySpeedRateMovieToGraph(handle, speed);
+	}
+}
+
+void MyDrawMovie::SetPart() {
+	if (sf != startFlame || ef != endFlame) {
+		startFlame = sf;
+		endFlame = ef;
+		Stop();
+		Seek();
 	}
 }
 
@@ -122,26 +135,31 @@ int MyDrawMovie::GetStartFlame() {
 	return startFlame;
 }
 
+//最後のフレーム数取得
+int MyDrawMovie::GetEndFlame() {
+	if (endFlame == -1)
+		return GetAllFlame();
+	return endFlame;
+}
+
 //現在のフレーム数取得
 int MyDrawMovie::GetNowFlame() {
 	return TellMovieToGraphToFrame(handle);
 }
 
-//全体のフレーム数取得
+//動画のフレーム数取得
 int MyDrawMovie::GetAllFlame() {
-	if (endFlame == -1)
-		return GetMovieTotalFrameToGraph(handle) - 1;
-	return endFlame;
+	return GetMovieTotalFrameToGraph(handle) - 1;
 }
 
 //スタートフレーム指定
 void MyDrawMovie::SetStartFlame(const int flame) {
-	startFlame = flame;
+	sf = flame;
 }
 
 //エンドフレーム指定
 void MyDrawMovie::SetEndFlame(const int flame) {
-	endFlame = flame;
+	ef = flame;
 }
 
 MyDrawMovie::~MyDrawMovie() {

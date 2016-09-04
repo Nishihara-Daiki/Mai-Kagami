@@ -22,7 +22,7 @@ MainScene Top::Switch(const MainScene scene) {
 	char* id = nfc.GetId();
 	if (id[0] != '\0') {
 		user->SetUserId(id);
-//		printfDx("id:%s", id);
+		//printfDx("id:%s", id);
 		nfc.reset_calledCont();
 		Delete();
 		return SONG_SELECT;

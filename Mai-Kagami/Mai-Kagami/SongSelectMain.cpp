@@ -19,7 +19,10 @@ void SongSelect::ContentLoad() {
 	modeSelectButton->Load(); //モード選択ボタンロード
 	throughOptionButton->Load(); //通し練習オプション画面ボタンロード
 	partOptionButton->Load(); //部分練習オプション画面ボタンロード
-	scene = MAIN;
+}
+
+void SongSelect::SetScene(const int scene) {
+	this->scene = scene;
 }
 
 //曲選択画面場面切り替え

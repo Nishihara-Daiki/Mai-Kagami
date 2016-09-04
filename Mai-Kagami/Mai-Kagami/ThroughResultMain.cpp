@@ -30,6 +30,10 @@ MainScene ThroughResultMain::Switch(const MainScene scene) {
 		Delete();
 		return SONG_SELECT;
 	}
+	if (this->scene == THROUGH_RESULT_BACK_PART_OPTION) {
+		Delete();
+		return PART_OPTION;
+	}
 	return THROUGH_RESULT;
 }
 

@@ -20,6 +20,7 @@ class SongSelect : public Scene{
 public:
 	SongSelect(Font *font, Touch *touch, Songs *songs, User *user);
 	MainScene Switch(const MainScene scene);
+	void SetScene(const int scene);
 	~SongSelect();
 private:
 	SongSelectTitle *songSelectTitle; //曲選択画面タイトル
@@ -29,7 +30,7 @@ private:
 	ModeSelectButton *modeSelectButton; //モード選択ボタン
 	ThroughOptionButton *throughOptionButton; //通し練習オプションボタン
 	PartOptionButton *partOptionButton; //部分練習オプションボタン
-	int scene;
+	int scene = MAIN;;
 	void ContentLoad();
 	void ContentUpdate();
 	void ContentView();

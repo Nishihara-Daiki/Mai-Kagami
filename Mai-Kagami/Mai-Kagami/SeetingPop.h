@@ -34,6 +34,7 @@ private:
 class PartOption {
 public:
 	PartOption(Font *font, Songs *songs, Touch *touch);
+	void Init();
 	void Check();
 	void View();
 	~PartOption();
@@ -41,6 +42,7 @@ private:
 	Button *button[4];
 	MyDrawText *part[4];
 	Songs *songs;
+	Song *song;
 };
 
 //スピードオプションポップアップ
@@ -69,6 +71,7 @@ public:
 protected:
 	void ContentUpdate();
 	void ContentView();
+	void Init();
 	Songs *songs;
 	Song *song;
 	PartOption *partOption;

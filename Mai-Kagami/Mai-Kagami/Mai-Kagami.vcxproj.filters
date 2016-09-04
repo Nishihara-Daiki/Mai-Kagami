@@ -79,6 +79,12 @@
     <Filter Include="ヘッダー ファイル\画面関係\プレイ画面">
       <UniqueIdentifier>{81ee12c2-da3a-41fa-a0cf-8ea386e0c377}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\画面関係\部分練習結果画面">
+      <UniqueIdentifier>{22cf8377-e975-4996-8eb9-7fbce90239cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\画面関係\部分練習結果画面">
+      <UniqueIdentifier>{fb8fba5a-f741-4500-91cb-9cbe3a068c27}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Nfc.cpp">
@@ -206,6 +212,15 @@
     </ClCompile>
     <ClCompile Include="User.cpp">
       <Filter>ソース ファイル\システム関係</Filter>
+    </ClCompile>
+    <ClCompile Include="PartResultMain.cpp">
+      <Filter>ソース ファイル\画面関係\部分練習結果画面</Filter>
+    </ClCompile>
+    <ClCompile Include="PartResult.cpp">
+      <Filter>ソース ファイル\画面関係\部分練習結果画面</Filter>
+    </ClCompile>
+    <ClCompile Include="PartOptionPop.cpp">
+      <Filter>ソース ファイル\画面関係\ポップアップ</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -346,6 +361,18 @@
     </ClInclude>
     <ClInclude Include="User.h">
       <Filter>ヘッダー ファイル\システム関係</Filter>
+    </ClInclude>
+    <ClInclude Include="PartResultMain.h">
+      <Filter>ヘッダー ファイル\画面関係\部分練習結果画面</Filter>
+    </ClInclude>
+    <ClInclude Include="PartResultDefine.h">
+      <Filter>ヘッダー ファイル\画面関係\部分練習結果画面</Filter>
+    </ClInclude>
+    <ClInclude Include="PartResult.h">
+      <Filter>ヘッダー ファイル\画面関係\部分練習結果画面</Filter>
+    </ClInclude>
+    <ClInclude Include="PartOptionPop.h">
+      <Filter>ヘッダー ファイル\画面関係\ポップアップ</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

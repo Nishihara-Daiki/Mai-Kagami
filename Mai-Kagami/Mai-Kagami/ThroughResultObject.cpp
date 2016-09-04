@@ -151,7 +151,7 @@ void ResultGraph::Load(const int *point, const int num, Song *song) {
 
 	for (int i = 0; i < partMax; i++) {
 		SongPart *songPart = song->GetPart(i);
-		float x = GetX() - w / 2 + w * (float)songPart->GetFlame() / song->danceMovie->GetAllFlame();
+		float x = GetX() - w / 2 + w * (float)songPart->GetFlame() / song->danceMovie->GetEndFlame();
 		part[i] = new MyDrawTextV(font, songPart->GetName(),  x, GetY() + HEIGHT * 0.075, 2, 16);
 	}
 }

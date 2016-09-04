@@ -39,8 +39,11 @@
     <ClCompile Include="Nfc.cpp" />
     <ClCompile Include="PartMain.cpp" />
     <ClCompile Include="PartOption.cpp" />
+    <ClCompile Include="PartOptionPop.cpp" />
     <ClCompile Include="PartPause.cpp" />
     <ClCompile Include="PartPlay.cpp" />
+    <ClCompile Include="PartResult.cpp" />
+    <ClCompile Include="PartResultMain.cpp" />
     <ClCompile Include="PauseScreen.cpp" />
     <ClCompile Include="PlayScreen.cpp" />
     <ClCompile Include="PlayScreenObject.cpp" />
@@ -84,8 +87,12 @@
     <ClInclude Include="PartDefine.h" />
     <ClInclude Include="PartMain.h" />
     <ClInclude Include="PartOption.h" />
+    <ClInclude Include="PartOptionPop.h" />
     <ClInclude Include="PartPause.h" />
     <ClInclude Include="PartPlay.h" />
+    <ClInclude Include="PartResult.h" />
+    <ClInclude Include="PartResultDefine.h" />
+    <ClInclude Include="PartResultMain.h" />
     <ClInclude Include="PauseScreen.h" />
     <ClInclude Include="PlayScreen.h" />
     <ClInclude Include="PlayScreenObject.h" />

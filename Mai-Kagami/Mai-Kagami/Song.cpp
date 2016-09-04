@@ -63,7 +63,7 @@ Song::Song(Font *font, const int id, const char *title, const char *artist, cons
 	start = new int();
 	end = new int();
 	*start = 0;
-	*end = 1;
+	*end = 0;
 	for(int i = 0; i < 256; i++)
 		songPart[i] = new SongPart();
 
@@ -107,21 +107,23 @@ void Song::ChangeSpeed(int num) {
 void Song::ChangeStart(int num) {
 	if (num == 1 && *start > 0)
 		(*start) -= 1;
-	if (num == -1 && *start < *end - 1)
+	if (num == -1 && *start < *end)
 		(*start) += 1;
 	danceMovie->SetStartFlame(GetPart(*start)->GetFlame());
-	danceMovie->SetStartFlame(GetPart(*start)->GetFlame());
-
 }
 
 //“®‰æ‚ÌI—¹ˆÊ’u‚ð•ÏX
 void Song::ChangeEnd(int num) {
-	if (num == 1 && *end > *start + 1)
+	if (num == 1 && *end > *start)
 		(*end) -= 1;
 	if (num == -1 && *end < GetPartNum() - 1)
 		(*end) += 1;
-	danceMovie->SetEndFlame(GetPart(*end)->GetFlame());
-	danceMovie->SetEndFlame(GetPart(*end)->GetFlame());
+
+	if (*end + 1 == GetPartNum())
+		danceMovie->SetEndFlame(danceMovie->GetAllFlame());
+	else
+		danceMovie->SetEndFlame(GetPart(*end + 1)->GetFlame());
+
 }
 
 int Song::StartPart() {

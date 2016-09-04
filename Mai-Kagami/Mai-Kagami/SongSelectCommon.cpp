@@ -78,7 +78,8 @@ void SongInformation::Load() {
 		grad[i]->Load();
 	for (int i = 0; i < n; i++)
 		songCover[i]->Load(n);
-//	box->Load();
+	nowSong = songCover[songs->GetNowSong()];
+	nowSong->drawSongTitle->ChangePos(WIDTH * 0.79, HEIGHT * 0.3);
 	viewFlag = TRUE;
 }
 
@@ -130,15 +131,20 @@ void SongInformation::ContentUpdate() {
 			nowSong->danceMovie->Release();
 		break;
 	case MODE:
-		if (lastScene == MAIN) {
-			nowSong->danceMovie->Load();
-			nowSong->LoadPart();
-			nowSong->danceMovie->ChangeSpeed(nowSong->danceMovie->GetSpeed());
+		if (lastScene != MODE) {
+			if (lastScene == OPTION1) {
+				nowSong->danceMovie->Seek(0);
+			}
+			else {
+				nowSong->danceMovie->Load();
+				nowSong->LoadPart();
+				nowSong->danceMovie->ChangeSpeed(nowSong->danceMovie->GetSpeed());
+			}
 		}
-		else if (lastScene == OPTION1) {
-			nowSong->danceMovie->Stop();
-			nowSong->danceMovie->Seek();
-		}
+		break;
+	case OPTION1:
+		if(lastScene != OPTION1)
+			nowSong->danceMovie->Seek(0);
 		break;
 	}
 	lastScene = nowScene;

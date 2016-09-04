@@ -22,6 +22,8 @@ MainScene PartMain::Switch(const MainScene scene) {
 		this->scene = partPlay->Switch(this->scene);
 	case PART_PAUSE:
 	case PART_SETTING:
+	case PART_SETTING_PART:
+	case PART_SETTING_SPEED:
 	case PART_REWIND:
 		this->scene = partPause->Switch(this->scene);
 		break;
