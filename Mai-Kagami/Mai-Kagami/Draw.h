@@ -23,6 +23,7 @@ public:
 	void ChangePos(const float x, const float y); //座標変更
 	void SetPosAnimation(float target_x, float target_y, Easing ease = LINER);  // Jaity
 	void Update();	// アニメーション更新
+	void Stop(boolean jumpF = FALSE);	// アニメーション中断
 	float GetX(); //x座標取得
 	float GetY(); //y座標取得
 protected:
@@ -45,6 +46,7 @@ public:
 	int GetAlpha();
 	void SetAlphaAnimation(int alpha = 255, Easing ease = LINER);
 	void Update();	// アニメーション更新
+	void Stop(boolean jumpF = FALSE);	// アニメーション中断
 	void SetViewFlag(const boolean viewFlag);
 private:
 	virtual void ContentView() = 0; //表示メソッド

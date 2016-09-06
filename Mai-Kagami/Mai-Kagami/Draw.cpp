@@ -58,6 +58,15 @@ void Pos::Update() {
 	ChangePos(nx, ny);
 }
 
+// アニメーション中断
+// 中断時に最終値に飛ぶかどうか
+void Pos::Stop(boolean jumpF) {
+	if (jumpF == TRUE)
+		SetAnimationTime(0);
+	Update();
+	Reset();
+}
+
 //x座標取得
 float Pos::GetX() {
 	return x * SIZE_RATE;
@@ -109,6 +118,13 @@ void Draw::Update() {
 	int na = default_alpha + (target_alpha - default_alpha) * r;
 	SetAlpha(na);
 	Pos::Update();
+}
+
+void Draw::Stop(boolean jumpF) {
+	if (jumpF == TRUE)
+		SetAnimationTime(0);
+	Update();
+	Reset();
 }
 
 Draw2::Draw2(const int pos) {

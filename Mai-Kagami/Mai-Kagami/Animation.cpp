@@ -1,7 +1,6 @@
 #include "Animation.h"
 
 // アニメーションの進行割合を更新して戻り値へ
-// 終了時刻, タイプ, 遅延
 double Animation::UpdateRate(Easing ease) {
 	double r, rate;
 	if (t < delay)

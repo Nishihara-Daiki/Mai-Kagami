@@ -16,12 +16,16 @@ int Touch::Get(int num) {
 	return key[num];
 }
 
-boolean Touch::Input(int num, int wait, int duration) {
+boolean Touch::Input(int num) {
+	return Get(num) == 1;
+}
+
+boolean Touch::Hold(int num, int wait, int duration) {
 	int key = Get(num);
 	return key == 1 || wait <= key && !((key - wait) % duration);
 }
 
-boolean Touch::Input2(int num, int wait1, int duration1, int wait2, int duration2) {
+boolean Touch::Hold2(int num, int wait1, int duration1, int wait2, int duration2) {
 	int key = Get(num);
 	return key == 1
 		|| wait1 <= key && key < wait2 && !((key - wait1) % duration1)

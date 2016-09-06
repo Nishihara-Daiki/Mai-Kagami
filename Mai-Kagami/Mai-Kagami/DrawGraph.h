@@ -16,6 +16,7 @@ public:
 	double GetEx();
 	void SetExAnimation(double target_ex, Easing ease = LINER);
 	void Update();
+	void Stop(boolean jumpF = FALSE);	// アニメーション中断
 	void Release();
 protected:
 	std::string fileName; //ファイル名

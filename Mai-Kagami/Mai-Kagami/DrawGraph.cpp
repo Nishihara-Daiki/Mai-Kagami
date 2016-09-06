@@ -51,6 +51,13 @@ void MyDrawGraph::Update() {
 	Draw::Update();
 }
 
+void MyDrawGraph::Stop(boolean jumpF) {
+	if (jumpF == TRUE)
+		SetAnimationTime(0);
+	Update();
+	Reset();
+}
+
 //‰æ‘œ‚ð‰ð•ú
 void MyDrawGraph::Release() {
 	DeleteGraph(handle);

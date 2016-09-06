@@ -93,26 +93,26 @@ void SongInformation::ContentUpdate() {
 	case MAIN:
 		if (nowScene == lastScene) {
 			//ボタン0が押されたら
-			if(touch->Input2(0)) {
+			if(touch->Hold2(0)) {
 				direct = 1;  // Jaity
 				for (int i = 0; i < n; i++) {
-					songCover[i]->coverGraph->Reset();
-					songCover[i]->coverWhite->Reset();
+					songCover[i]->coverGraph->Stop();
+					songCover[i]->coverWhite->Stop();
 				}
 			}
 
 			//ボタン2が押されたら
-			if(touch->Input2(2)) {
+			if(touch->Hold2(2)) {
 				direct = -1;  // Jaity
 				for (int i = 0; i < n; i++) {
-					songCover[i]->coverGraph->Reset();
-					songCover[i]->coverWhite->Reset();
+					songCover[i]->coverGraph->Stop();
+					songCover[i]->coverWhite->Stop();
 				}
 			}
 		}
 
 		for (int i = 0; i < n; i++)
-			songCover[i]->Update(direct, n);  // Updateに引数追加 Jaity
+			songCover[i]->Update(direct, n);
 
 		nowSong = songCover[songs->GetNowSong()];
 		nowSong->drawSongTitle->ChangePos(WIDTH * 0.79, HEIGHT * 0.3);
@@ -139,6 +139,12 @@ void SongInformation::ContentUpdate() {
 				nowSong->danceMovie->Load();
 				nowSong->LoadPart();
 				nowSong->danceMovie->ChangeSpeed(nowSong->danceMovie->GetSpeed());
+			}
+		}
+		if(lastScene == MAIN) {
+			for (int i = 0; i < n; i++) {
+				songCover[i]->coverGraph->Stop(TRUE);
+				songCover[i]->coverWhite->Stop(TRUE);
 			}
 		}
 		break;
