@@ -12,7 +12,7 @@ void SubScene::Load() {
 
 void SubScene::Delete() {
 	viewFlag = FALSE;
-	printfDx("Del");
+//	printfDx("Del");
 }
 
 // セットしたいフラグとそれに変更するまでの遅延フレーム数
@@ -70,8 +70,8 @@ void Scene::Load() {
 
 //削除
 void Scene::Delete() {
-	static int count = 0;
-	printfDx("%2d", deleteFlag);
+//	static int count = 0;
+//	printfDx("%2d", deleteFlag);
 	if(deleteFlag == TRUE) {
 		//if (count++ == SCENE_DELAY) {
 		//	ContentDelete();

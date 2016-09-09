@@ -32,10 +32,12 @@ MainScene PartMain::Switch(const MainScene scene) {
 	switch (this->scene)
 	{
 	case PART_NEXT:
-		Delete();
+		//Delete();
+		SetDeleteFlag(TRUE);  // 削除フラグセット
 		return PART_RESULT;
 	case PART_BACK_SONG_SELECT:
-		Delete();
+		//Delete();
+		SetDeleteFlag(TRUE);  // 削除フラグセット
 		return SONG_SELECT;
 	}
 	return PART;
@@ -47,6 +49,9 @@ void PartMain::ContentUpdate() {
 		partStart->Update(scene);
 		partPlay->Update(scene);
 		partPause->Update(scene);
+	}
+	else {
+		Delete();
 	}
 }
 

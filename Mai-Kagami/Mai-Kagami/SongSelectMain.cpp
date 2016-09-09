@@ -51,13 +51,16 @@ MainScene SongSelect::Switch(const MainScene scene) {
 	switch (this->scene)
 	{
 	case BACK_TOP:
-		Delete();
+		//Delete();
+		SetDeleteFlag(TRUE);
 		return TOP;
 	case NEXT1:
-		Delete();
+		//Delete();
+		SetDeleteFlag(TRUE);
 		return THROUGH;
 	case NEXT2:
-		Delete();
+		//Delete();
+		SetDeleteFlag(TRUE);
 		return PART;
 	default:
 		return SONG_SELECT;
@@ -75,6 +78,10 @@ void SongSelect::ContentUpdate() {
 		modeSelectButton->Update(scene);
 		throughOptionButton->Update(scene);
 		partOptionButton->Update(scene);
+	}
+	else {
+		UpdateViewFlag(FALSE, SCENE_DELAY);
+		Delete();
 	}
 }
 

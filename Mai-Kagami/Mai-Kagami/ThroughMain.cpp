@@ -29,10 +29,12 @@ MainScene ThroughMain::Switch(const MainScene scene) {
 	switch (this->scene)
 	{
 	case THROUGH_NEXT:
-		Delete();
+		//Delete();
+		SetDeleteFlag(TRUE);
 		return THROUGH_RESULT;
 	case THROUGH_BACK_SONG_SELECT:
-		Delete();
+		//Delete();
+		SetDeleteFlag(TRUE);
 		return SONG_SELECT;
 	}
 	return THROUGH;
@@ -44,6 +46,10 @@ void ThroughMain::ContentUpdate() {
 		throughStart->Update(scene);
 		throughPlay->Update(scene);
 		throughPause->Update(scene);
+	}
+	else {
+		UpdateViewFlag(FALSE, SCENE_DELAY);
+		Delete();
 	}
 }
 

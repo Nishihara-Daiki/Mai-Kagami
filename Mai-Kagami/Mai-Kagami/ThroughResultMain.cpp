@@ -22,16 +22,19 @@ MainScene ThroughResultMain::Switch(const MainScene scene) {
 		this->scene = throughDetail->Switch(this->scene);
 		break;
 	}
-	if (this->scene == THROUGH_RESULT_BACK_PLAY) {
-		Delete();
+
+	switch (this->scene) {
+	case THROUGH_RESULT_BACK_PLAY:
+		//Delete();
+		SetDeleteFlag(TRUE);
 		return THROUGH;
-	}
-	if (this->scene == THROUGH_RESULT_BACK_SONG_SELECT) {
-		Delete();
+	case THROUGH_RESULT_BACK_SONG_SELECT:
+		//Delete();
+		SetDeleteFlag(TRUE);
 		return SONG_SELECT;
-	}
-	if (this->scene == THROUGH_RESULT_BACK_PART_OPTION) {
-		Delete();
+	case THROUGH_RESULT_BACK_PART_OPTION:
+		//Delete();
+		SetDeleteFlag(TRUE);
 		return PART_OPTION;
 	}
 	return THROUGH_RESULT;
@@ -42,6 +45,10 @@ void ThroughResultMain::ContentUpdate() {
 		Load();
 		throughResult->Update(scene);
 		throughDetail->Update(scene);
+	}
+	else {
+		UpdateViewFlag(FALSE, SCENE_DELAY);
+		Delete();
 	}
 }
 

@@ -21,20 +21,23 @@ MainScene PartResultMain::Switch(const MainScene scene) {
 		this->scene = partFinish->Switch(this->scene);
 		break;
 	}
-	if (this->scene == PART_RESULT_BACK_PLAY) {
-		Delete();
+
+	switch(this->scene) {
+	case PART_RESULT_BACK_PLAY:
+		//Delete();
+		SetDeleteFlag(TRUE);
 		return PART;
-	}
-	if (this->scene == PART_RESULT_BACK_SONG_SELECT) {
-		Delete();
+	case PART_RESULT_BACK_SONG_SELECT:
+		//Delete();
+		SetDeleteFlag(TRUE);
 		return SONG_SELECT;
-	}
-	if (this->scene == PART_RESULT_BACK_THROUGH_OPTION) {
-		Delete();
+	case PART_RESULT_BACK_THROUGH_OPTION:
+		//Delete();
+		SetDeleteFlag(TRUE);
 		return THROUGH_OPTION;
-	}
-	if (this->scene == PART_RESULT_BACK_PART_OPTION) {
-		Delete();
+	case PART_RESULT_BACK_PART_OPTION:
+		//Delete();
+		SetDeleteFlag(TRUE);
 		return PART_OPTION;
 	}
 	return PART_RESULT;
@@ -45,6 +48,10 @@ void PartResultMain::ContentUpdate() {
 		Load();
 		partResult->Update(scene);
 		partFinish->Update(scene);
+	}
+	else {
+		UpdateViewFlag(FALSE, SCENE_DELAY);
+		Delete();
 	}
 }
 

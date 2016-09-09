@@ -24,7 +24,7 @@ MainScene Top::Switch(const MainScene scene) {
 		user->SetUserId(id);
 		//printfDx("id:%s", id);
 		nfc.reset_calledCont();
-		SetDeleteFlag(TRUE);  // 削除
+		SetDeleteFlag(TRUE);  // 削除フラグセット
 		return SONG_SELECT;
 	}
 	return TOP;
