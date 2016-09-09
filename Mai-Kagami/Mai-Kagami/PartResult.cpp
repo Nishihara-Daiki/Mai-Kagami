@@ -42,9 +42,9 @@ int PartResult::Switch(const int scene) {
 
 void PartResult::ContentUpdate() {
 	if (nowScene == PART_RESULT_TOP || nowScene == PART_RESULT_FINISH)
-		viewFlag = TRUE;
+		UpdateViewFlag(TRUE);
 	else
-		viewFlag = FALSE;
+		UpdateViewFlag(FALSE);
 }
 
 void PartResult::ContentView() {
@@ -93,9 +93,9 @@ int PartFinish::Switch(const int scene) {
 
 void PartFinish::ContentUpdate() {
 	if (nowScene == PART_RESULT_FINISH)
-		viewFlag = TRUE;
+		UpdateViewFlag(TRUE);
 	else
-		viewFlag = FALSE;
+		UpdateViewFlag(FALSE);
 }
 
 void PartFinish::ContentView() {

@@ -20,9 +20,9 @@ int SongSelectButton::Switch(const int scene) {
 //曲選択画面ボタン計算
 void SongSelectButton::ContentUpdate() {
 	if (nowScene == MAIN)
-		viewFlag = TRUE;
+		UpdateViewFlag(TRUE);
 	else
-		viewFlag = FALSE;
+		UpdateViewFlag(FALSE);
 }
 
 //曲選択画面ボタン表示
@@ -56,9 +56,9 @@ int SongSelectPop::Switch(const int scene) {
 
 void SongSelectPop::ContentUpdate() {
 	if (nowScene == BACK)
-		viewFlag = TRUE;
+		UpdateViewFlag(TRUE);
 	else
-		viewFlag = FALSE;
+		UpdateViewFlag(FALSE);
 }
 
 void SongSelectPop::ContentView() {

@@ -20,10 +20,10 @@ void ThroughPauseButton::ContentUpdate() {
 	case THROUGH_PLAY:
 	case THROUGH_COUNTDOWN:
 	case THROUGH_START:
-		viewFlag = TRUE;
+		UpdateViewFlag(TRUE);
 		break;
 	default:
-		viewFlag = FALSE;
+		UpdateViewFlag(FALSE);
 		break;
 	}
 }
@@ -54,10 +54,10 @@ int ThroughPauseSetting::Switch(const int scene) {
 void ThroughPauseSetting::ContentUpdate() {
 	if (nowScene == THROUGH_SETTING) {
 		SpeedPop::ContentUpdate();
-		viewFlag = TRUE;
+		UpdateViewFlag(TRUE);
 	}
 	else {
-		viewFlag = FALSE;
+		UpdateViewFlag(FALSE);
 	}
 }
 
@@ -101,10 +101,10 @@ void ThroughPause::ContentUpdate() {
 	case THROUGH_PAUSE:
 	case THROUGH_COUNTDOWN:
 	case THROUGH_START:
-		viewFlag = TRUE;
+		UpdateViewFlag(TRUE);
 		break;
 	default:
-		viewFlag = FALSE;
+		UpdateViewFlag(FALSE);
 		break;
 	}
 }

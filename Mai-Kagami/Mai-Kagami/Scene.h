@@ -4,6 +4,8 @@
 #include "DxLib.h"
 #include "Main.h"
 
+#define SCENE_DELAY 120  // 画面切り替えにかかる時間
+
 //サブ場面定義
 class SubScene {
 public:
@@ -11,12 +13,16 @@ public:
 	void View(); //表示
 	void Load(); //ロード
 	void Delete(); //削除
+//	void SetDelay(long);
 	boolean CheckView(); //表示中かどうか確認する(TRUE:表示中、FALSE：非表示中)
 protected:
 	int nowScene;
-	boolean viewFlag = FALSE; //表示用フラグ(TRUE:表示、FALSE：非表示)
+	long delay = 0;	// 場面切り替え時のディレイ
 	virtual void ContentView() = 0; //表示詳細
 	virtual void ContentUpdate() = 0; //更新詳細
+	void UpdateViewFlag(boolean flag, long delay = SCENE_DELAY);
+private:
+	boolean viewFlag = FALSE; //表示用フラグ(TRUE:表示、FALSE：非表示)
 };
 
 //場面定義
@@ -24,10 +30,12 @@ class Scene : public SubScene {
 protected:
 	void Load(); //ロード
 	void Delete(); //削除
+	void SetDeleteFlag(boolean status);
 private:
 	virtual void ContentLoad() = 0; //ロード詳細
 	virtual void ContentDelete() = 0; //削除詳細
 	int loadFlag = 0; //ロード確認用（0：未ロード、1：ロード中、2：ロード完了）
+	int deleteFlag = FALSE;	// 削除確認用 (FALSE:未削除(通常) / TRUE:削除中)
 };
 
 #endif

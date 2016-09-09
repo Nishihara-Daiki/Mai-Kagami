@@ -36,10 +36,10 @@ void PartPauseButton::ContentUpdate() {
 	case PART_COUNTDOWN:
 	case PART_START:
 	case PART_REWIND:
-		viewFlag = TRUE;
+		UpdateViewFlag(TRUE);
 		break;
 	default:
-		viewFlag = FALSE;
+		UpdateViewFlag(FALSE);
 		break;
 	}
 }
@@ -134,10 +134,10 @@ void PartPause::ContentUpdate() {
 	case PART_COUNTDOWN:
 	case PART_REWIND:
 	case PART_START:
-		viewFlag = TRUE;
+		UpdateViewFlag(TRUE);
 		break;
 	default:
-		viewFlag = FALSE;
+		UpdateViewFlag(FALSE);
 		break;
 	}
 }

@@ -80,7 +80,7 @@ void SongInformation::Load() {
 		songCover[i]->Load(n);
 	nowSong = songCover[songs->GetNowSong()];
 	nowSong->drawSongTitle->ChangePos(WIDTH * 0.79, HEIGHT * 0.3);
-	viewFlag = TRUE;
+	UpdateViewFlag(TRUE);
 }
 
 void SongInformation::ContentUpdate() {

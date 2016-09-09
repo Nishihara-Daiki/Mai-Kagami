@@ -12,6 +12,26 @@ void SubScene::Load() {
 
 void SubScene::Delete() {
 	viewFlag = FALSE;
+	printfDx("Del");
+}
+
+// セットしたいフラグとそれに変更するまでの遅延フレーム数
+void SubScene::UpdateViewFlag(boolean flag, long delay) {
+	//if(this->delay > 0)
+	//	printfDx("%3d", this->delay);
+	if (flag == TRUE)
+		delay = 0;
+	if (viewFlag == flag)
+		return;
+	if (this->delay == 0)
+		this->delay = delay;
+	if (delay == 0)
+		viewFlag = flag;
+	if (this->delay > 0) {
+		this->delay--;
+		if (this->delay == 0)
+			viewFlag = flag;
+	}
 }
 
 //表示
@@ -36,14 +56,41 @@ void Scene::Load() {
 	}
 
 	if (loadFlag == 1 && GetASyncLoadNum() == 0) {
-		viewFlag = TRUE;
+		UpdateViewFlag(TRUE);
 		loadFlag = 2;
 	}
 }
 
 //削除
+//void Scene::Delete() {
+//	ContentDelete();
+//	UpdateViewFlag(FALSE);
+//	loadFlag = 0;
+//}
+
+//削除
 void Scene::Delete() {
-	ContentDelete();
-	viewFlag = FALSE;
-	loadFlag = 0;
+	static int count = 0;
+	printfDx("%2d", deleteFlag);
+	if(deleteFlag == TRUE) {
+		//if (count++ == SCENE_DELAY) {
+		//	ContentDelete();
+		//	//viewFlag = FALSE;
+		//	UpdateViewFlag(FALSE, 0);
+		//	loadFlag = 0;
+		//	deleteFlag = FALSE;
+		//	count = 0;
+		//}
+		if (delay == 0) {
+			ContentDelete();
+			//viewFlag = FALSE;
+			//UpdateViewFlag(FALSE, 0);
+			loadFlag = 0;
+			deleteFlag = FALSE;
+		}
+	}
+}
+
+void Scene::SetDeleteFlag(boolean flag) {
+	deleteFlag = flag;
 }

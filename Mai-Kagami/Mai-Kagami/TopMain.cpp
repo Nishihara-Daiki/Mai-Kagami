@@ -24,7 +24,7 @@ MainScene Top::Switch(const MainScene scene) {
 		user->SetUserId(id);
 		//printfDx("id:%s", id);
 		nfc.reset_calledCont();
-		Delete();
+		SetDeleteFlag(TRUE);  // 削除
 		return SONG_SELECT;
 	}
 	return TOP;
@@ -35,6 +35,11 @@ void Top::ContentUpdate() {
 	if (nowScene == TOP) {
 		Load();
 		topTouchMessage->Update(); //NFCタッチメッセージ計算
+	}
+	else {
+		UpdateViewFlag(FALSE, SCENE_DELAY);
+		Delete();
+		//UpdateViewFlag(FALSE);
 	}
 }
 

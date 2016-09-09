@@ -17,7 +17,7 @@ void PlayScreen::Load() {
 	song->danceMovie->Seek();
 	song->drawSongTitle->ChangePos(WIDTH * 0.2, HEIGHT * 0.03);
 	playBar->Load(song);
-	viewFlag = TRUE;
+	UpdateViewFlag(TRUE);
 }
 
 int PlayScreen::Switch(const int scene) {
