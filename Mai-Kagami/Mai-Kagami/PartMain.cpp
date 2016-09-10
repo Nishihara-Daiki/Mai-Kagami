@@ -51,6 +51,7 @@ void PartMain::ContentUpdate() {
 		partPause->Update(scene);
 	}
 	else {
+		UpdateViewFlag(FALSE, SCENE_DELAY);
 		Delete();
 	}
 }
