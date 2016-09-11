@@ -10,7 +10,7 @@ class MyDrawGraph : public Draw{
 public:
 	MyDrawGraph(const char *fileName); //‰Šú‰»
 	MyDrawGraph(const float x, const float y, const char *fileName, const double ExRate = 1.0); //‰Šú‰»
-	void ContentView(); //•\¦
+	void ContentView(double); //•\¦
 	void Load();
 	void ChangeEx(const double ExRate); //”{—¦•ÏX
 	double GetEx();

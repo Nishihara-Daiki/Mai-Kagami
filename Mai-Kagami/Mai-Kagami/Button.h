@@ -16,7 +16,7 @@ public:
 	Button(const int num, Touch *touch);
 	int GetTouch(); //そのボタンが押されているフレーム数を取得
 private:
-	virtual void ContentView() = 0; //表示用関数
+	virtual void ContentView(double = 0) = 0; //表示用関数
 	Touch *touch; //タッチ
 	int num; //ボタン番号
 };

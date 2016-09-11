@@ -21,7 +21,7 @@ void MyDrawGraph::Load() {
 }
 
 //‰æ‘œ•\Ž¦
-void MyDrawGraph::ContentView() {
+void MyDrawGraph::ContentView(double) {
 	SetDrawMode(DX_DRAWMODE_BILINEAR);
 	DrawRotaGraphF(x, y, ex / SIZE_RATE, 0, handle, TRUE, FALSE); //•`‰æ
 	SetDrawMode(DX_DRAWMODE_NEAREST);

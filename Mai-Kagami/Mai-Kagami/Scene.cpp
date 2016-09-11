@@ -19,8 +19,8 @@ void SubScene::Delete() {
 void SubScene::UpdateViewFlag(boolean flag, long delay) {
 	//if(this->delay > 0)
 	//	printfDx("%3d", this->delay);
-	if (flag == TRUE)
-		delay = 0;
+	//if (flag == TRUE)
+	//	delay = 0;
 	if (viewFlag == flag)
 		return;
 	if (this->delay == 0)
@@ -56,7 +56,7 @@ void Scene::Load() {
 	}
 
 	if (loadFlag == 1 && GetASyncLoadNum() == 0) {
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, 0);
 		loadFlag = 2;
 	}
 }

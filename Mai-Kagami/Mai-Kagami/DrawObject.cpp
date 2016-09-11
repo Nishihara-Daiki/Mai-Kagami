@@ -17,7 +17,7 @@ MyDrawCircle::MyDrawCircle(const float x, const float y, const float radius, con
 }
 
 //‰~•\Ž¦
-void  MyDrawCircle::ContentView() {
+void  MyDrawCircle::ContentView(double) {
 	boolean flag = TRUE;
 	if (w != 0)
 		flag = FALSE;
@@ -33,7 +33,7 @@ MyDrawCircleGauge::MyDrawCircleGauge(const float x, const float y, const float r
 }
 
 //Šp“x•t‚«‚Ì‰~•`‰æ
-void MyDrawCircleGauge::ContentView() {
+void MyDrawCircleGauge::ContentView(double) {
 	for (double i = 0; i < rad; i += 0.02) {
 		float xx = (Pos::x + r * sin(i)) * SIZE_RATE;
 		float yy = (Pos::y - r * cos(i)) * SIZE_RATE;
@@ -73,7 +73,7 @@ MyDrawLine::MyDrawLine(const float x1, const float y1, const float x2, const flo
 }
 
 //ü•\Ž¦
-void MyDrawLine::ContentView() {
+void MyDrawLine::ContentView(double) {
 	DrawLineAA(x1, y1, x2, y2, Color::Get(), w);
 }
 
@@ -97,7 +97,7 @@ MyDrawTriangle::MyDrawTriangle(const float x1, const float y1, const float x2, c
 }
 
 //ŽOŠpŒ`•\Ž¦
-void MyDrawTriangle::ContentView() {
+void MyDrawTriangle::ContentView(double) {
 	DrawTriangleAA(x1, y1, x2, y2, x3, y3, Color::Get(), TRUE);
 }
 
@@ -163,7 +163,7 @@ MyDrawBox::MyDrawBox(const float x, const float y, const float width, const floa
 }
 
 //ŽlŠpŒ`•\Ž¦
-void  MyDrawBox::ContentView() {
+void  MyDrawBox::ContentView(double) {
 	boolean flag = TRUE;
 	if (l != 0)
 		flag = FALSE;

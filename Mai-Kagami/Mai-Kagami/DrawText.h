@@ -11,7 +11,7 @@
 class MyDrawText : public Color, public Draw2{
 public:
 	MyDrawText(Font *font, const char *str, const float x, const float y, const int pos, const int point, const char *colorName = "White"); // pos=左寄せ:0 / 中央寄せ:1 / 右寄せ:2
-	void ContentView(); //描画
+	void ContentView(double = 0); //描画
 	void ChangeText(char *str); //テキスト変更
 	void ChangeFont(Font *font, const int point); //フォントサイズ変更
 	float GetHeight(); //縦取得
@@ -25,7 +25,7 @@ protected:
 class MyDrawTextV : public MyDrawText {
 public:
 	MyDrawTextV(Font *font, const char *str, const float x, const float y, const int pos, const int point, const char *colorName = "White"); // pos=左寄せ:0 / 中央寄せ:1 / 右寄せ:2
-	void ContentView();
+	void ContentView(double = 0);
 private:
 	float RotCenterX;
 };
@@ -34,7 +34,7 @@ private:
 class MyDrawTexts : public Color, public Draw {
 public:
 	MyDrawTexts(Font *font, const char *str, const float x, const float y, const int pos, const int point, const float lineInterval, const char *colorName = "White");
-	void ContentView();
+	void ContentView(double = 0);
 	void ChangePos(const float x, const float y);
 	void ChangeText(const char *str); //テキスト変更
 	float GetWidth(); //幅取得

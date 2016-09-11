@@ -49,7 +49,7 @@ public:
 	void Stop(boolean jumpF = FALSE);	// アニメーション中断
 	void SetViewFlag(const boolean viewFlag);
 private:
-	virtual void ContentView() = 0; //表示メソッド
+	virtual void ContentView(double = 0) = 0; //表示メソッド
 	int alpha = 255; //透明度
 	int target_alpha, default_alpha;
 	Easing ease_alpha;

@@ -12,7 +12,7 @@ MyDrawText::MyDrawText(Font *font, const char *str, const float x, const float y
 }
 
 //テキスト表示
-void MyDrawText::ContentView() {
+void MyDrawText::ContentView(double) {
 	DrawStringFToHandle(x, y, s.c_str(), Color::Get(), f); //文字表示
 }
 
@@ -63,9 +63,9 @@ MyDrawTextV::MyDrawTextV(Font *font, const char *str, const float x, const float
 }
 
 //縦書きテキスト表示
-void MyDrawTextV::ContentView() {
+void MyDrawTextV::ContentView(double) {
 	SetDrawMode(DX_DRAWMODE_BILINEAR);
-	DrawRotaStringToHandle(x, y, 1, 1, RotCenterX, GetHeight() / SIZE_RATE / 2, - 1.0 / 2.0 * 3.141592, Color::Get(), f, -1, FALSE, s.c_str());
+	DrawRotaStringToHandle(x, y, 1, 1, RotCenterX, GetHeight() / SIZE_RATE / 2, - 1.0 / 2.0 * DX_PI, Color::Get(), f, -1, FALSE, s.c_str());
 	SetDrawMode(DX_DRAWMODE_NEAREST);
 }
 
@@ -85,7 +85,7 @@ MyDrawTexts::MyDrawTexts(Font *font, const char *str, const float x, const float
 }
 
 //複数行のテキスト表示
-void MyDrawTexts::ContentView() {
+void MyDrawTexts::ContentView(double) {
 	for (int i = 0; i < l; i++)
 		myDrawText[i]->ContentView();
 }

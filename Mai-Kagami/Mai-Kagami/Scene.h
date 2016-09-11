@@ -4,7 +4,7 @@
 #include "DxLib.h"
 #include "Main.h"
 
-#define SCENE_DELAY 120  // ‰æ–ÊØ‚è‘Ö‚¦‚É‚©‚©‚éŠÔ
+#define SCENE_DELAY 60  // ‰æ–ÊØ‚è‘Ö‚¦‚É‚©‚©‚éŠÔ
 
 //ƒTƒuê–Ê’è‹`
 class SubScene {

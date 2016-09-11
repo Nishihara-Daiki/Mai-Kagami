@@ -11,7 +11,7 @@ class MyDrawCircle : public Draw, public Color{
 public:
 	MyDrawCircle(const float x, const float y, const float radius, const char *colorName = "Blue"); //円初期化（塗りつぶしあり）
 	MyDrawCircle(const float x, const float y, const float radius, const float width, const char *colorName = "Blue"); //円初期化（塗りつぶしなし）
-	void ContentView();
+	void ContentView(double = 0);
 private:
 	float r, w; //半径、線の太さ
 };
@@ -20,7 +20,7 @@ private:
 class MyDrawCircleGauge : public MyDrawCircle , public Pos{
 public:
 	MyDrawCircleGauge(const float x, const float y, const float radius, const double degree, const float width, const char *colorName = "Blue");
-	void ContentView();
+	void ContentView(double = 0);
 	void ChangeDegree(const double degree);
 	float GetEndX();
 	float GetEndY();
@@ -36,7 +36,7 @@ public:
 	MyDrawLine(const float x1, const float y1, const float x2, const float y2, const float width, const char *colorName = "Blue");
 	void ChangePos(const float x1, const float y1, const float x2, const float y2);
 private:
-	void ContentView();
+	void ContentView(double = 0);
 	float x1, y1, x2, y2, w;
 };
 
@@ -46,7 +46,7 @@ public:
 	MyDrawTriangle(const float x1, const float y1, const float x2, const float y2, const float x3, const float y3, const char *colorName = "Blue");
 	void ChangePos(const float x1, const float y1, const float x2, const float y2, const float x3, const float y3);
 private:
-	void ContentView();
+	void ContentView(double = 0);
 	float x1, y1, x2, y2, x3, y3;
 };
 
@@ -64,7 +64,7 @@ class MyDrawBox : public Draw, public Color {
 public:
 	MyDrawBox(const float x, const float y, const float width, const float height, const char *colorName = "White"); //四角形初期化（塗りつぶしあり）
 	MyDrawBox(const float x, const float y, const float width, const float height, const float line, const char *colorName = "Blue"); //四角形初期化（塗りつぶしなし）
-	void ContentView();
+	void ContentView(double = 0);
 	void ChangeSize(const float width, const float height);
 private:
 	float w, h, l; //幅、高さ、線の太さ
