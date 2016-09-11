@@ -25,7 +25,7 @@ private:
 class TriangleButton : public Button {
 public:
 	TriangleButton(Font *font, Touch *touch, const char *str, const int direction, const int num, char *colorName = "Blue");
-	void ContentView();
+	void ContentView(double sceneOpacity);
 	~TriangleButton();
 private:
 	MyDrawTriangle2 *myDrawTriangle2;
@@ -36,7 +36,7 @@ private:
 class TriangleButton2 : public Button {
 public:
 	TriangleButton2(Font *font, Touch *touch, const char *title, const char *str, const int direction, const int num, const float x, const char *colorName);
-	void ContentView();
+	void ContentView(double sceneOpacity);
 	~TriangleButton2();
 private:
 	MyDrawText *text; //ボタンの文字
@@ -50,7 +50,7 @@ class CircleButton : public Button {
 public:
 	CircleButton(Font *font, Touch *touch, const char *str, const int num, char *colorName = "Blue"); //文字右寄せボタン
 	CircleButton(Font *font, Touch *touch, const char *str, const int num, const float x, char *colorName = "Blue"); //文字中央寄せボタン
-	void ContentView();
+	void ContentView(double sceneOpacity);
 	~CircleButton();
 private:
 	MyDrawText *text; //ボタンの文字
@@ -61,7 +61,7 @@ private:
 class CircleButton2 : public Button {
 public:
 	CircleButton2(Font *font, Touch *touch, const char *str, const int num, char *colorName = "Blue");
-	void ContentView();
+	void ContentView(double sceneOpacity);
 	~CircleButton2();
 private:
 	MyDrawText *text; //ボタンの文字
@@ -72,7 +72,7 @@ private:
 class CircleGraphButton : public Button {
 public:
 	CircleGraphButton(Touch *touch, const int num, const char *fileName);
-	void ContentView();
+	void ContentView(double sceneOpacity);
 	void Load();
 	void Release();
 	~CircleGraphButton();
@@ -86,7 +86,7 @@ class CircleGraphTextButton : public Button {
 public:
 	CircleGraphTextButton(Font *font, Touch *touch, const char *str, const int num, const char *fileName);
 	void Load();
-	void ContentView();
+	void ContentView(double sceneOpacity);
 	void Release();
 	~CircleGraphTextButton();
 private:

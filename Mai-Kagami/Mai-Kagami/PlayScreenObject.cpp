@@ -47,13 +47,13 @@ void PlayBar::Update() {
 	}
 }
 
-void PlayBar::View() {
-	barAll->View();
-	barNow->View();
+void PlayBar::View(double opacity) {
+	barAll->View(opacity);
+	barNow->View(opacity);
 	for (int i = 0; i < 2; i++)
-		circle[i]->View();
+		circle[i]->View(opacity);
 	for (int i = 0; i < song->GetPartNum(); i++)
-		part[i]->View();
+		part[i]->View(opacity);
 }
 
 PlayBar::~PlayBar() {
@@ -104,10 +104,10 @@ void CountDown::ContentUpdate() {
 }
 
 void CountDown::ContentView() {
-	text->View();
-	circle->View();
-	countCircle1->View();
-	countCircle2->View();
+	text->View(sceneOpacity);
+	circle->View(sceneOpacity);
+	countCircle1->View(sceneOpacity);
+	countCircle2->View(sceneOpacity);
 }
 
 CountDown::~CountDown() {

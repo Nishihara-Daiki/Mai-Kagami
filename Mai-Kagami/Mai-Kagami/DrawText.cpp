@@ -158,8 +158,8 @@ MyDrawTextLine::MyDrawTextLine(Font *font, const char *str, const float x, const
 }
 
 //アンダーライン付きテキスト描画
-void MyDrawTextLine::ContentView() {
-	myDrawText->View();
+void MyDrawTextLine::ContentView(double opacity) {
+	myDrawText->View(opacity);
 	DrawLineAA(x1, y1, x2, y2, Color::Get(), w);
 }
 

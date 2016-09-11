@@ -30,7 +30,7 @@ void ModeSelectButton::ContentUpdate() {
 //モード選択ボタン表示
 void ModeSelectButton::ContentView() {
 	for (int i = 0; i < 3; i++)
-		button[i]->View();
+		button[i]->View(sceneOpacity);
 }
 
 //モード選択削除

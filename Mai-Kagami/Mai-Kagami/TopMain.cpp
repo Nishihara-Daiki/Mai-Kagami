@@ -45,9 +45,9 @@ void Top::ContentUpdate() {
 
 //トップ画面表示
 void Top::ContentView() {
-	topLogo->View(); //ロゴ表示
-	topTouchMessage->View(); //NFCタッチメッセージ表示
-	topTouchButton->View(); //NFCタッチボタン表示
+	topLogo->View(sceneOpacity); //ロゴ表示
+	topTouchMessage->View(sceneOpacity); //NFCタッチメッセージ表示
+	topTouchButton->View(sceneOpacity); //NFCタッチボタン表示
 }
 
 void Top::ContentDelete() {

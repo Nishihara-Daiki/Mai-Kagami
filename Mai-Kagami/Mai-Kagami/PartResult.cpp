@@ -48,15 +48,15 @@ void PartResult::ContentUpdate() {
 }
 
 void PartResult::ContentView() {
-	title->View();
-	button->View();
-	song->coverGraph->View();
-	song->drawSongTitle->View();
+	title->View(sceneOpacity);
+	button->View(sceneOpacity);
+	song->coverGraph->View(sceneOpacity);
+	song->drawSongTitle->View(sceneOpacity);
 	for (int i = 0; i < partMax; i++) {
-		part[i]->View();
-		circle[i]->View();
-		speed[i]->View();
-		score[i]->View();
+		part[i]->View(sceneOpacity);
+		circle[i]->View(sceneOpacity);
+		speed[i]->View(sceneOpacity);
+		score[i]->View(sceneOpacity);
 	}
 }
 
@@ -99,9 +99,9 @@ void PartFinish::ContentUpdate() {
 }
 
 void PartFinish::ContentView() {
-	blackBox->View();
+	blackBox->View(sceneOpacity);
 	for (int i = 0; i < 4; i++)
-		button[i]->View();
+		button[i]->View(sceneOpacity);
 }
 
 PartFinish::~PartFinish() {

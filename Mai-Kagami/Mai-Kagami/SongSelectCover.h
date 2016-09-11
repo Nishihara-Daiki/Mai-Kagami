@@ -17,7 +17,7 @@ public:
 	void Load(int);
 	void Release();
 	void Update(int, int);
-	void Draw(int scene);
+	void Draw(int scene, double sceneOpacity);
 private:
 	void Change(int num, int max);
 	float CalcY();

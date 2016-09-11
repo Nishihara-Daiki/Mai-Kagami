@@ -46,7 +46,7 @@ void PartPauseButton::ContentUpdate() {
 
 void PartPauseButton::ContentView() {
 	for (int i = 0; i < 2; i++)
-		button[i]->View();
+		button[i]->View(sceneOpacity);
 }
 
 void PartPauseButton::Delete() {
@@ -75,8 +75,8 @@ int PartOptionPreview3::Switch(const int scene) {
 }
 
 void PartOptionPreview3::ContentView() {
-	blackBox->View();
-	button->View();
+	blackBox->View(sceneOpacity);
+	button->View(sceneOpacity);
 	PartOptionPreview::ContentView();
 }
 

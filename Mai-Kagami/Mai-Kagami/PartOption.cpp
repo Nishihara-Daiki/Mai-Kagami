@@ -19,7 +19,7 @@ int PartOptionPreview2::Switch(const int scene) {
 
 void PartOptionPreview2::ContentView() {
 	for (int i = 0; i < 2; i++)
-		button[i]->View();
+		button[i]->View(sceneOpacity);
 	PartOptionPreview::ContentView();
 }
 

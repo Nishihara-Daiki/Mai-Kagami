@@ -14,7 +14,7 @@ public:
 	void Load(const int p);
 	~ScoreBar();
 private:
-	void ContentView();
+	void ContentView(double sceneOpacity);
 	MyDrawTextLine *title;
 	MyDrawText *para[2];
 	MyDrawBox *box[8];
@@ -41,7 +41,7 @@ public:
 	void Load(const char *str);
 	~ResultComment();
 private:
-	void ContentView();
+	void ContentView(double sceneOpacity);
 	MyDrawTextLine *title;
 	MyDrawTexts *comment;
 };
@@ -54,7 +54,7 @@ public:
 	void Delete();
 	~ResultBody();
 private:
-	void ContentView();
+	void ContentView(double sceneOpacity);
 	MyDrawGraph *body;
 	MyDrawText *part[4];
 	MyDrawText *point[4];
@@ -68,7 +68,7 @@ public:
 	void Delete();
 	~ResultGraph();
 private:
-	void ContentView();
+	void ContentView(double sceneOpacity);
 	MyDrawBox *myDrawBox;
 	MyDrawTexts *scale; //ñ⁄ê∑ÇË
 	MyDrawCircle *dot[10]; //ì_

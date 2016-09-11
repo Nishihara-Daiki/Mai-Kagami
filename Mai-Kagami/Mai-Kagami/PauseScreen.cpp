@@ -46,10 +46,10 @@ void PauseScreen::ContentUpdate() {
 }
 
 void PauseScreen::ContentView() {
-	blackBox->View();
-	title->View();
+	blackBox->View(sceneOpacity);
+	title->View(sceneOpacity);
 	for (int i = 0; i < 4; i++)
-		button[i]->View();
+		button[i]->View(sceneOpacity);
 }
 
 void PauseScreen::Delete() {

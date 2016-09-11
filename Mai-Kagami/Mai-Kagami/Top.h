@@ -19,7 +19,7 @@ public:
 	TopTouchMessage(Font *font, const float y);
 	void Init(); //初期化
 	void Update(); //計算
-	void View(); //表示
+	void View(double sceneOpacity); //表示
 private:
 	int t; //時間
 };
@@ -28,7 +28,7 @@ private:
 class TopTouchButton : public Pos{
 public:
 	TopTouchButton(Font *font);
-	void View(); //表示
+	void View(double sceneOpacity); //表示
 	~TopTouchButton();
 private:
 	MyDrawTexts *text;

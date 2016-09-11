@@ -58,11 +58,11 @@ void SongSelectCover::Update(int num, int max) {
 	coverWhite->Update();
 }
 
-void SongSelectCover::Draw(int scene) {
+void SongSelectCover::Draw(int scene, double opacity) {
 	int n = GetNow();
 	if (n <= 6) {	// ˆÚ“®’†‚ðl‚¦‚Ä 5 ‚à•`‰æ
-		coverWhite->View();
-		coverGraph->View();
+		coverWhite->View(opacity);
+		coverGraph->View(opacity);
 	}
 	switch (scene) {
 	case OPTION1:
@@ -70,7 +70,7 @@ void SongSelectCover::Draw(int scene) {
 			StopMusic();
 		playFlag = FALSE;
 		danceMovie->Start();
-		danceMovie->View();
+		danceMovie->View(opacity);
 		break;
 	case OPTION2:
 		if (playFlag)

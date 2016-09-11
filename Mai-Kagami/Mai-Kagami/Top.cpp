@@ -31,8 +31,8 @@ void TopTouchMessage::Update() {
 }
 
 //NFCタッチメッセージ表示
-void TopTouchMessage::View() {
-	MyDrawText::View(); //文字表示
+void TopTouchMessage::View(double opacity) {
+	MyDrawText::View(opacity); //文字表示
 }
 
 //NFCタッチボタンコンストラクタ
@@ -44,9 +44,9 @@ TopTouchButton::TopTouchButton(Font *font)
 }
 
 //NFCタッチボタン表示
-void TopTouchButton::View() {
-	text->View(); //円表示
-	circle->View(); //テキスト表示
+void TopTouchButton::View(double opacity) {
+	text->View(opacity); //円表示
+	circle->View(opacity); //テキスト表示
 }
 
 TopTouchButton::~TopTouchButton() {

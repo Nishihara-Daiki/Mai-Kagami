@@ -21,7 +21,7 @@ class DrawSongTitle : public Pos {
 public:
 	DrawSongTitle(Font *font, const char *title, const char *artist);
 	void ChangePos(const float x, const float y);
-	void View();
+	void View(double sceneOpacity);
 	~DrawSongTitle();
 private:
 	MyDrawTextLine *songTitle; //‹È–¼•\Ž¦

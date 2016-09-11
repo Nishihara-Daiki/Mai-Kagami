@@ -12,7 +12,7 @@ public:
 	PlayBar(Font *font);
 	void Load(Song *song);
 	void Update();
-	void View();
+	void View(double sceneOpacity);
 	~PlayBar();
 private:
 	Font *font;
@@ -30,7 +30,7 @@ public:
 
 
 //カウントダウン画面
-class CountDown : public	SubScene {
+class CountDown : public SubScene {
 public:
 	CountDown(Font *font, const int thisScene, const int playScene);
 	int Switch(const int scene);

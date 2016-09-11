@@ -41,7 +41,7 @@ class Draw : public Pos {
 public:
 	Draw();
 	Draw(const float x, const float y);
-	void View();
+	void View(double sceneOpacity);
 	void SetAlpha(const int alpha = 255); //“§–¾“xŽw’è
 	int GetAlpha();
 	void SetAlphaAnimation(int alpha = 255, Easing ease = LINER);

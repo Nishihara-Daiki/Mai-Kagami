@@ -51,7 +51,7 @@ private:
 class MyDrawTextLine : public Color, public Draw {
 public:
 	MyDrawTextLine(Font *font, const char *str, const float x, const float y, const int pos, const int point, const float lineLength, const float lineWidth, const char *colorName = "White");
-	void ContentView();
+	void ContentView(double sceneOpacity);
 	void ChangePos(const float x, const float y);
 	void ChangeText(char *str); //テキスト変更
 	~MyDrawTextLine();

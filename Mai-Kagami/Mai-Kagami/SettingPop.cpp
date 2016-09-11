@@ -27,10 +27,10 @@ void SpeedOption::Check() {
 	speed[1]->ChangeText(str);
 }
 
-void SpeedOption::View() {
+void SpeedOption::View(double opacity) {
 	for (int i = 0; i < 2; i++) {
-		button[i]->View();
-		speed[i]->View();
+		button[i]->View(opacity);
+		speed[i]->View(opacity);
 	}
 }
 
@@ -75,10 +75,10 @@ void PartOption::Check() {
 	part[3]->ChangeText(song->GetPart(song->EndPart())->GetName());
 }
 
-void PartOption::View() {
+void PartOption::View(double opacity) {
 	for (int i = 0; i < 4; i++) {
-		button[i]->View();
-		part[i]->View();
+		button[i]->View(opacity);
+		part[i]->View(opacity);
 	}
 }
 
@@ -107,10 +107,10 @@ void SpeedPop::ContentUpdate() {
 }
 
 void SpeedPop::ContentView() {
-	blackBox->View();
-	speedOption->View();
-	button->View();
-	text->View();
+	blackBox->View(sceneOpacity);
+	speedOption->View(sceneOpacity);
+	button->View(sceneOpacity);
+	text->View(sceneOpacity);
 }
 
 SpeedPop::~SpeedPop() {
@@ -138,10 +138,10 @@ void PartPop::ContentUpdate() {
 }
 
 void PartPop::ContentView() {
-	blackBox->View();
-	partOption->View();
-	button->View();
-	text->View();
+	blackBox->View(sceneOpacity);
+	partOption->View(sceneOpacity);
+	button->View(sceneOpacity);
+	text->View(sceneOpacity);
 }
 
 void PartPop::Init() {

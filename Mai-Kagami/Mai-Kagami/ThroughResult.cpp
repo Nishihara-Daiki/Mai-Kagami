@@ -40,18 +40,18 @@ void ThroughResult::ContentUpdate() {
 }
 
 void ThroughResult::ContentView() {
-	title->View();					//タイトル表示
-	song->coverGraph->View();		//曲カバー画像表示
-	song->drawSongTitle->View();	//曲タイトル表示
-	circle->View();					//白色の円表示
-	pointCircle->View();			//青色の弧を表示
-	pointCircle2->View();			//弧の先の円を表示
-	text->View();					//「総合得点」表示
-	point1->View();					//得点(10の位)表示
-	point2->View();					//得点(1の位)表示
-	unit->View();					//「点」を表示
-	last->View();					//前回の得点を表示
-	button->View();					//ボタンを表示
+	title->View(sceneOpacity);					//タイトル表示
+	song->coverGraph->View(sceneOpacity);		//曲カバー画像表示
+	song->drawSongTitle->View(sceneOpacity);	//曲タイトル表示
+	circle->View(sceneOpacity);					//白色の円表示
+	pointCircle->View(sceneOpacity);			//青色の弧を表示
+	pointCircle2->View(sceneOpacity);			//弧の先の円を表示
+	text->View(sceneOpacity);					//「総合得点」表示
+	point1->View(sceneOpacity);					//得点(10の位)表示
+	point2->View(sceneOpacity);					//得点(1の位)表示
+	unit->View(sceneOpacity);					//「点」を表示
+	last->View(sceneOpacity);					//前回の得点を表示
+	button->View(sceneOpacity);					//ボタンを表示
 }
 
 ThroughResult::~ThroughResult() {

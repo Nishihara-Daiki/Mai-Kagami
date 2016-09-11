@@ -41,8 +41,8 @@ void SongSelectTitle::ContentUpdate() {
 
 //曲選択画面タイトル表示
 void SongSelectTitle::ContentView() {
-	title->View(); //テキスト表示
-	subTitle->View(); //テキスト表示
+	title->View(sceneOpacity); //テキスト表示
+	subTitle->View(sceneOpacity); //テキスト表示
 }
 
 SongSelectTitle::~SongSelectTitle() {
@@ -158,27 +158,27 @@ void SongInformation::ContentUpdate() {
 
 //曲選択画面カバー画像表示
 void SongInformation::ContentView() {
-	nowSong->drawSongTitle->View();
+	nowSong->drawSongTitle->View(sceneOpacity);
 	for (int i = 0; i < 2; i++) {
-		songLast[i]->View();
+		songLast[i]->View(sceneOpacity);
 	}
 	switch (nowScene)
 	{
 	case BACK:
 	case MAIN:
-		myDrawBox->View();
+		myDrawBox->View(sceneOpacity);
 //		box->View();
 		for (int i = 0; i < n; i++)
-			songCover[i]->Draw(nowScene);
+			songCover[i]->Draw(nowScene, sceneOpacity);
 		for (int i = 0; i < 2; i++)
-			grad[i]->View();
+			grad[i]->View(sceneOpacity);
 		break;
 	case MODE:
 	case OPTION1:
 	case OPTION2:
 	case OPTION2_PART:
 	case OPTION2_SPEED:
-		nowSong->Draw(nowScene);
+		nowSong->Draw(nowScene, sceneOpacity);
 		break;
 	}
 }

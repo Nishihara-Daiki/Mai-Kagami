@@ -18,9 +18,9 @@ TriangleButton::TriangleButton(Font *font, Touch *touch, const char *str, const 
 	myDrawTriangle2 = new MyDrawTriangle2(WIDTH * 0.97, GetY(), WIDTH * 0.03, direction, colorName);
 }
 
-void TriangleButton::ContentView() {
-	myDrawTriangle2->View();
-	text->View();
+void TriangleButton::ContentView(double opacity) {
+	myDrawTriangle2->View(opacity);
+	text->View(opacity);
 }
 
 TriangleButton::~TriangleButton() {
@@ -40,11 +40,11 @@ TriangleButton2::TriangleButton2(Font *font, Touch *touch, const char *title, co
 	myDrawTriangle2 = new MyDrawTriangle2(WIDTH * 0.97, pos, WIDTH * 0.03, direction, colorName);
 }
 
-void TriangleButton2::ContentView() {
-	descriptionText->View();
-	myDrawBox->View();
-	myDrawTriangle2->View();
-	text->View();
+void TriangleButton2::ContentView(double opacity) {
+	descriptionText->View(opacity);
+	myDrawBox->View(opacity);
+	myDrawTriangle2->View(opacity);
+	text->View(opacity);
 }
 
 TriangleButton2::~TriangleButton2() {
@@ -69,9 +69,9 @@ CircleButton::CircleButton(Font *font, Touch *touch, const char *str, const int 
 	myDrawCircle = new MyDrawCircle(WIDTH * 0.97, GetY(), WIDTH * 0.015, 7, colorName);
 }
 
-void CircleButton::ContentView() {
-	myDrawCircle->View();
-	text->View();
+void CircleButton::ContentView(double opacity) {
+	myDrawCircle->View(opacity);
+	text->View(opacity);
 }
 
 CircleButton::~CircleButton() {
@@ -88,9 +88,9 @@ CircleButton2::CircleButton2(Font *font, Touch *touch, const char *str, const in
 	myDrawCircle = new MyDrawCircle(x, GetY(), r, colorName);
 }
 
-void CircleButton2::ContentView() {
-	myDrawCircle->View();
-	text->View();
+void CircleButton2::ContentView(double opacity) {
+	myDrawCircle->View(opacity);
+	text->View(opacity);
 }
 
 CircleButton2::~CircleButton2() {
@@ -110,9 +110,9 @@ void CircleGraphButton::Load() {
 	myDrawGraph->Load();
 }
 
-void CircleGraphButton::ContentView() {
-	myDrawCircle->View();
-	myDrawGraph->View();
+void CircleGraphButton::ContentView(double opacity) {
+	myDrawCircle->View(opacity);
+	myDrawGraph->View(opacity);
 }
 
 void CircleGraphButton::Release() {
@@ -139,10 +139,10 @@ void CircleGraphTextButton::Load() {
 	myDrawGraph->Load();
 }
 
-void CircleGraphTextButton::ContentView() {
-	text->View();
-	myDrawCircle->View();
-	myDrawGraph->View();
+void CircleGraphTextButton::ContentView(double opacity) {
+	text->View(opacity);
+	myDrawCircle->View(opacity);
+	myDrawGraph->View(opacity);
 }
 
 void CircleGraphTextButton::Release() {

@@ -49,9 +49,9 @@ void PlayScreen::ContentUpdate() {
 }
 
 void PlayScreen::ContentView() {
-	song->danceMovie->View();
-	song->drawSongTitle->View();
-	playBar->View();
+	song->danceMovie->View(sceneOpacity);
+	song->drawSongTitle->View(sceneOpacity);
+	playBar->View(sceneOpacity);
 	countDown->View();
 }
 

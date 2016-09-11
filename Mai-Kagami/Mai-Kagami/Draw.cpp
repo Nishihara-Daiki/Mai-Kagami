@@ -84,9 +84,10 @@ Draw::Draw(){}
 Draw::Draw(const float x, const float y) : Pos(x, y) {}
 
 //描画
-void Draw::View() {
+void Draw::View(double opacity) {
+	int a = 255 - (int)((255 - alpha) * opacity);
 	if (viewFlag) {
-		SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha); //透明度設定
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, a); //透明度設定
 		ContentView(); //内容表示
 		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0); //透明度解除
 	}

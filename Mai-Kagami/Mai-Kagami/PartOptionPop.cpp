@@ -96,11 +96,11 @@ void PartOptionPreview::ContentUpdate() {
 
 void PartOptionPreview::ContentView() {
 	for (int i = 0; i < 2; i++)
-		button[i]->View();
-	message->View();
+		button[i]->View(sceneOpacity);
+	message->View(sceneOpacity);
 	for (int i = 0; i < 3; i++) {
-		caption[i]->View();
-		para[i]->View();
+		caption[i]->View(sceneOpacity);
+		para[i]->View(sceneOpacity);
 	}
 }
 

@@ -22,7 +22,7 @@ class SpeedOption {
 public:
 	SpeedOption(Font *font, Songs *songs, Touch *touch);
 	void Check();
-	void View();
+	void View(double sceneOpacity);
 	~SpeedOption();
 private:
 	Button *button[2];
@@ -36,7 +36,7 @@ public:
 	PartOption(Font *font, Songs *songs, Touch *touch);
 	void Init();
 	void Check();
-	void View();
+	void View(double sceneOpacity);
 	~PartOption();
 private:
 	Button *button[4];

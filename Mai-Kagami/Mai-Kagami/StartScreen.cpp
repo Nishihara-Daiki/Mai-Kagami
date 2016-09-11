@@ -30,11 +30,11 @@ void StartSceen::ContentUpdate() {
 }
 
 void StartSceen::ContentView() {
-	blackBox->View();
-	myDrawGraph->View();
-	wait->View();
-	caution->View();
-	annotation->View();
+	blackBox->View(sceneOpacity);
+	myDrawGraph->View(sceneOpacity);
+	wait->View(sceneOpacity);
+	caution->View(sceneOpacity);
+	annotation->View(sceneOpacity);
 }
 
 StartSceen::~StartSceen() {

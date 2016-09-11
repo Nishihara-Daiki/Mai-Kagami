@@ -28,9 +28,9 @@ void ThroughFinish::ContentUpdate() {
 }
 
 void ThroughFinish::ContentView() {
-	blackBox->View();
+	blackBox->View(sceneOpacity);
 	for (int i = 0; i < 4; i++)
-		button[i]->View();
+		button[i]->View(sceneOpacity);
 }
 
 ThroughFinish::~ThroughFinish() {
@@ -77,13 +77,13 @@ void ThroughDetailScreen::ContentUpdate() {
 }
 
 void ThroughDetailScreen::ContentView() {
-	title->View();
-	timingBar->View();
-	expressionBar->View();
-	resultComment->View();
-	button->View();
-	resultBody->View();
-	resultGraph->View();
+	title->View(sceneOpacity);
+	timingBar->View(sceneOpacity);
+	expressionBar->View(sceneOpacity);
+	resultComment->View(sceneOpacity);
+	button->View(sceneOpacity);
+	resultBody->View(sceneOpacity);
+	resultGraph->View(sceneOpacity);
 }
 
 void ThroughDetailScreen::Delete() {

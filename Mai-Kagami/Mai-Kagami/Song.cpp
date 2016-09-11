@@ -24,9 +24,9 @@ void DrawSongTitle::ChangePos(const float x, const float y) {
 	songArtist->ChangePos(x + WIDTH * 0.17, y + HEIGHT * 0.025);
 }
 
-void DrawSongTitle::View() {
-	songTitle->View();
-	songArtist->View();
+void DrawSongTitle::View(double opacity) {
+	songTitle->View(opacity);
+	songArtist->View(opacity);
 }
 
 DrawSongTitle::~DrawSongTitle() {

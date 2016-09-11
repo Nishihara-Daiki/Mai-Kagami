@@ -35,9 +35,9 @@ void ThroughOptionButton::ContentUpdate() {
 
 //オプション画面ボタン表示
 void ThroughOptionButton::ContentView() {
-	speedOption->View();
+	speedOption->View(sceneOpacity);
 	for(int i = 0; i < 2; i++)
-		button[i]->View();
+		button[i]->View(sceneOpacity);
 }
 
 //オプション画面ボタン削除

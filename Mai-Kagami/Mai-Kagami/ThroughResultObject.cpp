@@ -28,14 +28,14 @@ void ScoreBar::Load(const int p) {
 	}
 }
 
-void ScoreBar::ContentView() {
-	title->View();
-	mark->View();
-	score->View();
+void ScoreBar::ContentView(double opacity) {
+	title->View(opacity);
+	mark->View(opacity);
+	score->View(opacity);
 	for (int i = 0; i < 2; i++)
-		para[i]->View();
+		para[i]->View(opacity);
 	for (int i = 0; i < 8; i++)
-		box[i]->View();
+		box[i]->View(opacity);
 }
 
 ScoreBar::~ScoreBar() {
@@ -62,9 +62,9 @@ void ResultComment::Load(const char *str) {
 	comment->ChangeText(str);
 }
 
-void ResultComment::ContentView() {
-	title->View();
-	comment->View();
+void ResultComment::ContentView(double opacity) {
+	title->View(opacity);
+	comment->View(opacity);
 }
 
 ResultComment::~ResultComment() {
@@ -102,11 +102,11 @@ void ResultBody::Load(const int point[4]) {
 	}
 }
 
-void ResultBody::ContentView() {
-	body->View();
+void ResultBody::ContentView(double opacity) {
+	body->View(opacity);
 	for (int i = 0; i < 4; i++) {
-		part[i]->View();
-		point[i]->View();
+		part[i]->View(opacity);
+		point[i]->View(opacity);
 	}
 }
 
@@ -156,17 +156,17 @@ void ResultGraph::Load(const int *point, const int num, Song *song) {
 	}
 }
 
-void ResultGraph::ContentView() {
+void ResultGraph::ContentView(double opacity) {
 	for (int i = 0; i < partMax; i++)
-		part[i]->View();
+		part[i]->View(opacity);
 	for (int i = 0; i < pointMax - 1; i++)
-		line[i]->View();
+		line[i]->View(opacity);
 	for(int i = 0; i < pointMax; i++)
-		dot[i]->View();
+		dot[i]->View(opacity);
 
 	for (int i = 0; i < 2; i++)
-		frame[i]->View();
-	scale->View();
+		frame[i]->View(opacity);
+	scale->View(opacity);
 }
 
 void ResultGraph::Delete() {
@@ -182,5 +182,5 @@ void ResultGraph::Delete() {
 ResultGraph::~ResultGraph() {
 	for (int i = 0; i < 2; i++)
 		delete frame[i];
-	scale->View();
+	scale->View(1.0);  // à¯êîâºéwíË
 }

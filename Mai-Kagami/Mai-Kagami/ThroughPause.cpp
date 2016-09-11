@@ -29,7 +29,7 @@ void ThroughPauseButton::ContentUpdate() {
 }
 
 void ThroughPauseButton::ContentView() {
-	pauseButton->View();
+	pauseButton->View(sceneOpacity);
 }
 
 void ThroughPauseButton::Delete() {

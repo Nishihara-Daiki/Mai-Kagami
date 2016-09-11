@@ -28,7 +28,7 @@ void SongSelectButton::ContentUpdate() {
 //曲選択画面ボタン表示
 void SongSelectButton::ContentView() {
 	for (int i = 0; i < 4; i++)
-		button[i]->View();
+		button[i]->View(sceneOpacity);
 }
 
 SongSelectButton::~SongSelectButton() {
@@ -62,11 +62,11 @@ void SongSelectPop::ContentUpdate() {
 }
 
 void SongSelectPop::ContentView() {
-	blackBox->View();
-	title->View();
-	message->View();
+	blackBox->View(sceneOpacity);
+	title->View(sceneOpacity);
+	message->View(sceneOpacity);
 	for (int i = 0; i < 2; i++)
-		button[i]->View();
+		button[i]->View(sceneOpacity);
 }
 
 SongSelectPop::~SongSelectPop() {
