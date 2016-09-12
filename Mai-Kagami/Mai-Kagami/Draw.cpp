@@ -85,7 +85,8 @@ Draw::Draw(const float x, const float y) : Pos(x, y) {}
 
 //ï`âÊ
 void Draw::View(double opacity) {
-	int a = 255 - (int)((255 - alpha) * opacity);
+	//int a = 255 - (int)((255 - alpha) * opacity);
+	int a = (int)(opacity * alpha);
 	if (viewFlag) {
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, a); //ìßñæìxê›íË
 		ContentView(); //ì‡óeï\é¶

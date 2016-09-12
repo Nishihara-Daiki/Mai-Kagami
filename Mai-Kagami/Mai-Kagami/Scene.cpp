@@ -21,16 +21,38 @@ void SubScene::UpdateViewFlag(boolean flag, long delay) {
 	//	printfDx("%3d", this->delay);
 	//if (flag == TRUE)
 	//	delay = 0;
-	if (viewFlag == flag)
+	if (viewFlag == flag) {
+		//delayCount = 0;
+		//delay = 0;
 		return;
-	if (this->delay == 0)
-		this->delay = delay;
+	}
+	if (delayCount == 0)
+		delayCount = delay;
 	if (delay == 0)
 		viewFlag = flag;
-	if (this->delay > 0) {
-		this->delay--;
-		if (this->delay == 0)
+
+	//if (flag == TRUE)
+	//	sceneOpacity = 1 - sceneOpacity;
+	//if (delayCount == delay && sceneOpacity == 1.0 && delay != 0) { // 1ƒtƒŒ[ƒ€–Ú‚È‚ç‚Î
+	//	sceneOpacity = 1.0;
+	//}
+	//else {
+	//	sceneOpacity *= (double)delayCount / (delayCount + 1);
+	//}
+	//if (flag == TRUE)
+	//	sceneOpacity = 1 - sceneOpacity;
+
+	//sceneOpacity = 0.5;
+	//if(sceneOpacity != 0.0 && sceneOpacity != 1.0)
+	//	printfDx("%0.1f  ", sceneOpacity);
+	sceneOpacity = 1;
+
+	if (delayCount > 0) {
+		delayCount--;
+		if (delayCount == 0) {
 			viewFlag = flag;
+			sceneOpacity = 1;
+		}
 	}
 }
 
@@ -81,7 +103,7 @@ void Scene::Delete() {
 		//	deleteFlag = FALSE;
 		//	count = 0;
 		//}
-		if (delay == 0) {
+		if (delayCount == 0) {
 			ContentDelete();
 			//viewFlag = FALSE;
 			//UpdateViewFlag(FALSE, 0);
