@@ -1,5 +1,7 @@
 #include "Scene.h"
 
+SceneSwitch gSceneSwitch;
+
 //計算
 void SubScene::Update(const int scene) {
 	nowScene = scene;
@@ -17,21 +19,45 @@ void SubScene::Delete() {
 
 // セットしたいフラグとそれに変更するまでの遅延フレーム数
 void SubScene::UpdateViewFlag(boolean flag, long delay) {
+	double sceneOpacity = gSceneSwitch.GetOpacity();
 	//if(this->delay > 0)
 	//	printfDx("%3d", this->delay);
-	if (flag == TRUE)
-		delay = 0;
-	if (viewFlag == flag)
+	//if (flag == TRUE)
+	//	delay = 0;
+	if (viewFlag == flag) {
+		//delayCount = 0;
+		//delay = 0;
 		return;
-	if (this->delay == 0)
-		this->delay = delay;
+	}
+	if (delayCount == 0)
+		delayCount = delay;
 	if (delay == 0)
 		viewFlag = flag;
-	if (this->delay > 0) {
-		this->delay--;
-		if (this->delay == 0)
+
+	//if (flag == TRUE)
+	//	sceneOpacity = 1 - sceneOpacity;
+	//if (delayCount == delay && sceneOpacity == 1.0 && delay != 0) { // 1フレーム目ならば
+	//	sceneOpacity = 1.0;
+	//}
+	//else {
+	//	sceneOpacity *= (double)delayCount / (delayCount + 1);
+	//}
+	//if (flag == TRUE)
+	//	sceneOpacity = 1 - sceneOpacity;
+
+	//sceneOpacity = 0.5;
+	//if(sceneOpacity != 0.0 && sceneOpacity != 1.0)
+	//	printfDx("%0.1f  ", sceneOpacity);
+	sceneOpacity = 0.5;
+
+	if (delayCount > 0) {
+		delayCount--;
+		if (delayCount == 0) {
 			viewFlag = flag;
+			sceneOpacity = 1;
+		}
 	}
+	gSceneSwitch.SetOpacity(sceneOpacity);
 }
 
 //表示
@@ -56,7 +82,7 @@ void Scene::Load() {
 	}
 
 	if (loadFlag == 1 && GetASyncLoadNum() == 0) {
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, 0);
 		loadFlag = 2;
 	}
 }
@@ -81,7 +107,7 @@ void Scene::Delete() {
 		//	deleteFlag = FALSE;
 		//	count = 0;
 		//}
-		if (delay == 0) {
+		if (delayCount == 0) {
 			ContentDelete();
 			//viewFlag = FALSE;
 			//UpdateViewFlag(FALSE, 0);

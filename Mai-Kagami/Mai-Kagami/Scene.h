@@ -17,7 +17,7 @@ public:
 	boolean CheckView(); //表示中かどうか確認する(TRUE:表示中、FALSE：非表示中)
 protected:
 	int nowScene;
-	long delay = 0;	// 場面切り替え時のディレイ
+	long delayCount = 0;	// 場面切り替え時のディレイ
 	virtual void ContentView() = 0; //表示詳細
 	virtual void ContentUpdate() = 0; //更新詳細
 	void UpdateViewFlag(boolean flag, long delay = SCENE_DELAY);
@@ -37,5 +37,15 @@ private:
 	int loadFlag = 0; //ロード確認用（0：未ロード、1：ロード中、2：ロード完了）
 	int deleteFlag = FALSE;	// 削除確認用 (FALSE:未削除(通常) / TRUE:削除中)
 };
+
+typedef struct {
+public:
+	void SetOpacity(const double opacity) { this->opacity = opacity; };
+	double GetOpacity() { return opacity; };
+private:
+	double opacity = 1.0;
+} SceneSwitch;
+
+extern SceneSwitch gSceneSwitch;
 
 #endif
