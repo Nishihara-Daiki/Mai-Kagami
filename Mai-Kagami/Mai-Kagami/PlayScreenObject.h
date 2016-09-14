@@ -9,7 +9,7 @@
 //進捗バー
 class PlayBar {
 public:
-	PlayBar(Font *font);
+	PlayBar(Font *font, const double* sceneOpacity);
 	void Load(Song *song);
 	void Update();
 	void View();
@@ -20,17 +20,18 @@ private:
 	MyDrawBar *barAll, *barNow;
 	MyDrawCircle *circle[2];
 	MyDrawTextV *part[10];
+	const double *sceneOpacity;
 };
 
 //カウントダウン画面用再生三角形
 class PlayTriangle : public MyDrawTriangle {
 public:
-	PlayTriangle(const float x, const float y);
+	PlayTriangle(const float x, const float y, const double* sceneOpacity);
 };
 
 
 //カウントダウン画面
-class CountDown : public	SubScene {
+class CountDown : public SubScene {
 public:
 	CountDown(Font *font, const int thisScene, const int playScene);
 	int Switch(const int scene);

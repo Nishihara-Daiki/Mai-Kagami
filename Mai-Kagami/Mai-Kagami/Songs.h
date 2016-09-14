@@ -25,6 +25,7 @@ private:
 	Song *song[256];
 	int Search(const int songId);
 	int n; //ã»êî
+	double sceneOpacity = 1.0;
 };
 
 #endif

@@ -2,10 +2,10 @@
 
 //曲選択画面ボタン初期化
 SongSelectButton::SongSelectButton(Font *font, Touch *touch) {
-	button[0] = new TriangleButton(font, touch, "前の曲へ", 0, 0);
-	button[1] = new CircleButton(font, touch, "決定", 1);
-	button[2] = new TriangleButton(font, touch, "次の曲へ", 1, 2);
-	button[3] = new CircleButton2(font, touch, "終了", 4);
+	button[0] = new TriangleButton(font, touch, "前の曲へ", 0, 0, &sceneOpacity);
+	button[1] = new CircleButton(font, touch, "決定", 1, &sceneOpacity);
+	button[2] = new TriangleButton(font, touch, "次の曲へ", 1, 2, &sceneOpacity);
+	button[3] = new CircleButton2(font, touch, "終了", 4, &sceneOpacity);
 }
 
 //曲選択画面ボタン画面切り替え
@@ -39,11 +39,11 @@ SongSelectButton::~SongSelectButton() {
 //終了用ポップアップ
 SongSelectPop::SongSelectPop(Font *font, Touch *touch) {
 	this->touch = touch;
-	blackBox = new BlackBox();
-	title = new MyDrawText(font, "- 終了 -", WIDTH * 0.75, HEIGHT * 0.4, 1, 40, "Blue");
-	message = new MyDrawText(font, "本当に終了\nしますか？", WIDTH * 0.75, HEIGHT * 0.45, 1, 30);
-	button[0] = new CircleButton(font, touch, "はい", 1, WIDTH * 0.75, "White");
-	button[1] = new CircleButton(font, touch, "いいえ", 2, WIDTH * 0.75, "White");
+	blackBox = new BlackBox(&sceneOpacity);
+	title = new MyDrawText(font, "- 終了 -", WIDTH * 0.75, HEIGHT * 0.4, 1, 40, &sceneOpacity, "Blue");
+	message = new MyDrawText(font, "本当に終了\nしますか？", WIDTH * 0.75, HEIGHT * 0.45, 1, 30, &sceneOpacity);
+	button[0] = new CircleButton(font, touch, "はい", 1, WIDTH * 0.75, &sceneOpacity, "White");
+	button[1] = new CircleButton(font, touch, "いいえ", 2, WIDTH * 0.75, &sceneOpacity, "White");
 }
 
 int SongSelectPop::Switch(const int scene) {

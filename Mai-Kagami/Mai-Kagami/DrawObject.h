@@ -9,8 +9,8 @@
 //‰~ŠÖŒW
 class MyDrawCircle : public Draw, public Color{
 public:
-	MyDrawCircle(const float x, const float y, const float radius, const char *colorName = "Blue"); //‰~‰Šú‰»i“h‚è‚Â‚Ô‚µ‚ ‚èj
-	MyDrawCircle(const float x, const float y, const float radius, const float width, const char *colorName = "Blue"); //‰~‰Šú‰»i“h‚è‚Â‚Ô‚µ‚È‚µj
+	MyDrawCircle(const float x, const float y, const float radius, const double* sceneOpacity, const char *colorName = "Blue"); //‰~‰Šú‰»i“h‚è‚Â‚Ô‚µ‚ ‚èj
+	MyDrawCircle(const float x, const float y, const float radius, const float width, const double* sceneOpacity, const char *colorName = "Blue"); //‰~‰Šú‰»i“h‚è‚Â‚Ô‚µ‚È‚µj
 	void ContentView();
 private:
 	float r, w; //”¼ŒaAü‚Ì‘¾‚³
@@ -19,7 +19,7 @@ private:
 //Šp“x•t‚«‚Ì‰~(ü‚Ì‚İ)
 class MyDrawCircleGauge : public MyDrawCircle , public Pos{
 public:
-	MyDrawCircleGauge(const float x, const float y, const float radius, const double degree, const float width, const char *colorName = "Blue");
+	MyDrawCircleGauge(const float x, const float y, const float radius, const double degree, const float width, const double* sceneOpacity, const char *colorName = "Blue");
 	void ContentView();
 	void ChangeDegree(const double degree);
 	float GetEndX();
@@ -32,8 +32,8 @@ private:
 //ü
 class MyDrawLine : public Draw, public Color {
 public:
-	MyDrawLine(const float width, const char *colorName = "Blue");
-	MyDrawLine(const float x1, const float y1, const float x2, const float y2, const float width, const char *colorName = "Blue");
+	MyDrawLine(const float width, const double* sceneOpacity, const char *colorName = "Blue");
+	MyDrawLine(const float x1, const float y1, const float x2, const float y2, const float width, const double* sceneOpacity, const char *colorName = "Blue");
 	void ChangePos(const float x1, const float y1, const float x2, const float y2);
 private:
 	void ContentView();
@@ -42,8 +42,8 @@ private:
 
 class MyDrawTriangle : public Draw, public Color {
 public:
-	MyDrawTriangle(const char *colorName = "Blue");
-	MyDrawTriangle(const float x1, const float y1, const float x2, const float y2, const float x3, const float y3, const char *colorName = "Blue");
+	MyDrawTriangle(const double* sceneOpacity, const char *colorName = "Blue");
+	MyDrawTriangle(const float x1, const float y1, const float x2, const float y2, const float x3, const float y3, const double* sceneOpacity, const char *colorName = "Blue");
 	void ChangePos(const float x1, const float y1, const float x2, const float y2, const float x3, const float y3);
 private:
 	void ContentView();
@@ -53,7 +53,7 @@ private:
 //³OŠpŒ`ŠÖŒW
 class MyDrawTriangle2 : public MyDrawTriangle {
 public:
-	MyDrawTriangle2(const float x, const float y, const float width, const int direction, const char *colorName = "Blue");
+	MyDrawTriangle2(const float x, const float y, const float width, const int direction, const double* sceneOpacity, const char *colorName = "Blue");
 private:
 	int d;
 	float w;
@@ -62,8 +62,8 @@ private:
 //lŠpŒ`ŠÖŒW
 class MyDrawBox : public Draw, public Color {
 public:
-	MyDrawBox(const float x, const float y, const float width, const float height, const char *colorName = "White"); //lŠpŒ`‰Šú‰»i“h‚è‚Â‚Ô‚µ‚ ‚èj
-	MyDrawBox(const float x, const float y, const float width, const float height, const float line, const char *colorName = "Blue"); //lŠpŒ`‰Šú‰»i“h‚è‚Â‚Ô‚µ‚È‚µj
+	MyDrawBox(const float x, const float y, const float width, const float height, const double* sceneOpacity, const char *colorName = "White"); //lŠpŒ`‰Šú‰»i“h‚è‚Â‚Ô‚µ‚ ‚èj
+	MyDrawBox(const float x, const float y, const float width, const float height, const float line, const double* sceneOpacity, const char *colorName = "Blue"); //lŠpŒ`‰Šú‰»i“h‚è‚Â‚Ô‚µ‚È‚µj
 	void ContentView();
 	void ChangeSize(const float width, const float height);
 private:
@@ -72,7 +72,7 @@ private:
 
 class MyDrawBar : public MyDrawBox {
 public:
-	MyDrawBar(const float x, const float y, const float width, const float height, const char *colorName = "White"); //lŠpŒ`‰Šú‰»i“h‚è‚Â‚Ô‚µ‚ ‚èj
+	MyDrawBar(const float x, const float y, const float width, const float height, const double* sceneOpacity, const char *colorName = "White"); //lŠpŒ`‰Šú‰»i“h‚è‚Â‚Ô‚µ‚ ‚èj
 	void ChangeSize(const float width, const float height);
 private:
 	float x, y; //À•W

@@ -13,7 +13,7 @@
 //ボタン関係
 class Button : public Draw {
 public:
-	Button(const int num, Touch *touch);
+	Button(const int num, Touch *touch, const double* sceneOpacity);
 	int GetTouch(); //そのボタンが押されているフレーム数を取得
 private:
 	virtual void ContentView() = 0; //表示用関数
@@ -24,7 +24,7 @@ private:
 //三角形のボタン
 class TriangleButton : public Button {
 public:
-	TriangleButton(Font *font, Touch *touch, const char *str, const int direction, const int num, char *colorName = "Blue");
+	TriangleButton(Font *font, Touch *touch, const char *str, const int direction, const int num, const double* sceneOpacity, char *colorName = "Blue");
 	void ContentView();
 	~TriangleButton();
 private:
@@ -35,7 +35,7 @@ private:
 //説明文付き三角形のボタン
 class TriangleButton2 : public Button {
 public:
-	TriangleButton2(Font *font, Touch *touch, const char *title, const char *str, const int direction, const int num, const float x, const char *colorName);
+	TriangleButton2(Font *font, Touch *touch, const char *title, const char *str, const int direction, const int num, const float x, const double* sceneOpacity, const char *colorName);
 	void ContentView();
 	~TriangleButton2();
 private:
@@ -48,8 +48,8 @@ private:
 //円のボタン
 class CircleButton : public Button {
 public:
-	CircleButton(Font *font, Touch *touch, const char *str, const int num, char *colorName = "Blue"); //文字右寄せボタン
-	CircleButton(Font *font, Touch *touch, const char *str, const int num, const float x, char *colorName = "Blue"); //文字中央寄せボタン
+	CircleButton(Font *font, Touch *touch, const char *str, const int num, const double* sceneOpacity, char *colorName = "Blue"); //文字右寄せボタン
+	CircleButton(Font *font, Touch *touch, const char *str, const int num, const float x, const double* sceneOpacity, char *colorName = "Blue"); //文字中央寄せボタン
 	void ContentView();
 	~CircleButton();
 private:
@@ -60,7 +60,7 @@ private:
 //文字が丸の中にあるボタン
 class CircleButton2 : public Button {
 public:
-	CircleButton2(Font *font, Touch *touch, const char *str, const int num, char *colorName = "Blue");
+	CircleButton2(Font *font, Touch *touch, const char *str, const int num, const double* sceneOpacity, char *colorName = "Blue");
 	void ContentView();
 	~CircleButton2();
 private:
@@ -71,7 +71,7 @@ private:
 //画像付きのボタン
 class CircleGraphButton : public Button {
 public:
-	CircleGraphButton(Touch *touch, const int num, const char *fileName);
+	CircleGraphButton(Touch *touch, const int num, const char *fileName, const double* sceneOpacity);
 	void ContentView();
 	void Load();
 	void Release();
@@ -84,7 +84,7 @@ private:
 //画像、テキスト付きのボタン
 class CircleGraphTextButton : public Button {
 public:
-	CircleGraphTextButton(Font *font, Touch *touch, const char *str, const int num, const char *fileName);
+	CircleGraphTextButton(Font *font, Touch *touch, const char *str, const int num, const char *fileName, const double* sceneOpacity);
 	void Load();
 	void ContentView();
 	void Release();

@@ -4,9 +4,9 @@
 Top::Top(Font *font, User *user) {
 	this->user = user;
 	f = font;
-	topLogo = new TopLogo(HEIGHT / 3); //ロゴ初期化
-	topTouchMessage = new TopTouchMessage(f, HEIGHT * 0.42); //NFCタッチメッセージ初期化
-	topTouchButton = new TopTouchButton(f); //NFCタッチボタン初期化
+	topLogo = new TopLogo(HEIGHT / 3, &sceneOpacity); //ロゴ初期化
+	topTouchMessage = new TopTouchMessage(f, HEIGHT * 0.42, &sceneOpacity); //NFCタッチメッセージ初期化
+	topTouchButton = new TopTouchButton(f, &sceneOpacity); //NFCタッチボタン初期化
 }
 
 //トップ画面初期化

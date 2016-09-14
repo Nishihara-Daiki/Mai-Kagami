@@ -1,11 +1,11 @@
 #include "ThroughDetail.h"
 
 ThroughFinish::ThroughFinish(Font *font, Touch *touch) {
-	blackBox = new BlackBox();
-	button[0] = new CircleButton(font, touch, "Ç®Ç∑Ç∑Çﬂó˚èK", 0, WIDTH * 0.75, "White");
-	button[1] = new CircleButton(font, touch, "Ç‡Ç§àÍìx", 1, WIDTH * 0.75, "White");
-	button[2] = new CircleButton(font, touch, "ïîï™ó˚èK", 2, WIDTH * 0.75, "White");
-	button[3] = new CircleButton(font, touch, "ã»ëIëâÊñ ", 3, WIDTH * 0.75, "White");
+	blackBox = new BlackBox(&sceneOpacity);
+	button[0] = new CircleButton(font, touch, "Ç®Ç∑Ç∑Çﬂó˚èK", 0, WIDTH * 0.75, &sceneOpacity, "White");
+	button[1] = new CircleButton(font, touch, "Ç‡Ç§àÍìx", 1, WIDTH * 0.75, &sceneOpacity, "White");
+	button[2] = new CircleButton(font, touch, "ïîï™ó˚èK", 2, WIDTH * 0.75, &sceneOpacity, "White");
+	button[3] = new CircleButton(font, touch, "ã»ëIëâÊñ ", 3, WIDTH * 0.75, &sceneOpacity, "White");
 }
 
 ThroughResultScene ThroughFinish::Switch(const ThroughResultScene scene) {
@@ -42,12 +42,12 @@ ThroughFinish::~ThroughFinish() {
 ThroughDetailScreen::ThroughDetailScreen(Font *font, Songs *songs, Touch *touch) {
 	this->songs = songs;
 	title = new DrawTitle(font, "çÃì_åãâ ");
-	timingBar = new TimingBar(font);
-	expressionBar = new ExpressionBar(font);
-	resultComment = new ResultComment(font);
-	resultBody = new ResultBody(font);
-	resultGraph = new ResultGraph(font);
-	button = new CircleButton2(font, touch, "éüÇ÷", 4);
+	timingBar = new TimingBar(font, &sceneOpacity);
+	expressionBar = new ExpressionBar(font, &sceneOpacity);
+	resultComment = new ResultComment(font, &sceneOpacity);
+	resultBody = new ResultBody(font, &sceneOpacity);
+	resultGraph = new ResultGraph(font, &sceneOpacity);
+	button = new CircleButton2(font, touch, "éüÇ÷", 4, &sceneOpacity);
 }
 
 ThroughResultScene ThroughDetailScreen::Switch(const ThroughResultScene scene) {

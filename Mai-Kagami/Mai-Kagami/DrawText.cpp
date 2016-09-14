@@ -3,8 +3,8 @@
 //テキスト初期化
 //MyDrawText（フォントポインタ、表示文字、x座標、y座標、ポジション情報、フォントサイズ、色）　※色は省略可能、省略した場合白色
 //ポジション情報（0：左寄せ、1：中央寄せ、2：右寄せ）
-MyDrawText::MyDrawText(Font *font, const char *str, const float x, const float y, const int pos, const int point, const char *colorName)
-	: Color(colorName) , Draw2(pos) {
+MyDrawText::MyDrawText(Font *font, const char *str, const float x, const float y, const int pos, const int point, const double* sceneOpacity, const char *colorName)
+	: Color(colorName) , Draw2(pos, sceneOpacity) {
 	s = str; //文字列
 	ChangeFont(font, point);
 	MyDrawText::point = point;
@@ -46,8 +46,8 @@ float MyDrawText::GetWidth() {
 //縦書きテキスト初期化
 //MyDrawText（フォントポインタ、表示文字、x座標、y座標、ポジション情報、フォントサイズ、色）　※色は省略可能、省略した場合白色
 //ポジション情報（0：下寄せ、1：中央寄せ、2：上寄せ）
-MyDrawTextV::MyDrawTextV(Font *font, const char *str, const float x, const float y, const int pos, const int point, const char *colorName)
-	: MyDrawText(font, str, x, y, 0, point, colorName) {
+MyDrawTextV::MyDrawTextV(Font *font, const char *str, const float x, const float y, const int pos, const int point, const double* sceneOpacity, const char *colorName)
+	: MyDrawText(font, str, x, y, 0, point, sceneOpacity, colorName) {
 	switch (pos)
 	{
 	case 0:
@@ -72,8 +72,8 @@ void MyDrawTextV::ContentView() {
 //複数行のテキスト
 //MyDrawTexts（フォントポインタ、表示文字、x座標、y座標、ポジション情報、フォントサイズ、行間隔、色）　※色は省略可能、省略した場合白色
 //ポジション情報（0：左寄せ、1：中央寄せ、2：右寄せ）
-MyDrawTexts::MyDrawTexts(Font *font, const char *str, const float x, const float y, const int pos, const int point, const float lineInterval, const char *colorName)
-	: Color(colorName) , Draw(x, y) {
+MyDrawTexts::MyDrawTexts(Font *font, const char *str, const float x, const float y, const int pos, const int point, const float lineInterval, const double* sceneOpacity, const char *colorName)
+	: Color(colorName) , Draw(x, y, sceneOpacity) {
 
 	p = pos; //位置情報
 	inter = lineInterval; //間隔
@@ -113,12 +113,12 @@ void MyDrawTexts::ChangeText(const char *str) {
 		a[j++] = str[i];
 		if (str[i + 1] == '\n' || i == strlen(str) - 1) {
 			a[j] = '\0';
-			myDrawText[l] = new MyDrawText(f, a, GetX(), 0, p, point, color);
+			myDrawText[l] = new MyDrawText(f, a, GetX(), 0, p, point, sceneOpacity, color);
 			l++; i++; j = 0;
 		}
 	}
 	if (i == 0) {
-		myDrawText[0] = new MyDrawText(f, str, GetX(), 0, p, point, color);
+		myDrawText[0] = new MyDrawText(f, str, GetX(), 0, p, point, sceneOpacity, color);
 		l = 1;
 	}
 	ChangePos(GetX(), GetY());
@@ -148,9 +148,9 @@ MyDrawTexts::~MyDrawTexts() {
 //アンダーライン付きテキスト
 //MyDrawTextLine（フォントポインタ、表示文字、x座標、y座標、ポジション情報、フォントサイズ、線の長さ、線の太さ、色）　※色は省略可能、省略した場合白色
 //ポジション情報（0：左寄せ、1：中央寄せ、2：右寄せ）
-MyDrawTextLine::MyDrawTextLine(Font *font, const char *str, const float x, const float y, const int pos, const int point, const float lineLength, const float lineWidth, const char *colorName)
-	: Color(colorName), Draw(x, y) {
-	myDrawText = new MyDrawText(font, str, x, y, pos, point, colorName);
+MyDrawTextLine::MyDrawTextLine(Font *font, const char *str, const float x, const float y, const int pos, const int point, const float lineLength, const float lineWidth, const double* sceneOpacity, const char *colorName)
+	: Color(colorName), Draw(x, y, sceneOpacity) {
+	myDrawText = new MyDrawText(font, str, x, y, pos, point, sceneOpacity, colorName);
 	l = lineLength / SIZE_RATE;
 	w = lineWidth / SIZE_RATE;
 	this->pos = pos;

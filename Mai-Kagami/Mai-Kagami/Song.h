@@ -19,7 +19,7 @@ private:
 //曲名、アーティスト情報
 class DrawSongTitle : public Pos {
 public:
-	DrawSongTitle(Font *font, const char *title, const char *artist);
+	DrawSongTitle(Font *font, const char *title, const char *artist, const double* sceneOpacity);
 	void ChangePos(const float x, const float y);
 	void View();
 	~DrawSongTitle();
@@ -41,7 +41,7 @@ private:
 
 class Song {
 public:
-	Song(Font *font, const int id, const char *title, const char *artist, const char *folder);
+	Song(Font *font, const int id, const char *title, const char *artist, const char *folder, const double* sceneOpacity);
 	int GetSongId(); //曲IDを取得
 	int GetNow(); //現在の位置IDを取得
 	void SetNow(const int n); //位置IDをセット

@@ -6,7 +6,7 @@ PlayScreen::PlayScreen(Font *font, Songs *songs, Touch *touch, const int startSc
 	this->playScene = playScene;
 	this->finishScene = finishScene;
 	this->songs = songs;
-	playBar = new PlayBar(font);
+	playBar = new PlayBar(font, &sceneOpacity);
 	countDown = new CountDown(font, countDownScene, playScene);
 }
 

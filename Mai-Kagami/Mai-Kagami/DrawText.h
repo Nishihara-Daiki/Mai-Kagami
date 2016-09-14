@@ -10,7 +10,7 @@
 //テキスト関係
 class MyDrawText : public Color, public Draw2{
 public:
-	MyDrawText(Font *font, const char *str, const float x, const float y, const int pos, const int point, const char *colorName = "White"); // pos=左寄せ:0 / 中央寄せ:1 / 右寄せ:2
+	MyDrawText(Font *font, const char *str, const float x, const float y, const int pos, const int point, const double* sceneOpacity, const char *colorName = "White"); // pos=左寄せ:0 / 中央寄せ:1 / 右寄せ:2
 	void ContentView(); //描画
 	void ChangeText(char *str); //テキスト変更
 	void ChangeFont(Font *font, const int point); //フォントサイズ変更
@@ -24,7 +24,7 @@ protected:
 //縦書きテキスト
 class MyDrawTextV : public MyDrawText {
 public:
-	MyDrawTextV(Font *font, const char *str, const float x, const float y, const int pos, const int point, const char *colorName = "White"); // pos=左寄せ:0 / 中央寄せ:1 / 右寄せ:2
+	MyDrawTextV(Font *font, const char *str, const float x, const float y, const int pos, const int point, const double* sceneOpacity, const char *colorName = "White"); // pos=左寄せ:0 / 中央寄せ:1 / 右寄せ:2
 	void ContentView();
 private:
 	float RotCenterX;
@@ -33,7 +33,7 @@ private:
 //複数行のテキスト
 class MyDrawTexts : public Color, public Draw {
 public:
-	MyDrawTexts(Font *font, const char *str, const float x, const float y, const int pos, const int point, const float lineInterval, const char *colorName = "White");
+	MyDrawTexts(Font *font, const char *str, const float x, const float y, const int pos, const int point, const float lineInterval, const double* sceneOpacity, const char *colorName = "White");
 	void ContentView();
 	void ChangePos(const float x, const float y);
 	void ChangeText(const char *str); //テキスト変更
@@ -50,7 +50,7 @@ private:
 //アンダーライン付きテキスト
 class MyDrawTextLine : public Color, public Draw {
 public:
-	MyDrawTextLine(Font *font, const char *str, const float x, const float y, const int pos, const int point, const float lineLength, const float lineWidth, const char *colorName = "White");
+	MyDrawTextLine(Font *font, const char *str, const float x, const float y, const int pos, const int point, const float lineLength, const float lineWidth, const double* sceneOpacity, const char *colorName = "White");
 	void ContentView();
 	void ChangePos(const float x, const float y);
 	void ChangeText(char *str); //テキスト変更

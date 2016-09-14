@@ -2,16 +2,16 @@
 
 //円初期化（塗りつぶしあり）
 //MyDrawCircle(x座標、y座標、半径、色)　※色は省略可能、省略した場合青色
-MyDrawCircle::MyDrawCircle(const float x, const float y, const float radius, const char *colorName)
-	:Draw(x, y), Color(colorName) {
+MyDrawCircle::MyDrawCircle(const float x, const float y, const float radius, const double* sceneOpacity, const char *colorName)
+	:Draw(x, y, sceneOpacity), Color(colorName) {
 	r = radius / SIZE_RATE;
 	w = 0;
 }
 
 //円初期化（塗りつぶしなし）
 //MyDrawCircle(x座標、y座標、半径、線の太さ、色)　※色は省略可能、省略した場合青色
-MyDrawCircle::MyDrawCircle(const float x, const float y, const float radius, const float width, const char *colorName)
-	:Draw(x, y), Color(colorName) {
+MyDrawCircle::MyDrawCircle(const float x, const float y, const float radius, const float width, const double* sceneOpacity, const char *colorName)
+	:Draw(x, y, sceneOpacity), Color(colorName) {
 	r = radius / SIZE_RATE;
 	w = width / SIZE_RATE;
 }
@@ -26,8 +26,8 @@ void  MyDrawCircle::ContentView() {
 
 //角度付きの円初期化(塗りつぶしなし)
 //MyDrawCircleGauge(x座標、y座標、半径、角度（％指定）、線の太さ、色)　※色は省略可能、省略した場合青色
-MyDrawCircleGauge::MyDrawCircleGauge(const float x, const float y, const float radius, const double degree, const float width, const char *colorName) 
-	:MyDrawCircle(0, 0, width, colorName), Pos(x, y){
+MyDrawCircleGauge::MyDrawCircleGauge(const float x, const float y, const float radius, const double degree, const float width, const double* sceneOpacity, const char *colorName)
+	:MyDrawCircle(0, 0, width, sceneOpacity, colorName), Pos(x, y){
 	r = radius / SIZE_RATE;
 	ChangeDegree(degree); //角度を％からラジアンに変更
 }
@@ -61,13 +61,13 @@ float  MyDrawCircleGauge::GetEndY() {
 
 //線初期化（座標指定なし、あとで指定する場合）
 //MyDrawLine(長さ、色)　※色は省略可能、省略した場合青色
-MyDrawLine::MyDrawLine(const float width, const char *colorName)
-	: Color(colorName) {}
+MyDrawLine::MyDrawLine(const float width, const double* sceneOpacity, const char *colorName)
+	: Color(colorName), Draw(sceneOpacity) {}
 
 //線初期化（座標指定あり）
 //MyDrawLine(始点x座標、始点y座標、終点x座標、終点y座標、長さ、色)　※色は省略可能、省略した場合青色
-MyDrawLine::MyDrawLine(const float x1, const float y1, const float x2, const float y2, const float width, const char *colorName)
-	: Color(colorName) {
+MyDrawLine::MyDrawLine(const float x1, const float y1, const float x2, const float y2, const float width, const double* sceneOpacity, const char *colorName)
+	: Color(colorName), Draw(sceneOpacity) {
 	ChangePos(x1, y1, x2, y2);
 	w = width / SIZE_RATE;
 }
@@ -86,13 +86,13 @@ void MyDrawLine::ChangePos(const float x1, const float y1, const float x2, const
 }
 
 //三角形初期化
-MyDrawTriangle::MyDrawTriangle(const char *colorName) 
-	: Color(colorName) {}
+MyDrawTriangle::MyDrawTriangle(const double* sceneOpacity, const char *colorName)
+	: Color(colorName), Draw(sceneOpacity) {}
 
 //三角形初期化
 //MyDrawTriangle(点１x座標、点１y座標、点２x座標、点２y座標、点３x座標、点３y座標、長さ、色)　※色は省略可能、省略した場合青色
-MyDrawTriangle::MyDrawTriangle(const float x1, const float y1, const float x2, const float y2, const float x3, const float y3, const char *colorName)
-	: Color(colorName) {
+MyDrawTriangle::MyDrawTriangle(const float x1, const float y1, const float x2, const float y2, const float x3, const float y3, const double* sceneOpacity, const char *colorName)
+	: Color(colorName), Draw(sceneOpacity) {
 	ChangePos(x1, y1, x2, y2, x3, y3);
 }
 
@@ -114,8 +114,8 @@ void MyDrawTriangle::ChangePos(const float x1, const float y1, const float x2, c
 //正三角形初期化
 //MyDrawTriangle2(x座標、y座標、一辺の長さ、方向、色)　※色は省略可能、省略した場合青色
 //方向（０：上向き、１：下向き、２：左向き）
-MyDrawTriangle2::MyDrawTriangle2(const float x, const float y, const float width, const int direction, const char *colorName)
-	: MyDrawTriangle(colorName) {
+MyDrawTriangle2::MyDrawTriangle2(const float x, const float y, const float width, const int direction, const double* sceneOpacity, const char *colorName)
+	: MyDrawTriangle(sceneOpacity, colorName) {
 	w = width;
 	d = direction;
 
@@ -146,8 +146,8 @@ MyDrawTriangle2::MyDrawTriangle2(const float x, const float y, const float width
 
 //四角形初期化(塗りつぶしあり)
 //MyDrawBox(x座標、y座標、横の長さ、縦の長さ、色)　※色は省略可能、省略した場合白色
-MyDrawBox::MyDrawBox(const float x, const float y, const float width, const float height, const char *colorName)
-	:Draw(x, y), Color(colorName) {
+MyDrawBox::MyDrawBox(const float x, const float y, const float width, const float height, const double* sceneOpacity, const char *colorName)
+	:Draw(x, y, sceneOpacity), Color(colorName) {
 	w = width / SIZE_RATE;
 	h = height / SIZE_RATE;
 	l = 0;
@@ -155,8 +155,8 @@ MyDrawBox::MyDrawBox(const float x, const float y, const float width, const floa
 
 //四角形初期化（塗りつぶしなし）
 //MyDrawBox(x座標、y座標、横の長さ、縦の長さ、線の太さ、色)　※色は省略可能、省略した場合青色
-MyDrawBox::MyDrawBox(const float x, const float y, const float width, const float height, const float line, const char *colorName)
-	:Draw(x, y), Color(colorName) {
+MyDrawBox::MyDrawBox(const float x, const float y, const float width, const float height, const float line, const double* sceneOpacity, const char *colorName)
+	:Draw(x, y, sceneOpacity), Color(colorName) {
 	w = width / SIZE_RATE;
 	h = height / SIZE_RATE;
 	l = line / SIZE_RATE;
@@ -182,8 +182,8 @@ void MyDrawBox::ChangeSize(const float width, const float height) {
 }
 
 //進捗バー初期化
-MyDrawBar::MyDrawBar(const float x, const float y, const float width, const float height, const char *colorName)
-	:MyDrawBox(x + width / 2, y, width, height, colorName) {
+MyDrawBar::MyDrawBar(const float x, const float y, const float width, const float height, const double* sceneOpacity, const char *colorName)
+	:MyDrawBox(x + width / 2, y, width, height, sceneOpacity, colorName) {
 	MyDrawBar::x = x;
 	MyDrawBar::y = y;
 }

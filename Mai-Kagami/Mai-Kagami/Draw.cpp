@@ -78,15 +78,21 @@ float Pos::GetY() {
 }
 
 //描画用クラスコンストラクタ
-Draw::Draw(){}
+Draw::Draw(const double* sceneOpacity){
+	this->sceneOpacity = sceneOpacity;
+}
 
 //描画用クラスコンストラクタ
-Draw::Draw(const float x, const float y) : Pos(x, y) {}
+Draw::Draw(const float x, const float y, const double* sceneOpacity)
+	: Pos(x, y) {
+	this->sceneOpacity = sceneOpacity;
+}
 
 //描画
 void Draw::View() {
+	int a = (int)(alpha * *sceneOpacity);
 	if (viewFlag) {
-		SetDrawBlendMode(DX_BLENDMODE_ALPHA, alpha); //透明度設定
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, a); //透明度設定
 		ContentView(); //内容表示
 		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0); //透明度解除
 	}
@@ -127,11 +133,12 @@ void Draw::Stop(boolean jumpF) {
 	Reset();
 }
 
-Draw2::Draw2(const int pos) {
+Draw2::Draw2(const int pos, const double* sceneOpacity) : Draw(sceneOpacity) {
 	p = pos;
 }
 
-Draw2::Draw2(const float x, const float y, const int pos) {
+Draw2::Draw2(const float x, const float y, const int pos, const double* sceneOpacity)
+	: Draw(x, y, sceneOpacity) {
 	p = pos;
 	ChangePos(x, y);
 }

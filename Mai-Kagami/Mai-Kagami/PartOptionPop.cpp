@@ -61,15 +61,15 @@ PartOptionPreview::PartOptionPreview(Font *font, Songs *songs, Touch *touch, con
 	this->mainScene = mainScene;
 	this->partScene = partScene;
 	this->speedScene = speedScene;
-	button[0] = new CircleButton(font, touch, "区間", 0, WIDTH * 0.8);
-	button[1] = new CircleButton(font, touch, "", 2, WIDTH * 0.8);
-	message = new MyDrawText(font, "変更したいものを選んでください", WIDTH * 0.75, HEIGHT * 0.45, 1, 30);
-	caption[0] = new MyDrawText(font, "開始：", WIDTH * 0.8, HEIGHT * 0.53, 2, 30);
-	caption[1] = new MyDrawText(font, "終了：", WIDTH * 0.8, HEIGHT * 0.555, 2, 30);
-	caption[2] = new MyDrawText(font, "速度：", WIDTH * 0.8, HEIGHT * 0.6, 2, 30);
-	para[0] = new MyDrawText(font, "", WIDTH * 0.81, HEIGHT * 0.53, 0, 30, "Yellow");
-	para[1] = new MyDrawText(font, "", WIDTH * 0.81, HEIGHT * 0.555, 0, 30, "Yellow");
-	para[2] = new MyDrawText(font, "", WIDTH * 0.81, HEIGHT * 0.6, 0, 30, "Yellow");
+	button[0] = new CircleButton(font, touch, "区間", 0, WIDTH * 0.8, &sceneOpacity);
+	button[1] = new CircleButton(font, touch, "", 2, WIDTH * 0.8, &sceneOpacity);
+	message = new MyDrawText(font, "変更したいものを選んでください", WIDTH * 0.75, HEIGHT * 0.45, 1, 30, &sceneOpacity);
+	caption[0] = new MyDrawText(font, "開始：", WIDTH * 0.8, HEIGHT * 0.53, 2, 30, &sceneOpacity);
+	caption[1] = new MyDrawText(font, "終了：", WIDTH * 0.8, HEIGHT * 0.555, 2, 30, &sceneOpacity);
+	caption[2] = new MyDrawText(font, "速度：", WIDTH * 0.8, HEIGHT * 0.6, 2, 30, &sceneOpacity);
+	para[0] = new MyDrawText(font, "", WIDTH * 0.81, HEIGHT * 0.53, 0, 30, &sceneOpacity, "Yellow");
+	para[1] = new MyDrawText(font, "", WIDTH * 0.81, HEIGHT * 0.555, 0, 30, &sceneOpacity, "Yellow");
+	para[2] = new MyDrawText(font, "", WIDTH * 0.81, HEIGHT * 0.6, 0, 30, &sceneOpacity, "Yellow");
 }
 
 int PartOptionPreview::Switch(const int scene) {

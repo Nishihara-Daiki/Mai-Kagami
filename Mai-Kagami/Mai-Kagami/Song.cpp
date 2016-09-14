@@ -13,9 +13,9 @@ void SongHistory::Get(int *history[2]) {
 }
 
 //曲名、アーティスト情報
-DrawSongTitle::DrawSongTitle(Font *font, const char *title, const char *artist) {
-	songTitle = new MyDrawTextLine(font, title,0, 0, 1, 30, WIDTH * 0.35, 2); //テキスト初期化
-	songArtist = new MyDrawText(font, artist, 0, 0, 2, 20); //テキスト初期化
+DrawSongTitle::DrawSongTitle(Font *font, const char *title, const char *artist, const double* sceneOpacity) {
+	songTitle = new MyDrawTextLine(font, title,0, 0, 1, 30, WIDTH * 0.35, 2, sceneOpacity); //テキスト初期化
+	songArtist = new MyDrawText(font, artist, 0, 0, 2, 20, sceneOpacity); //テキスト初期化
 }
 
 void DrawSongTitle::ChangePos(const float x, const float y) {
@@ -51,7 +51,7 @@ char *SongPart::GetName() {
 	return name;
 }
 
-Song::Song(Font *font, const int id, const char *title, const char *artist, const char *folder) {
+Song::Song(Font *font, const int id, const char *title, const char *artist, const char *folder, const double* sceneOpacity) {
 	char cover[256], movie[256];
 	strcpy_s(Song::folder, sizeof(Song::folder), folder); //フォルダ
 	sprintf_s(cover, sizeof(cover), "song/%s/cover.jpg", folder); //カバー画像
@@ -67,10 +67,10 @@ Song::Song(Font *font, const int id, const char *title, const char *artist, cons
 	for(int i = 0; i < 256; i++)
 		songPart[i] = new SongPart();
 
-	drawSongTitle = new DrawSongTitle(font, title, artist);
-	coverGraph = new MyDrawGraph(cover);
-	coverWhite = new MyDrawGraph("img/box.png");
-	danceMovie = new MyDrawMovie(movie);
+	drawSongTitle = new DrawSongTitle(font, title, artist, sceneOpacity);
+	coverGraph = new MyDrawGraph(cover, sceneOpacity);
+	coverWhite = new MyDrawGraph("img/box.png", sceneOpacity);
+	danceMovie = new MyDrawMovie(movie, sceneOpacity);
 	songHistory = new SongHistory();
 }
 

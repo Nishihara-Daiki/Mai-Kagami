@@ -6,12 +6,12 @@ PauseScreen::PauseScreen(Font *font, Songs *songs, Touch *touch, const int pause
 	this->startScene = startScene;
 	this->songSelectScene = songSelectScene;
 	this->settingScene = settingScene;
-	blackBox = new BlackBox();
-	title = new MyDrawText(font, "- ポーズ -", WIDTH * 0.95, HEIGHT * 0.45, 2, 40, "Yellow");
-	button[0] = new CircleGraphTextButton(font, touch, "戻る", 0, "img/play.png");
-	button[1] = new CircleGraphTextButton(font, touch, "はじめから", 1, "img/rewind.png");
-	button[2] = new CircleGraphTextButton(font, touch, "曲選択へ", 2, "img/back.png");
-	button[3] = new CircleGraphTextButton(font, touch, "設定変更", 3, "img/setting.png");
+	blackBox = new BlackBox(&sceneOpacity);
+	title = new MyDrawText(font, "- ポーズ -", WIDTH * 0.95, HEIGHT * 0.45, 2, 40, &sceneOpacity, "Yellow");
+	button[0] = new CircleGraphTextButton(font, touch, "戻る", 0, "img/play.png", &sceneOpacity);
+	button[1] = new CircleGraphTextButton(font, touch, "はじめから", 1, "img/rewind.png", &sceneOpacity);
+	button[2] = new CircleGraphTextButton(font, touch, "曲選択へ", 2, "img/back.png", &sceneOpacity);
+	button[3] = new CircleGraphTextButton(font, touch, "設定変更", 3, "img/setting.png", &sceneOpacity);
 }
 
 void PauseScreen::Load() {

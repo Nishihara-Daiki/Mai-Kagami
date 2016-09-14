@@ -4,9 +4,9 @@
 ModeSelectButton::ModeSelectButton(Font *font, Touch *touch) {
 	char *through = "一曲を通して練習できます。\nあなたにあったスピードで練習でき、\n分析・採点が行われます。";
 	char *part = "練習区間を設定して集中して練習でき\nます。練習途中であっても、スピード\nの変更や巻き戻しが自由にできます。";
-	button[0] = new TriangleButton2(font, touch, "通し練習モード", through, 2, 0, WIDTH * 0.57, "Blue");
-	button[1] = new TriangleButton2(font, touch, "部分練習モード", part, 2, 2, WIDTH * 0.57, "Yellow");
-	button[2] = new CircleButton2(font, touch, "戻る", 4);
+	button[0] = new TriangleButton2(font, touch, "通し練習モード", through, 2, 0, WIDTH * 0.57, &sceneOpacity, "Blue");
+	button[1] = new TriangleButton2(font, touch, "部分練習モード", part, 2, 2, WIDTH * 0.57, &sceneOpacity, "Yellow");
+	button[2] = new CircleButton2(font, touch, "戻る", 4, &sceneOpacity);
 }
 
 int ModeSelectButton::Switch(const int scene) {

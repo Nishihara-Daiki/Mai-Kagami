@@ -1,7 +1,7 @@
 #include "ThroughPause.h"
 
 ThroughPauseButton::ThroughPauseButton(Touch *touch) {
-	pauseButton = new CircleGraphButton(touch, 0, "img/pause.png");
+	pauseButton = new CircleGraphButton(touch, 0, "img/pause.png", &sceneOpacity);
 }
 
 void ThroughPauseButton::Load() {

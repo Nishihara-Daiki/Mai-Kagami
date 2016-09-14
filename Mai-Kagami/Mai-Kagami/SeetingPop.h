@@ -13,14 +13,14 @@
 //ポップアップ用四角形（黒色半透明全画面）
 class BlackBox : public MyDrawBox {
 public:
-	BlackBox();
+	BlackBox(const double* sceneOpacity);
 private:
 };
 
 //スピードオプション表示
 class SpeedOption {
 public:
-	SpeedOption(Font *font, Songs *songs, Touch *touch);
+	SpeedOption(Font *font, Songs *songs, Touch *touch, const double* sceneOpacity);
 	void Check();
 	void View();
 	~SpeedOption();
@@ -28,12 +28,13 @@ private:
 	Button *button[2];
 	MyDrawText *speed[2];
 	Songs *songs;
+	const double* sceneOpacity = NULL;
 };
 
 //区間設定オプション表示
 class PartOption {
 public:
-	PartOption(Font *font, Songs *songs, Touch *touch);
+	PartOption(Font *font, Songs *songs, Touch *touch, const double* sceneOpacity);
 	void Init();
 	void Check();
 	void View();

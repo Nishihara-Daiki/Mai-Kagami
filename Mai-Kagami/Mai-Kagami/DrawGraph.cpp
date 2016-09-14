@@ -3,14 +3,15 @@
 
 //画像初期化(座標指定なし、あとから指定する場合)
 //MyDrawGraph（ファイル名）
-MyDrawGraph::MyDrawGraph(const char *fileName) {
+MyDrawGraph::MyDrawGraph(const char *fileName, const double* sceneOpacity)
+	: Draw(sceneOpacity) {
 	ex = 1.0;
 	this->fileName = fileName;
 }
 
 //画像初期化
 //MyDrawGraph（x座標、y座標、ファイル名、拡大率） //拡大率は省略可能、省略した場合等倍
-MyDrawGraph::MyDrawGraph(const float x, const float y, const char *fileName, const double ExRate) : Draw(x, y) {
+MyDrawGraph::MyDrawGraph(const float x, const float y, const char *fileName, const double* sceneOpacity, const double ExRate) : Draw(x, y, sceneOpacity) {
 	ex = ExRate;
 	this->fileName = fileName;
 }
@@ -64,13 +65,13 @@ void MyDrawGraph::Release() {
 }
 
 //動画初期化
-MyDrawMovie::MyDrawMovie(const char *filename) : MyDrawGraph(filename) {
+MyDrawMovie::MyDrawMovie(const char *filename, const double* sceneOpacity) : MyDrawGraph(filename, sceneOpacity) {
 	speed = sp = 1.0;
 }
 
 //動画初期化
-MyDrawMovie::MyDrawMovie(const float x, const float y, const char *filename, const double ExRate)
-	: MyDrawGraph(x, y, filename, ExRate) {
+MyDrawMovie::MyDrawMovie(const float x, const float y, const char *filename, const double* sceneOpacity, const double ExRate)
+	: MyDrawGraph(x, y, filename, sceneOpacity, ExRate) {
 	speed = sp = 1.0;
 }
 

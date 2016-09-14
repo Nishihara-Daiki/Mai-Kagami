@@ -18,6 +18,7 @@ public:
 protected:
 	int nowScene;
 	long delay = 0;	// 場面切り替え時のディレイ
+	double sceneOpacity = 1.0;
 	virtual void ContentView() = 0; //表示詳細
 	virtual void ContentUpdate() = 0; //更新詳細
 	void UpdateViewFlag(boolean flag, long delay = SCENE_DELAY);

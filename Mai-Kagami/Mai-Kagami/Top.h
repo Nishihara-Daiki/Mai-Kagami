@@ -10,13 +10,13 @@
 //トップロゴ
 class TopLogo : public MyDrawGraph {
 public:
-	TopLogo( const float y);
+	TopLogo(const float y, const double* sceneOpacity);
 };
 
 //NFCタッチメッセージ関係
 class TopTouchMessage : public MyDrawText {
 public:
-	TopTouchMessage(Font *font, const float y);
+	TopTouchMessage(Font *font, const float y, const double* sceneOpacity);
 	void Init(); //初期化
 	void Update(); //計算
 	void View(); //表示
@@ -27,7 +27,7 @@ private:
 //NFCタッチボタン関係
 class TopTouchButton : public Pos{
 public:
-	TopTouchButton(Font *font);
+	TopTouchButton(Font *font, const double* sceneOpacity);
 	void View(); //表示
 	~TopTouchButton();
 private:

@@ -39,8 +39,8 @@ private:
 //描画用クラス
 class Draw : public Pos {
 public:
-	Draw();
-	Draw(const float x, const float y);
+	Draw(const double* sceneOpacity);
+	Draw(const float x, const float y, const double* sceneOpacity);
 	void View();
 	void SetAlpha(const int alpha = 255); //透明度指定
 	int GetAlpha();
@@ -48,6 +48,8 @@ public:
 	void Update();	// アニメーション更新
 	void Stop(boolean jumpF = FALSE);	// アニメーション中断
 	void SetViewFlag(const boolean viewFlag);
+protected:
+	const double* sceneOpacity = NULL;
 private:
 	virtual void ContentView() = 0; //表示メソッド
 	int alpha = 255; //透明度
@@ -59,8 +61,8 @@ private:
 //描画用クラス（位置指定あり）
 class Draw2 : public Draw {
 public:
-	Draw2(const int position);
-	Draw2(const float x, const float y, const int pos);
+	Draw2(const int position, const double* sceneOpacity);
+	Draw2(const float x, const float y, const int pos, const double* sceneOpacity);
 	void ChangePos();
 	void ChangePos(const float x, const float y);
 	float GetX(); //x座標取得

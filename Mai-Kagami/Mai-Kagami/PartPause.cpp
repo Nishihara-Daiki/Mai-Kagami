@@ -2,8 +2,8 @@
 
 PartPauseButton::PartPauseButton(Touch *touch, Songs *songs) {
 	this->songs = songs;
-	button[0] = new CircleGraphButton(touch, 0, "img/pause.png");
-	button[1] = new CircleGraphButton(touch, 2, "img/pause.png");
+	button[0] = new CircleGraphButton(touch, 0, "img/pause.png", &sceneOpacity);
+	button[1] = new CircleGraphButton(touch, 2, "img/pause.png", &sceneOpacity);
 }
 
 void PartPauseButton::Load() {
@@ -64,8 +64,8 @@ PartPauseScreen::PartPauseScreen(Font *font, Songs *songs, Touch *touch)
 
 PartOptionPreview3::PartOptionPreview3(Font *font, Songs *songs, Touch *touch)
 	: PartOptionPreview(font, songs, touch, PART_SETTING, PART_SETTING_PART, PART_SETTING_SPEED) {
-	button = new CircleButton2(font, touch, "–ß‚é", 4);
-	blackBox = new BlackBox();
+	button = new CircleButton2(font, touch, "–ß‚é", 4, &sceneOpacity);
+	blackBox = new BlackBox(&sceneOpacity);
 }
 
 int PartOptionPreview3::Switch(const int scene) {

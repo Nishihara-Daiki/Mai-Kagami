@@ -1,13 +1,13 @@
 #include "Top.h"
 
 //トップロゴ
-TopLogo::TopLogo(const float y)
-	: MyDrawGraph(WIDTH * 0.5, y, "img/logo.png") {
+TopLogo::TopLogo(const float y, const double* sceneOpacity)
+	: MyDrawGraph(WIDTH * 0.5, y, "img/logo.png", sceneOpacity) {
 }
 
 //NFCタッチメッセージコンストラクタ
-TopTouchMessage::TopTouchMessage(Font *font, const float y)
-	: MyDrawText(font, "-カードをタッチしてください-", WIDTH * 0.5, y, 1, 46) {
+TopTouchMessage::TopTouchMessage(Font *font, const float y, const double* sceneOpacity)
+	: MyDrawText(font, "-カードをタッチしてください-", WIDTH * 0.5, y, 1, 46, sceneOpacity) {
 	Init(); //初期化
 }
 
@@ -36,11 +36,11 @@ void TopTouchMessage::View() {
 }
 
 //NFCタッチボタンコンストラクタ
-TopTouchButton::TopTouchButton(Font *font)
+TopTouchButton::TopTouchButton(Font *font, const double* sceneOpacity)
 	: Pos(WIDTH, NFC_POS) {
 	float r = WIDTH / 12;
-	text = new MyDrawTexts(font, "ここに\nタッチ！", GetX() - r, GetY(), 2, 40, 20);
-	circle = new MyDrawCircle(GetX(), GetY(), r);
+	text = new MyDrawTexts(font, "ここに\nタッチ！", GetX() - r, GetY(), 2, 40, 20, sceneOpacity);
+	circle = new MyDrawCircle(GetX(), GetY(), r, sceneOpacity);
 }
 
 //NFCタッチボタン表示
