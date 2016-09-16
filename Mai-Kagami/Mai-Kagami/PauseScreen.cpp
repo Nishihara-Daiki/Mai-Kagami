@@ -40,9 +40,9 @@ int PauseScreen::Switch(const int scene) {
 
 void PauseScreen::ContentUpdate() {
 	if (nowScene == pauseScene)
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, 0);
 	else
-		UpdateViewFlag(FALSE);
+		UpdateViewFlag(FALSE, 0);
 }
 
 void PauseScreen::ContentView() {
