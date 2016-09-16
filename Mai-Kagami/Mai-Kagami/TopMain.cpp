@@ -37,7 +37,7 @@ void Top::ContentUpdate() {
 		topTouchMessage->Update(); //NFCタッチメッセージ計算
 	}
 	else {
-		UpdateViewFlag(FALSE, SCENE_DELAY);
+		UpdateViewFlag(FALSE, SCENE_DURATION);
 		Delete();
 		//UpdateViewFlag(FALSE);
 	}

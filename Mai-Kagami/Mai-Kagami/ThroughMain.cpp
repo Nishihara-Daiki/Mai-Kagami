@@ -48,7 +48,7 @@ void ThroughMain::ContentUpdate() {
 		throughPause->Update(scene);
 	}
 	else {
-		UpdateViewFlag(FALSE, SCENE_DELAY);
+		UpdateViewFlag(FALSE, SCENE_DURATION);
 		Delete();
 	}
 }

@@ -17,7 +17,7 @@ void SubScene::Delete() {
 }
 
 // セットしたいフラグとそれに変更するまでの遅延フレーム数
-void SubScene::UpdateViewFlag(boolean flag, long duration) {
+void SubScene::UpdateViewFlag(boolean flag, long duration, long delay) {
 	boolean IsFirstTime = FALSE;	// 初回かどうか
 	boolean IsInterrupt = FALSE;	// フェード終了前に次のフェードが入ってるのかどうか
 
@@ -36,7 +36,7 @@ void SubScene::UpdateViewFlag(boolean flag, long duration) {
 	}
 
 	if (IsFirstTime) {
-		delayCount = duration;
+		fadeCount = duration;
 	}
 
 	if (IsFirstTime) {
@@ -54,14 +54,14 @@ void SubScene::UpdateViewFlag(boolean flag, long duration) {
 		if (IsFirstTime)
 			sceneOpacity = 1.0;
 		else
-			sceneOpacity *= (double)delayCount / (delayCount + 1);
+			sceneOpacity *= (double)fadeCount / (fadeCount + 1);
 	}
 	if (flag == TRUE)
 		sceneOpacity = 1 - sceneOpacity;
 
-	if (delayCount > 0) {
-		delayCount--;
-		if (delayCount == 0) {
+	if (fadeCount > 0) {
+		fadeCount--;
+		if (fadeCount == 0) {
 			viewFlag = flag;
 			sceneOpacity = 1;
 			fadeStatus = NOT_FADE;
@@ -101,7 +101,7 @@ void Scene::Load() {
 //削除
 void Scene::Delete() {
 	if(deleteFlag == TRUE) {
-		if (delayCount == 0) {
+		if (fadeCount == 0) {
 			ContentDelete();
 			loadFlag = 0;
 			deleteFlag = FALSE;

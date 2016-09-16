@@ -4,7 +4,7 @@
 #include "DxLib.h"
 #include "Main.h"
 
-#define SCENE_DELAY 10  // 画面切り替えにかかる時間
+#define SCENE_DURATION 10  // 画面切り替えにかかる時間
 
 enum {
 	NOT_FADE,	// 場面切り替え中ではない
@@ -22,10 +22,10 @@ public:
 	boolean CheckView(); //表示中かどうか確認する(TRUE:表示中、FALSE：非表示中)
 protected:
 	int nowScene;
-	long delayCount = 0;	// 場面切り替え時のディレイ
+	long fadeCount = 0;	// 場面切り替え時のフェードイン・アウトのカウンタ
 	virtual void ContentView() = 0; //表示詳細
 	virtual void ContentUpdate() = 0; //更新詳細
-	void UpdateViewFlag(boolean flag, long delay = SCENE_DELAY);
+	void UpdateViewFlag(boolean flag, long duration = SCENE_DURATION, long delay = 0);
 private:
 	boolean viewFlag = FALSE;		//表示用フラグ(TRUE:表示、FALSE：非表示)
 	short fadeStatus = NOT_FADE;	// 場面切り替えの状態
