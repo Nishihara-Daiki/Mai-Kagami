@@ -6,6 +6,12 @@
 
 #define SCENE_DELAY 120  // 画面切り替えにかかる時間
 
+enum {
+	NOT_FADE,	// 場面切り替え中ではない
+	FADING_IN,	// フェードイン中
+	FADING_OUT,	// フェードアウト中
+};
+
 //サブ場面定義
 class SubScene {
 public:
@@ -22,7 +28,9 @@ protected:
 	virtual void ContentUpdate() = 0; //更新詳細
 	void UpdateViewFlag(boolean flag, long delay = SCENE_DELAY);
 private:
-	boolean viewFlag = FALSE; //表示用フラグ(TRUE:表示、FALSE：非表示)
+	boolean viewFlag = FALSE;		//表示用フラグ(TRUE:表示、FALSE：非表示)
+	short fadeStatus = NOT_FADE;	// 場面切り替えの状態
+	double sceneOpacity = 1.0;
 };
 
 //場面定義
@@ -40,10 +48,29 @@ private:
 
 typedef struct {
 public:
-	void SetOpacity(const double opacity) { this->opacity = opacity; };
-	double GetOpacity() { return opacity; };
+	void SetOpacity(const double opacity) {
+		//switch (fadeStatus) {
+		//	case FADING_IN:  fadeInOpacity = opacity; break;
+		//	case FADING_OUT: fadeOutOpacity = opacity; break;
+		//	default: fadeInOpacity = fadeOutOpacity = 1.0; break;
+		//}
+		this->opacity = opacity;
+	};
+	//double GetOpacity() { return opacity; };
+	double GetDrawOpacity() {
+		//switch (fadeStatus) {
+		//	case NOT_FADE:   return 1.0;
+		//	case FADING_IN:  return fadeInOpacity;
+		//	case FADING_OUT: return fadeOutOpacity;
+		//}
+		return opacity;
+	};
+	//void FadeStatus(short flag) { fadeStatus = flag; };
 private:
+	//double fadeInOpacity = 1.0;
+	//double fadeOutOpacity = 1.0;
 	double opacity = 1.0;
+	//short fadeStatus;
 } SceneSwitch;
 
 extern SceneSwitch gSceneSwitch;

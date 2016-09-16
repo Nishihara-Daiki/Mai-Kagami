@@ -86,7 +86,7 @@ Draw::Draw(const float x, const float y) : Pos(x, y) {}
 
 //ï`âÊ
 void Draw::View() {
-	int a = (int)(alpha * gSceneSwitch.GetOpacity());
+	int a = (int)(alpha * gSceneSwitch.GetDrawOpacity());
 	if (viewFlag) {
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, a); //ìßñæìxê›íË
 		ContentView(); //ì‡óeï\é¶
