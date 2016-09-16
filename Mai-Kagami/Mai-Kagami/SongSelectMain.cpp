@@ -14,11 +14,11 @@ SongSelect::SongSelect(Font *font, Touch *touch, Songs *songs, User *user) {
 void SongSelect::ContentLoad() {
 	songInformation->Load(); //カバー画像ロード
 	songSelectTitle->Load(); //タイトルロード
-	songSelectPop->Load();	 //終了用ポップアップロード
-	songSelectButton->Load(); //曲選択ボタンロード
-	modeSelectButton->Load(); //モード選択ボタンロード
-	throughOptionButton->Load(); //通し練習オプション画面ボタンロード
-	partOptionButton->Load(); //部分練習オプション画面ボタンロード
+//	songSelectPop->Load();	 //終了用ポップアップロード
+//	songSelectButton->Load(); //曲選択ボタンロード
+//	modeSelectButton->Load(); //モード選択ボタンロード
+//	throughOptionButton->Load(); //通し練習オプション画面ボタンロード
+//	partOptionButton->Load(); //部分練習オプション画面ボタンロード
 }
 
 void SongSelect::SetScene(const int scene) {

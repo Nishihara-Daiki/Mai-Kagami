@@ -4,7 +4,7 @@
 #include "DxLib.h"
 #include "Main.h"
 
-#define SCENE_DELAY 120  // ‰æ–ÊØ‚è‘Ö‚¦‚É‚©‚©‚éŠÔ
+#define SCENE_DELAY 10  // ‰æ–ÊØ‚è‘Ö‚¦‚É‚©‚©‚éŠÔ
 
 enum {
 	NOT_FADE,	// ê–ÊØ‚è‘Ö‚¦’†‚Å‚Í‚È‚¢

@@ -20,10 +20,10 @@ void ThroughPauseButton::ContentUpdate() {
 	case THROUGH_PLAY:
 	case THROUGH_COUNTDOWN:
 	case THROUGH_START:
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, 0);
 		break;
 	default:
-		UpdateViewFlag(FALSE);
+		UpdateViewFlag(FALSE, 0);
 		break;
 	}
 }
@@ -101,10 +101,10 @@ void ThroughPause::ContentUpdate() {
 	case THROUGH_PAUSE:
 	case THROUGH_COUNTDOWN:
 	case THROUGH_START:
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, 0);
 		break;
 	default:
-		UpdateViewFlag(FALSE);
+		UpdateViewFlag(FALSE, 0);
 		break;
 	}
 }
