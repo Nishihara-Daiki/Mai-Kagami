@@ -43,7 +43,8 @@ void Scene::UpdateViewFlag(boolean flag, long duration, long wait) {
 	}
 	if (isFirstTime) {
 		fadeCount = duration + wait;
-		fadeStatus = FADE_WAIT;
+		if(!isWaited)
+			fadeStatus = FADE_WAIT;
 	}
 
 

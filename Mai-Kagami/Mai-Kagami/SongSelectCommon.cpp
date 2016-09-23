@@ -9,6 +9,12 @@ SongSelectTitle::SongSelectTitle(Font *font) {
 //曲選択画面タイトル計算
 void SongSelectTitle::ContentUpdate() {
 	static int lastScene = -100;
+
+	if (nowScene == MAIN)
+		UpdateViewFlag(TRUE);
+	else if (nowScene == BACK)
+		UpdateViewFlag(FALSE, 0, 0);
+
 	if (lastScene != nowScene) {
 		lastScene = nowScene;
 		switch (nowScene)
