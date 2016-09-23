@@ -11,10 +11,10 @@
 #include "PartPlay.h"
 #include "PartPause.h"
 
-class PartMain : public Scene {
+class PartMain : public MainScene {
 public:
 	PartMain(Font *font, Touch *touch, Songs *songs);
-	MainScene Switch(const MainScene scene);
+	MainSceneNum Switch(const MainSceneNum scene);
 	~PartMain();
 private:
 	void ContentLoad();

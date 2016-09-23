@@ -11,7 +11,7 @@ void PartResultMain::ContentLoad() {
 	partFinish->Load();
 }
 
-MainScene PartResultMain::Switch(const MainScene scene) {
+MainSceneNum PartResultMain::Switch(const MainSceneNum scene) {
 	switch (this->scene)
 	{
 	case PART_RESULT_TOP:

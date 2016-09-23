@@ -10,10 +10,10 @@
 #include "User.h"
 
 //ƒgƒbƒv‰æ–ÊŠÖŒW
-class Top : public Scene {
+class Top : public MainScene {
 public:
 	Top(Font *font, User *user);
-	MainScene Switch(const MainScene scene);
+	MainSceneNum Switch(const MainSceneNum scene);
 	~Top();
 private:
 	Font *f;

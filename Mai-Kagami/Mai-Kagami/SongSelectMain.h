@@ -16,10 +16,10 @@
 #include "User.h"
 
 //‹È‘I‘ð‰æ–ÊŠÖŒW
-class SongSelect : public Scene{
+class SongSelect : public MainScene {
 public:
 	SongSelect(Font *font, Touch *touch, Songs *songs, User *user);
-	MainScene Switch(const MainScene scene);
+	MainSceneNum Switch(const MainSceneNum scene);
 	void SetScene(const int scene);
 	~SongSelect();
 private:
