@@ -17,47 +17,89 @@ void SubScene::Delete() {
 }
 
 // セットしたいフラグとそれに変更するまでの遅延フレーム数
-void SubScene::UpdateViewFlag(boolean flag, long duration, long delay) {
-	boolean IsFirstTime = FALSE;	// 初回かどうか
-	boolean IsInterrupt = FALSE;	// フェード終了前に次のフェードが入ってるのかどうか
+void SubScene::UpdateViewFlag(boolean flag, long duration, long wait) {
+	boolean isFirstTime = FALSE;	// (待ち時間前の)1ループ目かどうか
+	boolean isInterrupt = FALSE;	// フェード終了前に次のフェードが入ってるのかどうか
+	boolean isWaited = FALSE;		// 待ち時間終了時ループかどうか
+	//static long waitCount = 0;
 
-	if (duration == 0) {	// 間隔がゼロの時は一気にワープ
+	//switch (fadeStatus) {
+	//case NOT_FADE:
+	//	if (viewFlag != flag) {
+	//		waitCount = wait;
+	//		if (wait > 0) {
+	//			fadeStatus = FADE_WAIT;
+	//			return;
+	//		}
+	//	}
+	//	break;
+	//case FADE_WAIT:
+	//	//if (viewFlag != flag) {  // 待ち終了前に次のフェードが入った場合
+	//	//	waitCount = wait;
+	//	//	return;
+	//	//}
+	//	waitCount--;
+	//	if (waitCount == 0) {
+	//		fadeStatus = NOT_FADE;
+	//		IsFirstTime = TRUE;	// 待ち終了、即ち、フェードイン・アウトの1ループ目
+	//	}
+	//	else {
+	//		return;
+	//	}
+	//}
+	//printfDx("%d", fadeStatus);
+	if (viewFlag != flag && fadeStatus == NOT_FADE) {	// 1ループ目
+		isFirstTime = TRUE;
+		fadeStatus = FADE_WAIT;
+	}
+	if (fadeStatus == FADING_IN && !flag || fadeStatus == FADING_OUT && flag) {	// フェード終了前に次のフェードが入った場合の1ループ目
+		isFirstTime = TRUE;
+		isInterrupt = TRUE;
+	}
+	if (fadeCount == duration || isFirstTime && wait == 0) {  // 待ち終了
+		isWaited = TRUE;
+		fadeStatus = flag ? FADING_IN : FADING_OUT;
+	}
+
+	if (duration == 0 && isWaited) {	// 間隔がゼロの時は一気にワープ
 		fadeStatus = NOT_FADE;
 		viewFlag = flag;
 		sceneOpacity = 1.0;
 		return;
 	}
-	if (viewFlag != flag && fadeStatus == NOT_FADE) {	// フェードイン・アウトの1ループ目
-		IsFirstTime = TRUE;
-	}
-	if (fadeStatus == FADING_IN && !flag || fadeStatus == FADING_OUT && flag) {	// フェード終了前に次のフェードが入った場合の1ループ目
-		IsFirstTime = TRUE;
-		IsInterrupt = TRUE;
+
+	if (isFirstTime)
+		fadeCount = duration + wait;
+
+	if (fadeStatus == FADE_WAIT) {
+		fadeCount--;
+		return;
 	}
 
-	if (IsFirstTime) {
-		fadeCount = duration;
-	}
-
-	if (IsFirstTime) {
-		fadeStatus = flag ? FADING_IN : FADING_OUT;
+	if (isWaited)
 		viewFlag = TRUE;
-	}
 
-	if (flag == TRUE)
-		sceneOpacity = 1 - sceneOpacity;
-	if (IsFirstTime) {	// 1フレーム目ならば
-		if(IsInterrupt == FALSE)	// 割り込みじゃなければ
-			sceneOpacity = 1.0;
+	//if (flag == TRUE)
+	//	sceneOpacity = 1 - sceneOpacity;
+	//if (isWated) {	// 1フレーム目ならば
+	//	if(isInterrupt == FALSE)	// 割り込みじゃなければ
+	//		sceneOpacity = 1.0;
+	//}
+	//else {
+	//	//if (isFirstTime)
+	//	//	sceneOpacity = 1.0;
+	//	//else
+	//	long count = fadeCount - wait;
+	//	sceneOpacity *= (double)count / (count + 1);
+	//}
+	//if (flag == TRUE)
+	//	sceneOpacity = 1 - sceneOpacity;
+
+	if (fadeStatus == FADING_IN || fadeStatus == FADING_OUT) {
+		sceneOpacity = (double)fadeCount / duration;
+		if (fadeStatus == FADING_IN)
+			sceneOpacity = 1 - sceneOpacity;
 	}
-	else {
-		if (IsFirstTime)
-			sceneOpacity = 1.0;
-		else
-			sceneOpacity *= (double)fadeCount / (fadeCount + 1);
-	}
-	if (flag == TRUE)
-		sceneOpacity = 1 - sceneOpacity;
 
 	if (fadeCount > 0) {
 		fadeCount--;
