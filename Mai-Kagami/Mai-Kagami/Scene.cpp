@@ -3,21 +3,21 @@
 SceneSwitch gSceneSwitch;
 
 //計算
-void SubScene::Update(const int scene) {
+void Scene::Update(const int scene) {
 	nowScene = scene;
 	ContentUpdate();
 }
 
-void SubScene::Load() {
+void Scene::Load() {
 	viewFlag = TRUE;
 }
 
-void SubScene::Delete() {
+void Scene::Delete() {
 	viewFlag = FALSE;
 }
 
 // セットしたいフラグとそれに変更するまでの遅延フレーム数
-void SubScene::UpdateViewFlag(boolean flag, long duration, long wait) {
+void Scene::UpdateViewFlag(boolean flag, long duration, long wait) {
 	boolean isFirstTime = FALSE;	// (待ち時間前の)1ループ目かどうか
 	boolean isWaited = FALSE;		// 待ち時間終了時ループかどうか
 	
@@ -73,14 +73,14 @@ void SubScene::UpdateViewFlag(boolean flag, long duration, long wait) {
 }
 
 //表示
-void SubScene::View() {
+void Scene::View() {
 	gSceneSwitch.SetOpacity(sceneOpacity);
 	if (viewFlag)
 		ContentView();
 }
 
 //表示中かどうか確認する(TRUE:表示中、FALSE：非表示中)
-boolean SubScene::CheckView() {
+boolean Scene::CheckView() {
 	return viewFlag;
 }
 

@@ -13,8 +13,8 @@ enum {
 	FADE_WAIT,	// フェードイン・アウト開始までの待ち
 };
 
-//サブ場面定義
-class SubScene {
+// 場面定義
+class Scene {
 public:
 	void Update(const int scene); //更新
 	void View(); //表示
@@ -33,8 +33,10 @@ private:
 	double sceneOpacity = 1.0;
 };
 
+class SubScene : public Scene {};
+
 //場面定義
-class MainScene : public SubScene {
+class MainScene : public Scene {
 protected:
 	void Load(); //ロード
 	void Delete(); //削除
