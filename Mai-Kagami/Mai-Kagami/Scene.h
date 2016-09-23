@@ -31,9 +31,13 @@ private:
 	boolean viewFlag = FALSE;		//表示用フラグ(TRUE:表示、FALSE：非表示)
 	short fadeStatus = NOT_FADE;	// 場面切り替えの状態
 	double sceneOpacity = 1.0;
+	virtual void SetOpacity(double opacity) = 0;
 };
 
-class SubScene : public Scene {};
+class SubScene : public Scene {
+private:
+	void SetOpacity(double opacity);
+};
 
 //場面定義
 class MainScene : public Scene {
@@ -42,6 +46,7 @@ protected:
 	void Delete(); //削除
 	void SetDeleteFlag(boolean status);
 private:
+	void SetOpacity(double opacity);
 	virtual void ContentLoad() = 0; //ロード詳細
 	virtual void ContentDelete() = 0; //削除詳細
 	int loadFlag = 0; //ロード確認用（0：未ロード、1：ロード中、2：ロード完了）
@@ -50,10 +55,12 @@ private:
 
 typedef struct {
 public:
-	void SetOpacity(const double opacity) { this->opacity = opacity; };
-	double GetDrawOpacity() { return opacity; };
+	void SetSubOpacity(const double opacity) { subOpacity = opacity; };
+	void SetMainOpacity(const double opacity) { mainOpacity = opacity; };
+	double GetDrawOpacity() { return mainOpacity * subOpacity; };
 private:
-	double opacity = 1.0;
+	double subOpacity = 1.0;
+	double mainOpacity = 1.0;
 } SceneSwitch;
 
 extern SceneSwitch gSceneSwitch;

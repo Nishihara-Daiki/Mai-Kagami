@@ -69,12 +69,14 @@ void Scene::UpdateViewFlag(boolean flag, long duration, long wait) {
 			fadeStatus = NOT_FADE;
 		}
 	}
-	gSceneSwitch.SetOpacity(sceneOpacity);
+//	gSceneSwitch.SetOpacity(sceneOpacity);
+	SetOpacity(sceneOpacity);
 }
 
 //表示
 void Scene::View() {
-	gSceneSwitch.SetOpacity(sceneOpacity);
+//	gSceneSwitch.SetOpacity(sceneOpacity);
+	SetOpacity(sceneOpacity);
 	if (viewFlag)
 		ContentView();
 }
@@ -82,6 +84,14 @@ void Scene::View() {
 //表示中かどうか確認する(TRUE:表示中、FALSE：非表示中)
 boolean Scene::CheckView() {
 	return viewFlag;
+}
+
+void SubScene::SetOpacity(double opacity) {
+	gSceneSwitch.SetSubOpacity(opacity);
+}
+
+void MainScene::SetOpacity(double opacity) {
+	gSceneSwitch.SetMainOpacity(opacity);
 }
 
 //ロード
