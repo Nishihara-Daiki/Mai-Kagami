@@ -12,8 +12,8 @@ void SongSelectTitle::ContentUpdate() {
 
 	if (nowScene == MAIN)
 		UpdateViewFlag(TRUE, SCENE_IN_WAIT);
-	else if (nowScene == BACK)
-		UpdateViewFlag(FALSE, 0, 0);
+//	else if (nowScene == BACK)
+//		UpdateViewFlag(FALSE, 0, 0);
 
 	if (lastScene != nowScene) {
 		lastScene = nowScene;

@@ -4,8 +4,8 @@
 #include "DxLib.h"
 #include "Main.h"
 
-#define SCENE_DURATION	20	// 画面切り替えフェードアニメーション時間
-#define SCENE_IN_WAIT	20	// 画面切り替えフェードインまでの待ち時間
+#define SCENE_DURATION	10	// 画面切り替えフェードアニメーション時間
+#define SCENE_IN_WAIT	10	// 画面切り替えフェードインまでの待ち時間
 
 enum {
 	NOT_FADE,	// 場面切り替え中ではない
@@ -16,8 +16,9 @@ enum {
 
 enum {
 	UNLOADED,	// 未ロード
-	LOADING,	// ロード中
-	LOADED,		// ロード完了
+	THREADING,	// 立てたスレッドの計算中
+	LOADING,	// 画像ロード中
+	LOADED,		// 完了
 };
 
 // 場面定義
@@ -56,7 +57,7 @@ private:
 	void SetOpacity(double opacity);
 	virtual void ContentLoad() = 0; //ロード詳細
 	virtual void ContentDelete() = 0; //削除詳細
-	int loadFlag = UNLOADED; //ロード確認用（0：未ロード、1：ロード中、2：ロード完了）
+	int loadStatus = UNLOADED; //ロード確認用（0：未ロード、1：ロード中、2：ロード完了）
 	boolean deleteFlag = FALSE;	// 削除確認用 (FALSE:未削除(通常) / TRUE:削除中)
 };
 

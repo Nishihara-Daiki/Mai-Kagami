@@ -95,19 +95,26 @@ void MainScene::SetOpacity(double opacity) {
 
 //ロード
 void MainScene::Load() {
-	if (loadFlag == LOADED) {
+	if (loadStatus == LOADED) {
 		UpdateViewFlag(TRUE);
 		return;
 	}
 
-	if (loadFlag == UNLOADED) {
-		ContentLoad();
-		loadFlag = LOADING;
+	if (loadStatus == UNLOADED) {
+
+		/* ここでスレッド立てる */
+
+		loadStatus = THREADING;
+	}
+	if (loadStatus == THREADING) {
+		if (TRUE) {				// スレッド終了していたら(今はスレッドないのでTRUEにしてる)
+			ContentLoad();		// 画像のロードを開始して
+			loadStatus = LOADING;	// 状態更新
+		}
 	}
 
-	if (loadFlag == LOADING && GetASyncLoadNum() == 0) {
-		//UpdateViewFlag(TRUE, 0, 0);
-		loadFlag = LOADED;
+	if (loadStatus == LOADING && GetASyncLoadNum() == 0) {	// 画像ロードが終われば
+		loadStatus = LOADED;
 	}
 }
 
@@ -116,7 +123,7 @@ void MainScene::Delete() {
 	if(deleteFlag == TRUE) {
 		if (fadeCount == 0) {
 			ContentDelete();
-			loadFlag = UNLOADED;
+			loadStatus = UNLOADED;
 			deleteFlag = FALSE;
 		}
 	}
