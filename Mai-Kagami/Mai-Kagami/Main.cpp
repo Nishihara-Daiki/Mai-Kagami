@@ -10,7 +10,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	MaiKagami *maiKagami = new MaiKagami(); //舞鏡クラス作成
 
 	SetUseASyncLoadFlag(TRUE); //非同期読み込みon
-							   // while(裏画面を表画面に反映, メッセージ処理, 画面クリア)
+
+	// while(裏画面を表画面に反映, メッセージ処理, 画面クリア)
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0) {
 		maiKagami->Update(); //舞鏡画面計算
 		maiKagami->View(); //舞鏡画面表示

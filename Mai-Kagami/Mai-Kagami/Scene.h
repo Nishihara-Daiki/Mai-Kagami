@@ -14,6 +14,12 @@ enum {
 	FADE_WAIT,	// フェードイン・アウト開始までの待ち
 };
 
+enum {
+	UNLOADED,	// 未ロード
+	LOADING,	// ロード中
+	LOADED,		// ロード完了
+};
+
 // 場面定義
 class Scene {
 public:
@@ -50,7 +56,7 @@ private:
 	void SetOpacity(double opacity);
 	virtual void ContentLoad() = 0; //ロード詳細
 	virtual void ContentDelete() = 0; //削除詳細
-	int loadFlag = 0; //ロード確認用（0：未ロード、1：ロード中、2：ロード完了）
+	int loadFlag = UNLOADED; //ロード確認用（0：未ロード、1：ロード中、2：ロード完了）
 	boolean deleteFlag = FALSE;	// 削除確認用 (FALSE:未削除(通常) / TRUE:削除中)
 };
 

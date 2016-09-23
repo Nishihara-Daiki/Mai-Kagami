@@ -95,17 +95,19 @@ void MainScene::SetOpacity(double opacity) {
 
 //ÉçÅ[Éh
 void MainScene::Load() {
-	if (loadFlag == 2)
+	if (loadFlag == LOADED) {
+		UpdateViewFlag(TRUE);
 		return;
-
-	if (loadFlag == 0) {
-		ContentLoad();
-		loadFlag = 1;
 	}
 
-	if (loadFlag == 1 && GetASyncLoadNum() == 0) {
-		UpdateViewFlag(TRUE, 0);
-		loadFlag = 2;
+	if (loadFlag == UNLOADED) {
+		ContentLoad();
+		loadFlag = LOADING;
+	}
+
+	if (loadFlag == LOADING && GetASyncLoadNum() == 0) {
+		//UpdateViewFlag(TRUE, 0, 0);
+		loadFlag = LOADED;
 	}
 }
 
@@ -114,7 +116,7 @@ void MainScene::Delete() {
 	if(deleteFlag == TRUE) {
 		if (fadeCount == 0) {
 			ContentDelete();
-			loadFlag = 0;
+			loadFlag = UNLOADED;
 			deleteFlag = FALSE;
 		}
 	}
