@@ -33,14 +33,10 @@ void SubScene::UpdateViewFlag(boolean flag, long duration, long wait) {
 		isFirstTime = TRUE;
 //		isInterrupt = TRUE;
 	}
-	if(isFirstTime)
-		fadeStatus = FADE_WAIT;
-
 	if (fadeCount == duration || isFirstTime && wait == 0) {  // 待ち終了
 		isWaited = TRUE;
 		fadeStatus = flag ? FADING_IN : FADING_OUT;
 	}
-
 	if (duration == 0 && isWaited) {	// 間隔がゼロの時は一気にワープ
 		fadeStatus = NOT_FADE;
 		viewFlag = flag;
@@ -48,9 +44,11 @@ void SubScene::UpdateViewFlag(boolean flag, long duration, long wait) {
 		fadeCount = 0;
 		return;
 	}
-
-	if (isFirstTime)
+	if (isFirstTime) {
 		fadeCount = duration + wait;
+		fadeStatus = FADE_WAIT;
+	}
+
 
 	if (fadeStatus == FADE_WAIT) {
 		fadeCount--;
