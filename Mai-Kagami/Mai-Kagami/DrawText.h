@@ -47,6 +47,15 @@ private:
 	char color[100];
 };
 
+// アンダーライン付きテキスト用アンダーライン
+class MyDrawUnderLine : public Color, public Draw {
+public:
+	MyDrawUnderLine(const float x, const float y, const float lineLength, const float lineWidth, const char *colorName);
+	void ContentView();
+private:
+	float w, l;  // 線の太さ、線の長さ
+};
+
 //アンダーライン付きテキスト
 class MyDrawTextLine : public Color, public Draw {
 public:
@@ -57,8 +66,10 @@ public:
 	~MyDrawTextLine();
 private:
 	MyDrawText *myDrawText;
+	MyDrawUnderLine *myDrawUnderLine;
 	int pos;
-	float x1, x2, y1, y2, w, l; //座標、線の太さ、線の長さ
+//	float x1, x2, y1, y2, w, l; //座標、線の太さ、線の長さ
+	float l;
 };
 
 #endif

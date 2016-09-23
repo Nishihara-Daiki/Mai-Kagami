@@ -145,14 +145,28 @@ MyDrawTexts::~MyDrawTexts() {
 		delete myDrawText[i];
 }
 
+// アンダーライン付きテキスト用アンダーライン
+MyDrawUnderLine::MyDrawUnderLine(const float x, const float y, const float lineLength, const float lineWidth, const char *colorName)
+	: Color(colorName), Draw(x, y) {
+	l = lineLength / SIZE_RATE;
+	w = lineWidth / SIZE_RATE;
+};
+
+void MyDrawUnderLine::ContentView() {
+	float x1 = x - l / 2;
+	float x2 = x + l / 2;
+	DrawLineAA(x1, y, x2, y, Color::Get(), w);
+}
+
+
 //アンダーライン付きテキスト
 //MyDrawTextLine（フォントポインタ、表示文字、x座標、y座標、ポジション情報、フォントサイズ、線の長さ、線の太さ、色）　※色は省略可能、省略した場合白色
 //ポジション情報（0：左寄せ、1：中央寄せ、2：右寄せ）
 MyDrawTextLine::MyDrawTextLine(Font *font, const char *str, const float x, const float y, const int pos, const int point, const float lineLength, const float lineWidth, const char *colorName)
 	: Color(colorName), Draw(x, y) {
 	myDrawText = new MyDrawText(font, str, x, y, pos, point, colorName);
+	myDrawUnderLine = new MyDrawUnderLine(x, y, lineLength, lineWidth, colorName);
 	l = lineLength / SIZE_RATE;
-	w = lineWidth / SIZE_RATE;
 	this->pos = pos;
 	ChangePos(x, y);
 }
@@ -160,26 +174,26 @@ MyDrawTextLine::MyDrawTextLine(Font *font, const char *str, const float x, const
 //アンダーライン付きテキスト描画
 void MyDrawTextLine::ContentView() {
 	myDrawText->View();
-	DrawLineAA(x1, y1, x2, y2, Color::Get(), w);
+	myDrawUnderLine->View();
 }
 
 //アンダーライン付きテキスト表示位置変更
 void MyDrawTextLine::ChangePos(const float x, const float y) {
-	x1 = x / SIZE_RATE - l / 2;
-	x2 = x / SIZE_RATE + l / 2;
-	y1 = y2 = (y + myDrawText->GetHeight() * 0.9) / SIZE_RATE;
+	float y1 = (y + myDrawText->GetHeight() * 0.9);
+	myDrawUnderLine->ChangePos(x, y1);
 
 	float xx;
+
 	switch (pos)
 	{
 	case 0:
-		xx = x1 * SIZE_RATE + 10;
+		xx = (x - l / 2 * SIZE_RATE) + 10;
 		break;
 	case 1:
 		xx = x;
 		break;
 	case 2:
-		xx = x2 * SIZE_RATE - 10;
+		xx = (x + l / 2 * SIZE_RATE) - 10;
 		break;
 	}
 	myDrawText->ChangePos(xx, y);
@@ -194,4 +208,5 @@ void MyDrawTextLine::ChangeText(char *str) {
 //アンダーライン付きテキストデストラクタ
 MyDrawTextLine::~MyDrawTextLine() {
 	delete myDrawText;
+	delete myDrawUnderLine;
 }
