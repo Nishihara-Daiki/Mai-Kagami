@@ -11,7 +11,7 @@ void SongSelectTitle::ContentUpdate() {
 	static int lastScene = -100;
 
 	if (nowScene == MAIN)
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, SCENE_IN_WAIT);
 	else if (nowScene == BACK)
 		UpdateViewFlag(FALSE, 0, 0);
 
@@ -86,7 +86,7 @@ void SongInformation::Load() {
 		songCover[i]->Load(n);
 	nowSong = songCover[songs->GetNowSong()];
 	nowSong->drawSongTitle->ChangePos(WIDTH * 0.79, HEIGHT * 0.3);
-	UpdateViewFlag(TRUE, 0);
+	UpdateViewFlag(TRUE, 0, 0);
 }
 
 void SongInformation::ContentUpdate() {

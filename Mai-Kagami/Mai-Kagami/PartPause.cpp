@@ -36,7 +36,7 @@ void PartPauseButton::ContentUpdate() {
 	case PART_COUNTDOWN:
 	case PART_START:
 	case PART_REWIND:
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, SCENE_IN_WAIT);
 		break;
 	default:
 		UpdateViewFlag(FALSE);
@@ -134,7 +134,7 @@ void PartPause::ContentUpdate() {
 	case PART_COUNTDOWN:
 	case PART_REWIND:
 	case PART_START:
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, SCENE_IN_WAIT);
 		break;
 	default:
 		UpdateViewFlag(FALSE);

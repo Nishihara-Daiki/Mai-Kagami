@@ -19,7 +19,7 @@ int ThroughOptionButton::Switch(const int scene) {
 void ThroughOptionButton::ContentUpdate() {
 	static int lastScene = TOP;
 	if (nowScene == OPTION1) {
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, SCENE_IN_WAIT);
 		Song *song = songs->GetSong(songs->GetNowSong());
 		song->danceMovie->SetStartFlame();
 		song->danceMovie->SetEndFlame();

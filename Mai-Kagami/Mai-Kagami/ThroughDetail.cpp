@@ -22,7 +22,7 @@ ThroughResultScene ThroughFinish::Switch(const ThroughResultScene scene) {
 
 void ThroughFinish::ContentUpdate() {
 	if (nowScene == THROUGH_RESULT_FINISH)
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, SCENE_IN_WAIT);
 	else
 		UpdateViewFlag(FALSE);
 }
@@ -71,7 +71,7 @@ void ThroughDetailScreen::Load() {
 
 void ThroughDetailScreen::ContentUpdate() {
 	if (nowScene == THROUGH_RESULT_DETAIL || nowScene == THROUGH_RESULT_FINISH)
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, SCENE_IN_WAIT);
 	else
 		UpdateViewFlag(FALSE);
 }
@@ -125,7 +125,7 @@ void ThroughDetail::ContentUpdate() {
 	throughFinish->Update(nowScene);
 	throughDetailScreen->Update(nowScene);
 	if (nowScene == THROUGH_RESULT_DETAIL || nowScene == THROUGH_RESULT_FINISH)
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, SCENE_IN_WAIT);
 	else
 		UpdateViewFlag(FALSE);
 }

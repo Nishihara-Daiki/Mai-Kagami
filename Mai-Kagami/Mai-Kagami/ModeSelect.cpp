@@ -22,7 +22,7 @@ int ModeSelectButton::Switch(const int scene) {
 //モード選択ボタン計算
 void ModeSelectButton::ContentUpdate() {
 	if (nowScene == MODE)
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, SCENE_IN_WAIT);
 	else
 		UpdateViewFlag(FALSE);
 }

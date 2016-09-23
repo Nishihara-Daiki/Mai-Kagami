@@ -93,13 +93,13 @@ int CountDown::Switch(const int scene) {
 
 void CountDown::ContentUpdate() {
 	if (nowScene == thisScene) {
-		UpdateViewFlag(TRUE, 0);
+		UpdateViewFlag(TRUE, 0, 0);
 		countCircle1->ChangeDegree((double)count / max * 100);
 		countCircle2->ChangePos(countCircle1->GetEndX() * SIZE_RATE, countCircle1->GetEndY() * SIZE_RATE);
 	}
 	else {
 		count = 0;
-		UpdateViewFlag(FALSE, 0);
+		UpdateViewFlag(FALSE, 0, 0);
 	}
 }
 

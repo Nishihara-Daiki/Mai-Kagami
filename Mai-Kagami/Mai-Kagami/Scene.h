@@ -4,8 +4,8 @@
 #include "DxLib.h"
 #include "Main.h"
 
-#define SCENE_DURATION	120	// 画面切り替えフェードアニメーション時間
-#define SCENE_IN_WAIT	120	// 画面切り替えフェードインまでの待ち時間
+#define SCENE_DURATION	20	// 画面切り替えフェードアニメーション時間
+#define SCENE_IN_WAIT	20	// 画面切り替えフェードインまでの待ち時間
 
 enum {
 	NOT_FADE,	// 場面切り替え中ではない
@@ -33,7 +33,7 @@ protected:
 	long fadeCount = 0;	// 場面切り替え時のフェードイン・アウトのカウンタ
 	virtual void ContentView() = 0; //表示詳細
 	virtual void ContentUpdate() = 0; //更新詳細
-	void UpdateViewFlag(boolean flag, long duration = SCENE_DURATION, long wait = 60);
+	void UpdateViewFlag(boolean flag, long wait = 0, long duration = SCENE_DURATION);
 private:
 	boolean viewFlag = FALSE;		//表示用フラグ(TRUE:表示、FALSE：非表示)
 	short fadeStatus = NOT_FADE;	// 場面切り替えの状態

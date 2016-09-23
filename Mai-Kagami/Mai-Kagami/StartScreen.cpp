@@ -18,10 +18,10 @@ void StartSceen::Load() {
 
 void StartSceen::ContentUpdate() {
 	if (nowScene == startScene) {
-		UpdateViewFlag(TRUE, 0);
+		UpdateViewFlag(TRUE, 0, 0);
 	}
 	else {
-		UpdateViewFlag(FALSE, 0);
+		UpdateViewFlag(FALSE, 0, 0);
 		if (nowScene = playScene) {
 			wait->ChangeText("ˆêŽž’âŽ~’†");
 			annotation->SetViewFlag(FALSE);

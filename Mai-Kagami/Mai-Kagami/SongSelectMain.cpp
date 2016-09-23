@@ -80,7 +80,7 @@ void SongSelect::ContentUpdate() {
 		partOptionButton->Update(scene);
 	}
 	else {
-		UpdateViewFlag(FALSE, SCENE_DURATION);
+		UpdateViewFlag(FALSE);
 		Delete();
 	}
 }

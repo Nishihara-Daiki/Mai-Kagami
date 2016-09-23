@@ -17,7 +17,7 @@ void Scene::Delete() {
 }
 
 // セットしたいフラグとそれに変更するまでの遅延フレーム数
-void Scene::UpdateViewFlag(boolean flag, long duration, long wait) {
+void Scene::UpdateViewFlag(boolean flag, long wait, long duration) {
 	boolean isFirstTime = FALSE;	// (待ち時間前の)1ループ目かどうか
 	boolean isWaited = FALSE;		// 待ち時間終了時ループかどうか
 	

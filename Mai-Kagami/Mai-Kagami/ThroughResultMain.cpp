@@ -47,7 +47,7 @@ void ThroughResultMain::ContentUpdate() {
 		throughDetail->Update(scene);
 	}
 	else {
-		UpdateViewFlag(FALSE, SCENE_DURATION);
+		UpdateViewFlag(FALSE);
 		Delete();
 	}
 }

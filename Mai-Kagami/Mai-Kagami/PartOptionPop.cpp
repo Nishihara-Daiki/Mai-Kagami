@@ -19,7 +19,7 @@ void PartOptionSpeedPop::ContentUpdate() {
 	if (nowScene == speedScene) {
 		if (lastScene == nowScene)
 			SpeedPop::ContentUpdate();
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, SCENE_IN_WAIT);
 	}
 	else {
 		UpdateViewFlag(FALSE);
@@ -48,7 +48,7 @@ void PartOptionPartPop::ContentUpdate() {
 			PartPop::Init();
 		else if (lastScene == nowScene)
 			PartPop::ContentUpdate();
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, SCENE_IN_WAIT);
 	}
 	else {
 		UpdateViewFlag(FALSE);
@@ -87,7 +87,7 @@ void PartOptionPreview::ContentUpdate() {
 		para[0]->ChangeText(song->GetPart(song->StartPart())->GetName());
 		para[1]->ChangeText(song->GetPart(song->EndPart())->GetName());
 		para[2]->ChangeText(str);
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, SCENE_IN_WAIT);
 	}
 	else {
 		UpdateViewFlag(FALSE);
@@ -153,7 +153,7 @@ void PartOptionPop::ContentUpdate() {
 	Song *song = songs->GetSong(songs->GetNowSong());
 
 	if (nowScene == mainScene || nowScene == partScene || nowScene == speedScene) {
-		UpdateViewFlag(TRUE);
+		UpdateViewFlag(TRUE, SCENE_IN_WAIT);
 		if (nowScene == mainScene) {
 			song->ChangeStart(0);
 			song->ChangeEnd(0);

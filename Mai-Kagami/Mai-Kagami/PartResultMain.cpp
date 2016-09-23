@@ -48,9 +48,10 @@ void PartResultMain::ContentUpdate() {
 		Load();
 		partResult->Update(scene);
 		partFinish->Update(scene);
+		printfDx("0");
 	}
 	else {
-		UpdateViewFlag(FALSE, SCENE_DURATION);
+		UpdateViewFlag(FALSE, 0);
 		Delete();
 	}
 }

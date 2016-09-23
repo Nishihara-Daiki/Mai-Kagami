@@ -34,7 +34,7 @@ ThroughResultScene ThroughResult::Switch(const ThroughResultScene scene) {
 
 void ThroughResult::ContentUpdate() {
 	if (nowScene == THROUGH_RESULT_TOP) //シーンがTHROUGH_RESULT_TOPだったら
-		UpdateViewFlag(TRUE); //画面を表示
+		UpdateViewFlag(TRUE, SCENE_IN_WAIT); //画面を表示
 	else //それ以外は
 		UpdateViewFlag(FALSE); //画面を非表示
 }
