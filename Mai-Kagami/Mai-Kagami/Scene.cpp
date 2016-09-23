@@ -85,7 +85,7 @@ boolean SubScene::CheckView() {
 }
 
 //ÉçÅ[Éh
-void Scene::Load() {
+void MainScene::Load() {
 	if (loadFlag == 2)
 		return;
 
@@ -101,7 +101,7 @@ void Scene::Load() {
 }
 
 //çÌèú
-void Scene::Delete() {
+void MainScene::Delete() {
 	if(deleteFlag == TRUE) {
 		if (fadeCount == 0) {
 			ContentDelete();
@@ -111,6 +111,6 @@ void Scene::Delete() {
 	}
 }
 
-void Scene::SetDeleteFlag(boolean flag) {
+void MainScene::SetDeleteFlag(boolean flag) {
 	deleteFlag = flag;
 }

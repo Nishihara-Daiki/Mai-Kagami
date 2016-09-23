@@ -14,10 +14,10 @@
 #include "KinectDistance.h"
 #include "Scene.h"
 
-class ThroughMain : public Scene{
+class ThroughMain : public MainScene {
 public:
 	ThroughMain(Font *font, Touch *touch, Songs *songs);
-	MainScene Switch(const MainScene scene);
+	MainSceneNum Switch(const MainSceneNum scene);
 	~ThroughMain();
 private:
 	void ContentLoad();

@@ -7,10 +7,10 @@
 #include "ThroughDetail.h"
 #include "ThroughResultDefine.h"
 
-class ThroughResultMain : public Scene {
+class ThroughResultMain : public MainScene {
 public:
 	ThroughResultMain(Font *font, Touch *touch, Songs *songs);
-	MainScene Switch(const MainScene scene);
+	MainSceneNum Switch(const MainSceneNum scene);
 	~ThroughResultMain();
 private:
 	void ContentLoad();

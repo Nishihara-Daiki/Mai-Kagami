@@ -34,7 +34,7 @@ private:
 };
 
 //ê–Ê’è‹`
-class Scene : public SubScene {
+class MainScene : public SubScene {
 protected:
 	void Load(); //ƒ[ƒh
 	void Delete(); //íœ

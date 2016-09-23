@@ -18,7 +18,7 @@ void Top::ContentLoad() {
 }
 
 //ê–Ê‚ÌØ‚è‘Ö‚¦
-MainScene Top::Switch(const MainScene scene) {
+MainSceneNum Top::Switch(const MainSceneNum scene) {
 	char* id = nfc.GetId();
 	if (id[0] != '\0') {
 		user->SetUserId(id);
