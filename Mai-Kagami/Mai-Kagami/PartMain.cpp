@@ -13,7 +13,7 @@ void PartMain::ContentLoad() {
 	partPause->Load();
 }
 
-MainScene PartMain::Switch(const MainScene scene) {
+MainSceneNum PartMain::Switch(const MainSceneNum scene) {
 	switch (this->scene)
 	{
 	case PART_COUNTDOWN:

@@ -11,7 +11,7 @@ void ThroughResultMain::ContentLoad() {
 	throughDetail->Load();
 }
 
-MainScene ThroughResultMain::Switch(const MainScene scene) {
+MainSceneNum ThroughResultMain::Switch(const MainSceneNum scene) {
 	switch (this->scene)
 	{
 	case THROUGH_RESULT_TOP:

@@ -9,10 +9,10 @@
 #include "PartResultDefine.h"
 #include "PartResult.h"
 
-class PartResultMain : public Scene {
+class PartResultMain : public MainScene {
 public:
 	PartResultMain(Font *font, Touch *touch, Songs *songs);
-	MainScene Switch(const MainScene scene);
+	MainSceneNum Switch(const MainSceneNum scene);
 	~PartResultMain();
 private:
 	void ContentLoad();

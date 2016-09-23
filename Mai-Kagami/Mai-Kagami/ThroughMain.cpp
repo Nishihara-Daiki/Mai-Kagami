@@ -13,7 +13,7 @@ void ThroughMain::ContentLoad() {
 	throughPause->Load();
 }
 
-MainScene ThroughMain::Switch(const MainScene scene) {
+MainSceneNum ThroughMain::Switch(const MainSceneNum scene) {
 	switch (this->scene)
 	{
 	case THROUGH_COUNTDOWN:

@@ -13,8 +13,8 @@ enum {
 	FADE_WAIT,	// フェードイン・アウト開始までの待ち
 };
 
-//サブ場面定義
-class SubScene {
+// 場面定義
+class Scene {
 public:
 	void Update(const int scene); //更新
 	void View(); //表示
@@ -27,14 +27,23 @@ protected:
 	virtual void ContentView() = 0; //表示詳細
 	virtual void ContentUpdate() = 0; //更新詳細
 	void UpdateViewFlag(boolean flag, long duration = SCENE_DURATION, long wait = 60);
+	double sceneOpacity = 1.0;
 private:
 	boolean viewFlag = FALSE;		//表示用フラグ(TRUE:表示、FALSE：非表示)
 	short fadeStatus = NOT_FADE;	// 場面切り替えの状態
-	double sceneOpacity = 1.0;
 };
 
-//場面定義
-class Scene : public SubScene {
+// サブ場面定義
+class SubScene : public Scene {
+public:
+	void View();
+};
+
+
+// メイン場面定義
+class MainScene : public Scene {
+public:
+	void View();
 protected:
 	void Load(); //ロード
 	void Delete(); //削除
@@ -48,10 +57,12 @@ private:
 
 typedef struct {
 public:
-	void SetOpacity(const double opacity) { this->opacity = opacity; };
-	double GetDrawOpacity() { return opacity; };
+	void SetMainOpacity(const double opacity) { mainOpacity = opacity; };
+	void SetSubOpacity(const double opacity) { subOpacity = opacity; };
+	double GetDrawOpacity() { return 1; mainOpacity * subOpacity; };
 private:
-	double opacity = 1.0;
+	double mainOpacity = 1.0;
+	double subOpacity = 1.0;
 } SceneSwitch;
 
 extern SceneSwitch gSceneSwitch;

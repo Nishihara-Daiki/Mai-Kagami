@@ -20,7 +20,7 @@ public:
 	void View(); //表示
 	~MaiKagami(); //デストラクタ
 private:
-	MainScene scene; //シーン
+	MainSceneNum scene; //シーン
 	Font *font; //フォント
 	Top *top; //トップ画面
 	SongSelect *songSelect; //曲選択画面

@@ -17,6 +17,6 @@ typedef enum {
 	PART_RESULT,
 	THROUGH_OPTION,
 	PART_OPTION
-} MainScene;
+} MainSceneNum;
 
 #endif

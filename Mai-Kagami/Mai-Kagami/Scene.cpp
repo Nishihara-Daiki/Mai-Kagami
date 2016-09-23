@@ -3,35 +3,33 @@
 SceneSwitch gSceneSwitch;
 
 //計算
-void SubScene::Update(const int scene) {
+void Scene::Update(const int scene) {
 	nowScene = scene;
 	ContentUpdate();
 }
 
-void SubScene::Load() {
+void Scene::Load() {
 	viewFlag = TRUE;
 }
 
-void SubScene::Delete() {
+void Scene::Delete() {
 	viewFlag = FALSE;
 }
 
 // セットしたいフラグとそれに変更するまでの遅延フレーム数
-void SubScene::UpdateViewFlag(boolean flag, long duration, long wait) {
+void Scene::UpdateViewFlag(boolean flag, long duration, long wait) {
 	boolean isFirstTime = FALSE;	// (待ち時間前の)1ループ目かどうか
 //	boolean isInterrupt = FALSE;	// フェード終了前に次のフェードが入ってるのかどうか
 	boolean isWaited = FALSE;		// 待ち時間終了時ループかどうか
 	
-	if (viewFlag != flag && fadeStatus == NOT_FADE) {	// 1ループ目
+	if (fadeStatus == NOT_FADE && viewFlag != flag) {	// 1ループ目
+		isFirstTime = TRUE;
+	}
+	if (fadeStatus == FADE_WAIT && viewFlag == flag) {	// 待ち中に次のフェードが入った場合の1ループ目
 		isFirstTime = TRUE;
 	}
 	if (fadeStatus == FADING_IN && !flag || fadeStatus == FADING_OUT && flag) {	// フェード終了前に次のフェードが入った場合の1ループ目
 		isFirstTime = TRUE;
-//		isInterrupt = TRUE;
-	}
-	if (fadeStatus == FADE_WAIT && viewFlag == flag) {
-		isFirstTime = TRUE;
-//		isInterrupt = TRUE;
 	}
 	if (fadeCount == duration || isFirstTime && wait == 0) {  // 待ち終了
 		isWaited = TRUE;
@@ -48,7 +46,6 @@ void SubScene::UpdateViewFlag(boolean flag, long duration, long wait) {
 		fadeCount = duration + wait;
 		fadeStatus = FADE_WAIT;
 	}
-
 
 	if (fadeStatus == FADE_WAIT) {
 		fadeCount--;
@@ -72,23 +69,32 @@ void SubScene::UpdateViewFlag(boolean flag, long duration, long wait) {
 			fadeStatus = NOT_FADE;
 		}
 	}
-	gSceneSwitch.SetOpacity(sceneOpacity);
+	gSceneSwitch.SetSubOpacity(sceneOpacity);
 }
 
 //表示
-void SubScene::View() {
-	gSceneSwitch.SetOpacity(sceneOpacity);
+void Scene::View() {
 	if (viewFlag)
 		ContentView();
 }
 
 //表示中かどうか確認する(TRUE:表示中、FALSE：非表示中)
-boolean SubScene::CheckView() {
+boolean Scene::CheckView() {
 	return viewFlag;
 }
 
+void SubScene::View() {
+	gSceneSwitch.SetSubOpacity(sceneOpacity);
+	Scene::View();
+}
+
+void MainScene::View() {
+	gSceneSwitch.SetMainOpacity(1);
+	Scene::View();
+}
+
 //ロード
-void Scene::Load() {
+void MainScene::Load() {
 	if (loadFlag == 2)
 		return;
 
@@ -104,7 +110,7 @@ void Scene::Load() {
 }
 
 //削除
-void Scene::Delete() {
+void MainScene::Delete() {
 	if(deleteFlag == TRUE) {
 		if (fadeCount == 0) {
 			ContentDelete();
@@ -114,6 +120,6 @@ void Scene::Delete() {
 	}
 }
 
-void Scene::SetDeleteFlag(boolean flag) {
+void MainScene::SetDeleteFlag(boolean flag) {
 	deleteFlag = flag;
 }

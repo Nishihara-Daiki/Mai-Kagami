@@ -26,7 +26,7 @@ void SongSelect::SetScene(const int scene) {
 }
 
 //‹È‘I‘ð‰æ–Êê–ÊØ‚è‘Ö‚¦
-MainScene SongSelect::Switch(const MainScene scene) {
+MainSceneNum SongSelect::Switch(const MainSceneNum scene) {
 	switch (this->scene)
 	{
 	case BACK:
