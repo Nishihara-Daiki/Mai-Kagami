@@ -49,9 +49,6 @@ void SubScene::UpdateViewFlag(boolean flag, long duration, long wait) {
 		return;
 	}
 
-	if (isFirstTime)
-		fadeCount = duration + wait;
-
 	if (fadeStatus == FADE_WAIT) {
 		fadeCount--;
 		return;
