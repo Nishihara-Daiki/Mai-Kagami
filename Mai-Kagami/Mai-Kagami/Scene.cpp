@@ -19,7 +19,6 @@ void SubScene::Delete() {
 // セットしたいフラグとそれに変更するまでの遅延フレーム数
 void SubScene::UpdateViewFlag(boolean flag, long duration, long wait) {
 	boolean isFirstTime = FALSE;	// (待ち時間前の)1ループ目かどうか
-//	boolean isInterrupt = FALSE;	// フェード終了前に次のフェードが入ってるのかどうか
 	boolean isWaited = FALSE;		// 待ち時間終了時ループかどうか
 	
 	if (viewFlag != flag && fadeStatus == NOT_FADE) {	// 1ループ目
@@ -27,11 +26,9 @@ void SubScene::UpdateViewFlag(boolean flag, long duration, long wait) {
 	}
 	if (fadeStatus == FADING_IN && !flag || fadeStatus == FADING_OUT && flag) {	// フェード終了前に次のフェードが入った場合の1ループ目
 		isFirstTime = TRUE;
-//		isInterrupt = TRUE;
 	}
 	if (fadeStatus == FADE_WAIT && viewFlag == flag) {
 		isFirstTime = TRUE;
-//		isInterrupt = TRUE;
 	}
 	if (fadeCount == duration || isFirstTime && wait == 0) {  // 待ち終了
 		isWaited = TRUE;
