@@ -69,13 +69,11 @@ void Scene::UpdateViewFlag(boolean flag, long duration, long wait) {
 			fadeStatus = NOT_FADE;
 		}
 	}
-//	gSceneSwitch.SetOpacity(sceneOpacity);
 	SetOpacity(sceneOpacity);
 }
 
 //•\Ž¦
 void Scene::View() {
-//	gSceneSwitch.SetOpacity(sceneOpacity);
 	SetOpacity(sceneOpacity);
 	if (viewFlag)
 		ContentView();
