@@ -54,10 +54,10 @@ int ThroughPauseSetting::Switch(const int scene) {
 void ThroughPauseSetting::ContentUpdate() {
 	if (nowScene == THROUGH_SETTING) {
 		SpeedPop::ContentUpdate();
-		UpdateViewFlag(TRUE, SCENE_IN_WAIT);
+		UpdateViewFlag(TRUE, SCENE_IN_WAIT, 0);
 	}
 	else {
-		UpdateViewFlag(FALSE);
+		UpdateViewFlag(FALSE, SCENE_IN_WAIT, 0);
 	}
 }
 

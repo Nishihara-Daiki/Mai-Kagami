@@ -22,7 +22,7 @@ void ViewFlag::UpdateViewFlag(boolean flag, long wait, long duration) {
 	if (fadeStatus == FADE_WAIT && viewFlag == flag) {
 		isFirstTime = TRUE;
 	}
-	if (fadeCount == duration || isFirstTime && wait == 0) {  // ë“ÇøèIóπ
+	if (!isFirstTime && fadeCount == duration || isFirstTime && wait == 0) {  // ë“ÇøèIóπ
 		isWaited = TRUE;
 		fadeStatus = flag ? FADING_IN : FADING_OUT;
 	}
