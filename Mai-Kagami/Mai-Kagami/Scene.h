@@ -21,40 +21,51 @@ enum {
 	LOADED,		// 完了
 };
 
+
+class ViewFlag {
+public:
+	boolean CheckView(); //表示中かどうか確認する(TRUE:表示中、FALSE：非表示中)
+protected:
+	void UpdateViewFlag(boolean flag, long wait = 0, long duration = SCENE_DURATION);
+	boolean GetViewFlag();
+	long GetFadeCount();
+	double GetSceneOpacity();
+	virtual void SetOpacity() = 0;  // グローバル変数にセット
+private:
+	boolean viewFlag = FALSE;		//表示用フラグ(TRUE:表示、FALSE：非表示)
+	long fadeCount = 0;	// 場面切り替え時のフェードイン・アウトのカウンタ
+	short fadeStatus = NOT_FADE;	// 場面切り替えの状態
+	double sceneOpacity = 1.0;
+};
+
+
 // 場面定義
-class Scene {
+class Scene: public ViewFlag {
 public:
 	void Update(const int scene); //更新
 	void View(); //表示
 	void Load(); //ロード
 	void Delete(); //削除
-	boolean CheckView(); //表示中かどうか確認する(TRUE:表示中、FALSE：非表示中)
 protected:
 	int nowScene;
-	long fadeCount = 0;	// 場面切り替え時のフェードイン・アウトのカウンタ
 	virtual void ContentView() = 0; //表示詳細
 	virtual void ContentUpdate() = 0; //更新詳細
-	void UpdateViewFlag(boolean flag, long wait = 0, long duration = SCENE_DURATION);
-private:
-	boolean viewFlag = FALSE;		//表示用フラグ(TRUE:表示、FALSE：非表示)
-	short fadeStatus = NOT_FADE;	// 場面切り替えの状態
-	double sceneOpacity = 1.0;
-	virtual void SetOpacity(double opacity) = 0;
 };
+
 
 class SubScene : public Scene {
 private:
-	void SetOpacity(double opacity);
+	void SetOpacity();
 };
 
-//場面定義
+
 class MainScene : public Scene {
 protected:
 	void Load(); //ロード
 	void Delete(); //削除
 	void SetDeleteFlag(boolean status);
 private:
-	void SetOpacity(double opacity);
+	void SetOpacity();
 	virtual void ContentLoad() = 0; //ロード詳細
 	virtual void ContentDelete() = 0; //削除詳細
 	int loadStatus = UNLOADED; //ロード確認用（0：未ロード、1：ロード中、2：ロード完了）

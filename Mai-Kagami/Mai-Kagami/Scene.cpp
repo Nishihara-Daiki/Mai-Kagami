@@ -2,25 +2,17 @@
 
 SceneSwitch gSceneSwitch;
 
-//計算
-void Scene::Update(const int scene) {
-	nowScene = scene;
-	ContentUpdate();
-}
 
-void Scene::Load() {
-	viewFlag = TRUE;
-}
-
-void Scene::Delete() {
-	viewFlag = FALSE;
+//表示中かどうか確認する(TRUE:表示中、FALSE：非表示中)
+boolean ViewFlag::CheckView() {
+	return viewFlag;
 }
 
 // セットしたいフラグとそれに変更するまでの遅延フレーム数
-void Scene::UpdateViewFlag(boolean flag, long wait, long duration) {
+void ViewFlag::UpdateViewFlag(boolean flag, long wait, long duration) {
 	boolean isFirstTime = FALSE;	// (待ち時間前の)1ループ目かどうか
 	boolean isWaited = FALSE;		// 待ち時間終了時ループかどうか
-	
+
 	if (viewFlag != flag && fadeStatus == NOT_FADE) {	// 1ループ目
 		isFirstTime = TRUE;
 	}
@@ -43,7 +35,7 @@ void Scene::UpdateViewFlag(boolean flag, long wait, long duration) {
 	}
 	if (isFirstTime) {
 		fadeCount = duration + wait;
-		if(!isWaited)
+		if (!isWaited)
 			fadeStatus = FADE_WAIT;
 	}
 
@@ -70,33 +62,61 @@ void Scene::UpdateViewFlag(boolean flag, long wait, long duration) {
 			fadeStatus = NOT_FADE;
 		}
 	}
-	SetOpacity(sceneOpacity);
+	SetOpacity();
+}
+
+boolean ViewFlag::GetViewFlag() {
+	return viewFlag;
+}
+
+long ViewFlag::GetFadeCount() {
+	return fadeCount;
+}
+
+double ViewFlag::GetSceneOpacity() {
+	return sceneOpacity;
+}
+
+
+//計算
+void Scene::Update(const int scene) {
+	nowScene = scene;
+	ContentUpdate();
+}
+
+void Scene::Load() {
+	UpdateViewFlag(TRUE, 0, 0);
+}
+
+void Scene::Delete() {
+	UpdateViewFlag(FALSE, 0, 0);
 }
 
 //表示
 void Scene::View() {
-	SetOpacity(sceneOpacity);
-	if (viewFlag)
+	SetOpacity();
+	if (GetViewFlag())
 		ContentView();
 }
 
-//表示中かどうか確認する(TRUE:表示中、FALSE：非表示中)
-boolean Scene::CheckView() {
-	return viewFlag;
+
+void SubScene::SetOpacity() {
+	gSceneSwitch.SetSubOpacity(GetSceneOpacity());
 }
 
-void SubScene::SetOpacity(double opacity) {
-	gSceneSwitch.SetSubOpacity(opacity);
+void MainScene::SetOpacity() {
+	gSceneSwitch.SetMainOpacity(GetSceneOpacity());
 }
 
-void MainScene::SetOpacity(double opacity) {
-	gSceneSwitch.SetMainOpacity(opacity);
-}
 
 //ロード
 void MainScene::Load() {
+	static int cnt = 0;
 	if (loadStatus == LOADED) {
-		UpdateViewFlag(TRUE);
+		int wait = SCENE_IN_WAIT - cnt;
+		if(wait < 0)
+			wait = 0;
+		UpdateViewFlag(TRUE, wait);
 		return;
 	}
 
@@ -105,23 +125,29 @@ void MainScene::Load() {
 		/* ここでスレッド立てる */
 
 		loadStatus = THREADING;
+		cnt = 0;
 	}
 	if (loadStatus == THREADING) {
 		if (TRUE) {				// スレッド終了していたら(今はスレッドないのでTRUEにしてる)
 			ContentLoad();		// 画像のロードを開始して
 			loadStatus = LOADING;	// 状態更新
 		}
+		else {
+			cnt++;
+		}
 	}
-
-	if (loadStatus == LOADING && GetASyncLoadNum() == 0) {	// 画像ロードが終われば
-		loadStatus = LOADED;
+	if (loadStatus == LOADING) {
+		if (GetASyncLoadNum() == 0) {	// 画像ロードが終われば
+			loadStatus = LOADED;
+		}
+		cnt++;
 	}
 }
 
 //削除
 void MainScene::Delete() {
 	if(deleteFlag == TRUE) {
-		if (fadeCount == 0) {
+		if (GetFadeCount() == 0) {
 			ContentDelete();
 			loadStatus = UNLOADED;
 			deleteFlag = FALSE;
