@@ -86,7 +86,7 @@ Draw::Draw(const float x, const float y) : Pos(x, y) {}
 
 //描画
 void Draw::View() {
-	int a = (int)(alpha * gSceneSwitch.GetDrawOpacity());
+	int a = (int)( alpha * (exceptFadeFlag ? 1 : gSceneSwitch.GetDrawOpacity()) );
 	if (viewFlag) {
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, a); //透明度設定
 		ContentView(); //内容表示
@@ -96,6 +96,10 @@ void Draw::View() {
 
 void Draw::SetViewFlag(const boolean flag) {
 	viewFlag = flag;
+}
+
+void Draw::SetExceptFadeFlag(const boolean flag) {
+	exceptFadeFlag = flag;
 }
 
 //透明度指定

@@ -48,12 +48,14 @@ public:
 	void Update();	// アニメーション更新
 	void Stop(boolean jumpF = FALSE);	// アニメーション中断
 	void SetViewFlag(const boolean viewFlag);
+	void SetExceptFadeFlag(const boolean flag);
 private:
 	virtual void ContentView() = 0; //表示メソッド
 	int alpha = 255; //透明度
 	int target_alpha, default_alpha;
 	Easing ease_alpha;
 	boolean viewFlag = TRUE;
+	boolean exceptFadeFlag = FALSE;	// フェードの対象から除外
 };
 
 //描画用クラス（位置指定あり）
