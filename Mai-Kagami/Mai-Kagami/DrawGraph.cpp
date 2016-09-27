@@ -29,34 +29,39 @@ void MyDrawGraph::ContentView() {
 
 //‰æ‘œ‘å‚«‚³•ÏX
 void MyDrawGraph::ChangeEx(const double ExRate) {
+	SetEx(ExRate);
+}
+
+void MyDrawGraph::SetEx(const double ExRate) {
 	ex = ExRate;
 }
+
 //‰æ‘œ‘å‚«‚³Žæ“¾
 double MyDrawGraph::GetEx() {
 	return ex;
 }
-
-void MyDrawGraph::SetExAnimation(double target_ex, Easing ease) {
-	if (GetTime() != 0)
-		return;
-	default_ex = GetEx();
-	this->target_ex = target_ex;
-	ease_ex = ease;
-}
-
-void MyDrawGraph::Update() {
-	double r = UpdateRate(ease_ex);
-	float nex = default_ex + (target_ex - default_ex) * r;
-	ChangeEx(nex);
-	Draw::Update();
-}
-
-void MyDrawGraph::Stop(boolean jumpF) {
-	if (jumpF == TRUE)
-		SetAnimationTime(0);
-	Update();
-	Reset();
-}
+//
+//void MyDrawGraph::SetExAnimation(double target_ex, Easing ease) {
+//	if (GetTime() != 0)
+//		return;
+//	default_ex = GetEx();
+//	this->target_ex = target_ex;
+//	ease_ex = ease;
+//}
+//
+//void MyDrawGraph::Update() {
+//	double r = UpdateRate(ease_ex);
+//	float nex = default_ex + (target_ex - default_ex) * r;
+//	ChangeEx(nex);
+//	Draw::Update();
+//}
+//
+//void MyDrawGraph::Stop(boolean jumpF) {
+//	if (jumpF == TRUE)
+//		SetAnimationTime(0);
+//	Update();
+//	Reset();
+//}
 
 //‰æ‘œ‚ð‰ð•ú
 void MyDrawGraph::Release() {

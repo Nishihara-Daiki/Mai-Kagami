@@ -37,22 +37,25 @@ void SongSelectCover::Update(int num, int max) {
 	float y = CalcY();
 
 	if (n == -2 && num > 0 || n == max - 3 && num < 0) {
-		coverGraph->SetAnimationTime(0);
-		coverGraph->SetPosAnimation(WIDTH * 0.5, y);
-		coverWhite->SetAnimationTime(0);
-		coverWhite->SetPosAnimation(WIDTH * 0.5, y);
+		//coverGraph->SetAnimationTime(0);
+		//coverGraph->SetPosAnimation(WIDTH * 0.5, y);
+		//coverWhite->SetAnimationTime(0);
+		//coverWhite->SetPosAnimation(WIDTH * 0.5, y);
 	}
-	else if (coverGraph->GetTime() == 0) { // 最初だけ
-		coverGraph->SetAnimationTime(duration);
-		coverGraph->SetPosAnimation(WIDTH * 0.5, y, Easing::EaseOut_SINE);
-		coverWhite->SetAnimationTime(duration);
-		coverWhite->SetPosAnimation(WIDTH * 0.5, y, Easing::EaseOut_SINE);
-	}
+	//else if (coverGraph->GetTime() == 0) { // 最初だけ
+		//coverGraph->SetAnimationTime(duration);
+		//coverGraph->SetPosAnimation(WIDTH * 0.5, y, Easing::EaseOut_SINE);
+		//coverWhite->SetAnimationTime(duration);
+		//coverWhite->SetPosAnimation(WIDTH * 0.5, y, Easing::EaseOut_SINE);
+		//printfDx("0");
+	//}
 
-	coverGraph->SetExAnimation(CalcEx(), Easing::EaseOut_SINE);
-	coverGraph->SetAlphaAnimation(CalcAlpha(), Easing::EaseOut_SINE);
-	coverWhite->SetExAnimation(CalcEx(), Easing::EaseOut_SINE);
-	coverWhite->SetAlphaAnimation(CalcAlphaWhite(), Easing::EaseOut_SINE);
+	//coverGraph->SetExAnimation(CalcEx(), Easing::EaseOut_SINE);
+	//coverGraph->SetAlphaAnimation(CalcAlpha(), Easing::EaseOut_SINE);
+	//coverWhite->SetExAnimation(CalcEx(), Easing::EaseOut_SINE);
+	//coverWhite->SetAlphaAnimation(CalcAlphaWhite(), Easing::EaseOut_SINE);
+
+	coverGraph->ChangeEx
 
 	coverGraph->Update(); // アニメーション更新
 	coverWhite->Update();

@@ -18,12 +18,14 @@ private:
 };
 
 //表示位置用クラス
-class Pos : public Animation {
+//class Pos : public Animation {
+class Pos : public PosAnimation {
 public:
 	void ChangePos(const float x, const float y); //座標変更
-	void SetPosAnimation(float target_x, float target_y, Easing ease = LINER);  // Jaity
+	void SetPos(const float x, const float y);	// ChangePosの別名
+	//void SetPosAnimation(float target_x, float target_y, Easing ease = LINER);  // Jaity
 	void Update();	// アニメーション更新
-	void Stop(boolean jumpF = FALSE);	// アニメーション中断
+	//void Stop(boolean jumpF = FALSE);	// アニメーション中断
 	float GetX(); //x座標取得
 	float GetY(); //y座標取得
 protected:
@@ -31,9 +33,9 @@ protected:
 	Pos(const float x, const float y); //初期化
 	float x, y;
 private:
-	float target_x, target_y;	// アニメーション時の目標座標
-	float default_x, default_y;	// アニメーション開始時の座標
-	Easing ease_pos;
+	//float target_x, target_y;	// アニメーション時の目標座標
+	//float default_x, default_y;	// アニメーション開始時の座標
+	//Easing ease_pos;
 };
 
 //描画用クラス
@@ -44,9 +46,9 @@ public:
 	void View();
 	void SetAlpha(const int alpha = 255); //透明度指定
 	int GetAlpha();
-	void SetAlphaAnimation(int alpha = 255, Easing ease = LINER);
-	void Update();	// アニメーション更新
-	void Stop(boolean jumpF = FALSE);	// アニメーション中断
+	//void SetAlphaAnimation(int alpha = 255, Easing ease = LINER);
+	//void Update();	// アニメーション更新
+	//void Stop(boolean jumpF = FALSE);	// アニメーション中断
 	void SetViewFlag(const boolean viewFlag);
 	void SetExceptFadeFlag(const boolean flag);
 private:

@@ -37,36 +37,44 @@ void Pos::ChangePos(const float x, const float y) {
 	this->x = x / SIZE_RATE; this->y = y / SIZE_RATE;
 }
 
-// アニメーション用パラメータセット Jaity
-void Pos::SetPosAnimation(float target_x, float target_y, Easing ease) {
-	if (GetTime() != 0)
-		return;
-	default_x = GetX();
-	default_y = GetY();
-	this->target_x = target_x;
-	this->target_y = target_y;
-	ease_pos = ease;
-//	SetRate(duration, ease);
-	//SetDuration(duration);
+void Pos::SetPos(const float x, const float y) {
+	ChangePos(x, y);
 }
 
+//// アニメーション用パラメータセット Jaity
+//void Pos::SetPosAnimation(float target_x, float target_y, Easing ease) {
+//	if (GetTime() != 0)
+//		return;
+//	default_x = GetX();
+//	default_y = GetY();
+//	this->target_x = target_x;
+//	this->target_y = target_y;
+//	ease_pos = ease;
+////	SetRate(duration, ease);
+//	//SetDuration(duration);
+//}
+//
+//
+//// アニメーション更新 Jaity
+//void Pos::Update() {
+//	double r = UpdateRate(ease_pos);
+//	float nx = default_x + (target_x - default_x) * r;
+//	float ny = default_y + (target_y - default_y) * r;
+//	ChangePos(nx, ny);
+//}
 
-// アニメーション更新 Jaity
 void Pos::Update() {
-	double r = UpdateRate(ease_pos);
-	float nx = default_x + (target_x - default_x) * r;
-	float ny = default_y + (target_y - default_y) * r;
-	ChangePos(nx, ny);
+	UpdatePosAnimation();
 }
-
-// アニメーション中断
-// 中断時に最終値に飛ぶかどうか
-void Pos::Stop(boolean jumpF) {
-	if (jumpF == TRUE)
-		SetAnimationTime(0);
-	Update();
-	Reset();
-}
+//
+//// アニメーション中断
+//// 中断時に最終値に飛ぶかどうか
+//void Pos::Stop(boolean jumpF) {
+//	if (jumpF == TRUE)
+//		SetAnimationTime(0);
+//	Update();
+//	Reset();
+//}
 
 //x座標取得
 float Pos::GetX() {
@@ -111,27 +119,27 @@ int Draw::GetAlpha() {
 	return alpha;
 }
 
-void Draw::SetAlphaAnimation(int target_alpha, Easing ease) {
-	if (GetTime() != 0)
-		return;
-	default_alpha = GetAlpha();
-	this->target_alpha= target_alpha;
-	ease_alpha = ease;
-}
-
-void Draw::Update() {
-	double r = UpdateRate(ease_alpha);
-	int na = default_alpha + (target_alpha - default_alpha) * r;
-	SetAlpha(na);
-	Pos::Update();
-}
-
-void Draw::Stop(boolean jumpF) {
-	if (jumpF == TRUE)
-		SetAnimationTime(0);
-	Update();
-	Reset();
-}
+//void Draw::SetAlphaAnimation(int target_alpha, Easing ease) {
+//	if (GetTime() != 0)
+//		return;
+//	default_alpha = GetAlpha();
+//	this->target_alpha= target_alpha;
+//	ease_alpha = ease;
+//}
+//
+//void Draw::Update() {
+//	double r = UpdateRate(ease_alpha);
+//	int na = default_alpha + (target_alpha - default_alpha) * r;
+//	SetAlpha(na);
+//	Pos::Update();
+//}
+//
+//void Draw::Stop(boolean jumpF) {
+//	if (jumpF == TRUE)
+//		SetAnimationTime(0);
+//	Update();
+//	Reset();
+//}
 
 Draw2::Draw2(const int pos) {
 	p = pos;

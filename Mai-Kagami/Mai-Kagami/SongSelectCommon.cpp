@@ -102,8 +102,8 @@ void SongInformation::ContentUpdate() {
 			if(touch->Hold2(0)) {
 				direct = 1;  // Jaity
 				for (int i = 0; i < n; i++) {
-					songCover[i]->coverGraph->Stop();
-					songCover[i]->coverWhite->Stop();
+					//songCover[i]->coverGraph->Stop();
+					//songCover[i]->coverWhite->Stop();
 				}
 			}
 
@@ -111,8 +111,8 @@ void SongInformation::ContentUpdate() {
 			if(touch->Hold2(2)) {
 				direct = -1;  // Jaity
 				for (int i = 0; i < n; i++) {
-					songCover[i]->coverGraph->Stop();
-					songCover[i]->coverWhite->Stop();
+					//songCover[i]->coverGraph->Stop();
+					//songCover[i]->coverWhite->Stop();
 				}
 			}
 		}
