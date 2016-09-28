@@ -1,7 +1,7 @@
 #include "SongSelectCover.h"
 #include "Animation.h"
 
-SongSelectCover::SongSelectCover(Font *font, Song *song, const int now) 
+SongSelectCover::SongSelectCover(Font *font, Song *song, const int now)
 	: Song(*song) {
 	char *folder = "";
 	SetNow(now);
@@ -43,19 +43,23 @@ void SongSelectCover::Update(int num, int max) {
 		//coverWhite->SetPosAnimation(WIDTH * 0.5, y);
 	}
 	//else if (coverGraph->GetTime() == 0) { // 最初だけ
-		//coverGraph->SetAnimationTime(duration);
-		//coverGraph->SetPosAnimation(WIDTH * 0.5, y, Easing::EaseOut_SINE);
-		//coverWhite->SetAnimationTime(duration);
-		//coverWhite->SetPosAnimation(WIDTH * 0.5, y, Easing::EaseOut_SINE);
-		//printfDx("0");
+	//	coverGraph->SetAnimationTime(duration);
+	//	coverGraph->SetPosAnimation(WIDTH * 0.5, y, Easing::EaseOut_SINE);
+	//	coverWhite->SetAnimationTime(duration);
+	//	coverWhite->SetPosAnimation(WIDTH * 0.5, y, Easing::EaseOut_SINE);
+	//	printfDx("0");
 	//}
+	coverGraph->SetPos(WIDTH * 0.5, y);
+	coverWhite->SetPos(WIDTH * 0.5, y);
 
 	//coverGraph->SetExAnimation(CalcEx(), Easing::EaseOut_SINE);
 	//coverGraph->SetAlphaAnimation(CalcAlpha(), Easing::EaseOut_SINE);
 	//coverWhite->SetExAnimation(CalcEx(), Easing::EaseOut_SINE);
 	//coverWhite->SetAlphaAnimation(CalcAlphaWhite(), Easing::EaseOut_SINE);
-
-	coverGraph->ChangeEx
+	coverGraph->SetEx(CalcEx());
+	coverGraph->SetAlpha(CalcAlpha());
+	coverWhite->SetEx(CalcEx());
+	coverWhite->SetAlpha(CalcAlphaWhite());
 
 	coverGraph->Update(); // アニメーション更新
 	coverWhite->Update();
@@ -69,7 +73,7 @@ void SongSelectCover::Draw(int scene) {
 	}
 	switch (scene) {
 	case OPTION1:
-		if(playFlag)
+		if (playFlag)
 			StopMusic();
 		playFlag = FALSE;
 		danceMovie->Start();
@@ -82,7 +86,7 @@ void SongSelectCover::Draw(int scene) {
 		break;
 	default:
 		if (n == 0 && !playFlag) {
-//			PlayMusic(music, DX_PLAYTYPE_LOOP); // 重いので一時的に消去 Jaity
+			//			PlayMusic(music, DX_PLAYTYPE_LOOP); // 重いので一時的に消去 Jaity
 			playFlag = TRUE;
 		}
 		else if (n != 0) {
@@ -107,7 +111,7 @@ float SongSelectCover::CalcY() {
 	n = n < 6 ? n : 6;
 
 	if (n <= -1)
-		y =  HEIGHT * 0.35 - 30 + 150 * n;
+		y = HEIGHT * 0.35 - 30 + 150 * n;
 	else if (n == 0)
 		y = HEIGHT * 0.35;
 	else
