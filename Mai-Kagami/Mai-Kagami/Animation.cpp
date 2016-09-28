@@ -1,5 +1,18 @@
 #include "Animation.h"
 
+AnimationParam::AnimationParam(MyTime duration, MyTime delay, Easing ease)
+	: duration(duration), delay(delay), ease(ease) {}
+
+PosAnimationParam::PosAnimationParam(float x, float y, MyTime duration, MyTime delay, Easing ease)
+	: x(x), y(y), AnimationParam(duration, delay, ease) {}
+
+AlphaAnimationParam::AlphaAnimationParam(double alpha, MyTime duration, MyTime delay, Easing ease)
+	: alpha(alpha), AnimationParam(duration, delay, ease) {}
+
+ExAnimationParam::ExAnimationParam(double ex, MyTime duration, MyTime delay, Easing ease)
+	: ex(ex), AnimationParam(duration, delay, ease) {}
+
+
 // アニメーションの進行割合を更新して戻り値へ
 double Animation::UpdateRate(Easing ease) {
 	double r, rate;
@@ -69,13 +82,12 @@ MyTime Animation::GetTime() {
 // TRUE,  TRUE	: Queue.back の最終値へジャンプし、キューを全てクリア
 // TRUE,  FALSE	: Queue.front の最終値へジャンプし、Queue.pop() する
 // FALSE, TRUE	: ジャンプせず、キューを全てクリア
-// FALSE, FALSE	: ジャンプせず、Queue.pop() する
+// FALSE, FALSE	: ジャンプせず、Queue.pop() する (初期値)
 void Animation::Stop(boolean jumpFlag, boolean deleteFlag) {
 	t = 0;
 	if (jumpFlag)
-		JumpToTarget();
-	if (deleteFlag)
-		ClearQueue();
+		JumpToTarget(deleteFlag);
+	ClearQueue(deleteFlag);
 }
 
 
@@ -105,14 +117,21 @@ void PosAnimation::AddPosAnimation(PosAnimationParam param) {
 	queue.push(param);
 }
 
-void PosAnimation::JumpToTarget() {
-	if (queue.empty())
-		return;
-	SetPos(default_x, default_y);
-	queue.pop();
+void PosAnimation::AddPosAnimation(float x, float y, MyTime duration, MyTime delay, Easing ease){
+	PosAnimationParam param(x, y, duration, delay, ease);
+	AddPosAnimation(param);
 }
 
-void PosAnimation::ClearQueue() {
-	while (!queue.empty())
+void PosAnimation::JumpToTarget(boolean isQueueBack) {
+	if (queue.empty())
+		return;
+	SetPos(queue.back().x, queue.back().y);
+}
+
+void PosAnimation::ClearQueue(boolean isAllClear) {
+	while (!queue.empty()) {
 		queue.pop();
+		if (!isAllClear)
+			break;
+	}
 }

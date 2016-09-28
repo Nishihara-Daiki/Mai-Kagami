@@ -39,23 +39,26 @@ typedef enum {
 
 
 struct AnimationParam {
-public:
 	MyTime duration;
 	MyTime delay;
 	Easing ease;
+	AnimationParam(MyTime duration, MyTime delay = 0, Easing ease = LINER);
 };
 
 struct PosAnimationParam : public AnimationParam {
 	float x;
 	float y;
+	PosAnimationParam(float x, float y, MyTime duration, MyTime delay, Easing ease);
 };
 
 struct AlphaAnimationParam : public AnimationParam {
-	float alpha;
+	double alpha;
+	AlphaAnimationParam(double alpha, MyTime duration, MyTime delay, Easing ease);
 };
 
 struct ExAnimationParam : public AnimationParam {
-	float ex;
+	double ex;
+	ExAnimationParam(double ex, MyTime duration, MyTime delay, Easing ease);
 };
 
 
@@ -69,8 +72,9 @@ protected:
 	MyTime delay = 0;
 	MyTime GetTime();
 private:
-	virtual void JumpToTarget() = 0;	// 最終値へジャンプし、Queue.pop()
-	virtual void ClearQueue() = 0;	// キューの要素全クリア
+	virtual void JumpToTarget(boolean isQueueBack) = 0;	// 最終値へジャンプ(Queue.Back()の最後なのかどうか)
+	virtual void ClearQueue(boolean isAllClear) = 0;	// キューの要素全クリア
+	//virtual void PopQueue() = 0;	// Queue.pop()
 	MyTime t = 0;		// アニメーションの現在時刻
 };
 
@@ -79,12 +83,14 @@ class PosAnimation : public Animation {
 public:
 	void UpdatePosAnimation();
 	void AddPosAnimation(PosAnimationParam param);
+	void AddPosAnimation(float x, float y, MyTime duration, MyTime delay = 0, Easing ease = LINER);
 	virtual void SetPos(const float x, const float y) = 0;
 	virtual float GetX() = 0;
 	virtual float GetY() = 0;
 private:
-	void JumpToTarget();
-	void ClearQueue();
+	void JumpToTarget(boolean isQueueBack);
+	void ClearQueue(boolean isAllClear);
+	//void PopQueue();
 	float default_x, default_y;	// アニメーション開始時の座標
 	std::queue<PosAnimationParam> queue;
 };

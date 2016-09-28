@@ -36,11 +36,19 @@ void SongSelectCover::Update(int num, int max) {
 	int duration = 20;
 	float y = CalcY();
 
+	if (num) {
+		coverGraph->AddPosAnimation(WIDTH * 0.5, y, duration, 0, Easing::EaseOut_SINE);
+		coverWhite->AddPosAnimation(WIDTH * 0.5, y, duration, 0, Easing::EaseOut_SINE);
+	}
 	if (n == -2 && num > 0 || n == max - 3 && num < 0) {
 		//coverGraph->SetAnimationTime(0);
 		//coverGraph->SetPosAnimation(WIDTH * 0.5, y);
 		//coverWhite->SetAnimationTime(0);
 		//coverWhite->SetPosAnimation(WIDTH * 0.5, y);
+		coverGraph->Stop();
+		coverWhite->Stop();
+		coverGraph->AddPosAnimation(WIDTH * 0.5, y, 0);
+		coverWhite->AddPosAnimation(WIDTH * 0.5, y, 0);
 	}
 	//else if (coverGraph->GetTime() == 0) { // Å‰‚¾‚¯
 	//	coverGraph->SetAnimationTime(duration);
@@ -49,8 +57,10 @@ void SongSelectCover::Update(int num, int max) {
 	//	coverWhite->SetPosAnimation(WIDTH * 0.5, y, Easing::EaseOut_SINE);
 	//	printfDx("0");
 	//}
-	coverGraph->SetPos(WIDTH * 0.5, y);
-	coverWhite->SetPos(WIDTH * 0.5, y);
+
+	//coverGraph->SetPos(WIDTH * 0.5, y);
+	//coverWhite->SetPos(WIDTH * 0.5, y);
+
 
 	//coverGraph->SetExAnimation(CalcEx(), Easing::EaseOut_SINE);
 	//coverGraph->SetAlphaAnimation(CalcAlpha(), Easing::EaseOut_SINE);
