@@ -33,12 +33,10 @@ void SongSelectCover::Update(int num, int max) {
 	//static int t = 0;	// 邪魔 Jaity
 	Change(num, max);
 	int n = GetNow();
-	int duration = 10;
+	const int duration = 10;
 	float y = CalcY();
 
 	if (num) {
-		//coverGraph->AddPosAnimation(WIDTH * 0.5, y, duration, 0, Easing::EaseOut_SINE);
-		//coverWhite->AddPosAnimation(WIDTH * 0.5, y, duration, 0, Easing::EaseOut_SINE);
 		coverGraph->PosXAnimation::Add(WIDTH * 0.5,	duration, 0, Easing::EaseOut_SINE);
 		coverWhite->PosXAnimation::Add(WIDTH * 0.5,	duration, 0, Easing::EaseOut_SINE);
 		coverGraph->PosYAnimation::Add(y,			duration, 0, Easing::EaseOut_SINE);
@@ -50,40 +48,13 @@ void SongSelectCover::Update(int num, int max) {
 		coverWhite->ExAnimation::Add(CalcEx(), duration, 0, Easing::EaseOut_SINE);
 	}
 	if (n == -2 && num > 0 || n == max - 3 && num < 0) {
-		//coverGraph->SetAnimationTime(0);
-		//coverGraph->SetPosAnimation(WIDTH * 0.5, y);
-		//coverWhite->SetAnimationTime(0);
-		//coverWhite->SetPosAnimation(WIDTH * 0.5, y);
 		coverGraph->Stop(TRUE, TRUE);
 		coverWhite->Stop(TRUE, TRUE);
-		//coverGraph->PosXAnimation::Stop();
-		//coverWhite->PosXAnimation::Stop();
-		//coverGraph->PosYAnimation::Stop();
-		//coverWhite->PosYAnimation::Stop();
-
-		//coverGraph->AddPosAnimation(WIDTH * 0.5, y, 0);
-		//coverWhite->AddPosAnimation(WIDTH * 0.5, y, 0);
 		coverGraph->PosXAnimation::Add(WIDTH * 0.5, 0);
 		coverWhite->PosXAnimation::Add(WIDTH * 0.5, 0);
 		coverGraph->PosYAnimation::Add(y, 0);
 		coverWhite->PosYAnimation::Add(y, 0);
 	}
-	//else if (coverGraph->GetTime() == 0) { // 最初だけ
-	//	coverGraph->SetAnimationTime(duration);
-	//	coverGraph->SetPosAnimation(WIDTH * 0.5, y, Easing::EaseOut_SINE);
-	//	coverWhite->SetAnimationTime(duration);
-	//	coverWhite->SetPosAnimation(WIDTH * 0.5, y, Easing::EaseOut_SINE);
-	//	printfDx("0");
-	//}
-
-	//coverGraph->SetPos(WIDTH * 0.5, y);
-	//coverWhite->SetPos(WIDTH * 0.5, y);
-
-
-	//coverGraph->SetEx(CalcEx());
-	//coverGraph->SetAlpha(CalcAlpha());
-	//coverWhite->SetEx(CalcEx());
-	//coverWhite->SetAlpha(CalcAlphaWhite());
 
 	coverGraph->Update(); // アニメーション更新
 	coverWhite->Update();
