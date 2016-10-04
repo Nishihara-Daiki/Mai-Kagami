@@ -39,12 +39,14 @@ typedef enum {
 
 
 struct AnimationParam {
+	double value;	// x, y, alpha, ex, ...
 	MyTime duration;
 	MyTime delay;
 	Easing ease;
-	AnimationParam(MyTime duration, MyTime delay = 0, Easing ease = LINER);
+	AnimationParam(double value, MyTime duration, MyTime delay = 0, Easing ease = LINER);
 };
 
+/*
 struct PosAnimationParam : public AnimationParam {
 	float x;
 	float y;
@@ -60,39 +62,45 @@ struct ExAnimationParam : public AnimationParam {
 	double ex;
 	ExAnimationParam(double ex, MyTime duration, MyTime delay, Easing ease);
 };
-
+*/
 
 
 class Animation {
 public:
 	void Stop(boolean jumpFlag = FALSE, boolean deleteFlag = FALSE);
+	void AddAnimation(AnimationParam param);
+	void AddAnimation(double value, MyTime duration, MyTime delay = 0, Easing ease = LINER);
 protected:
 	double UpdateRate(Easing);
+	double UpdateValue(double);
 	MyTime duration = 0;	// アニメーション動作時間
 	MyTime delay = 0;
 	MyTime GetTime();
+	std::queue<AnimationParam> queue;
+	double default_value;
 private:
 	virtual void JumpToTarget(boolean isQueueBack) = 0;	// 最終値へジャンプ(Queue.Back()の最後なのかどうか)
-	virtual void ClearQueue(boolean isAllClear) = 0;	// キューの要素全クリア
+	//virtual void ClearQueue(boolean isAllClear) = 0;	// キューの要素全クリア
 	//virtual void PopQueue() = 0;	// Queue.pop()
 	MyTime t = 0;		// アニメーションの現在時刻
 };
 
 
-class PosAnimation : public Animation {
+class PosXAnimation : public Animation {
 public:
-	void UpdatePosAnimation();
-	void AddPosAnimation(PosAnimationParam param);
-	void AddPosAnimation(float x, float y, MyTime duration, MyTime delay = 0, Easing ease = LINER);
-	virtual void SetPos(const float x, const float y) = 0;
+	void UpdatePosXAnimation();
+	//void AddPosXAnimation(AnimationParam param);
+	//void AddPosXAnimation(float x, float y, MyTime duration, MyTime delay = 0, Easing ease = LINER);
+	virtual void SetX(const float x) = 0;
 	virtual float GetX() = 0;
-	virtual float GetY() = 0;
+	//virtual float GetY() = 0;
 private:
 	void JumpToTarget(boolean isQueueBack);
-	void ClearQueue(boolean isAllClear);
+	//void ClearQueue(boolean isAllClear);
 	//void PopQueue();
-	float default_x, default_y;	// アニメーション開始時の座標
-	std::queue<PosAnimationParam> queue;
+	//float default_x;// , default_y;	// アニメーション開始時の座標
 };
+
+
 
 #endif

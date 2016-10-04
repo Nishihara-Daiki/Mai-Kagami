@@ -1,16 +1,16 @@
 #include "Animation.h"
 
-AnimationParam::AnimationParam(MyTime duration, MyTime delay, Easing ease)
-	: duration(duration), delay(delay), ease(ease) {}
-
-PosAnimationParam::PosAnimationParam(float x, float y, MyTime duration, MyTime delay, Easing ease)
-	: x(x), y(y), AnimationParam(duration, delay, ease) {}
-
-AlphaAnimationParam::AlphaAnimationParam(double alpha, MyTime duration, MyTime delay, Easing ease)
-	: alpha(alpha), AnimationParam(duration, delay, ease) {}
-
-ExAnimationParam::ExAnimationParam(double ex, MyTime duration, MyTime delay, Easing ease)
-	: ex(ex), AnimationParam(duration, delay, ease) {}
+AnimationParam::AnimationParam(double value, MyTime duration, MyTime delay, Easing ease)
+	: value(value), duration(duration), delay(delay), ease(ease) {}
+//
+//PosAnimationParam::PosAnimationParam(float x, float y, MyTime duration, MyTime delay, Easing ease)
+//	: x(x), y(y), AnimationParam(duration, delay, ease) {}
+//
+//AlphaAnimationParam::AlphaAnimationParam(double alpha, MyTime duration, MyTime delay, Easing ease)
+//	: alpha(alpha), AnimationParam(duration, delay, ease) {}
+//
+//ExAnimationParam::ExAnimationParam(double ex, MyTime duration, MyTime delay, Easing ease)
+//	: ex(ex), AnimationParam(duration, delay, ease) {}
 
 
 // アニメーションの進行割合を更新して戻り値へ
@@ -87,51 +87,74 @@ void Animation::Stop(boolean jumpFlag, boolean deleteFlag) {
 	t = 0;
 	if (jumpFlag)
 		JumpToTarget(deleteFlag);
-	ClearQueue(deleteFlag);
+	//ClearQueue(deleteFlag);
+	while (!queue.empty()) {
+		queue.pop();
+		if (!deleteFlag)
+			break;
+	}
 }
 
-
-void PosAnimation::UpdatePosAnimation() {
+double Animation::UpdateValue(double nowvalue) {
 	if (queue.empty())
-		return;
+		return nowvalue;
 
-	PosAnimationParam param = queue.front();
+	AnimationParam param = queue.front();
 	if (GetTime() == 0) {
-		default_x = GetX();
-		default_y = GetY();
+		default_value = nowvalue;
+		//default_y = GetY();
 		duration = param.duration;
 		delay = param.delay;
 	}
 
 	double r = UpdateRate(param.ease);
-	float x = default_x + (param.x - default_x) * r;
-	float y = default_y + (param.y - default_y) * r;
-	SetPos(x, y);
-
 	if (GetTime() == 0) {
 		queue.pop();
 	}
+	return default_value + (param.value - default_value) * r;
 }
 
-void PosAnimation::AddPosAnimation(PosAnimationParam param) {
+void Animation::AddAnimation(AnimationParam param) {
 	queue.push(param);
 }
 
-void PosAnimation::AddPosAnimation(float x, float y, MyTime duration, MyTime delay, Easing ease){
-	PosAnimationParam param(x, y, duration, delay, ease);
-	AddPosAnimation(param);
+void Animation::AddAnimation(double value, MyTime duration, MyTime delay, Easing ease) {
+	AnimationParam param(value, duration, delay, ease);
+	AddAnimation(param);
 }
 
-void PosAnimation::JumpToTarget(boolean isQueueBack) {
-	if (queue.empty())
-		return;
-	SetPos(queue.back().x, queue.back().y);
-}
+void PosXAnimation::UpdatePosXAnimation() {
+	//if (queue.empty())
+	//	return;
 
-void PosAnimation::ClearQueue(boolean isAllClear) {
-	while (!queue.empty()) {
-		queue.pop();
-		if (!isAllClear)
-			break;
-	}
+	//AnimationParam param = queue.front();
+	//if (GetTime() == 0) {
+	//	default_value = GetX();
+	//	//default_y = GetY();
+	//	duration = param.duration;
+	//	delay = param.delay;
+	//}
+
+	//double r = UpdateRate(param.ease);
+	//if (GetTime() == 0) {
+	//	queue.pop();
+	//}
+	//float value = default_value + (param.value - default_value) * r;
+	float value = UpdateValue(GetX());
+	SetX(value);
+}
+//
+//void PosXAnimation::AddPosXAnimation(AnimationParam param) {
+//	queue.push(param);
+//}
+//
+//void PosXAnimation::AddPosXAnimation(float x, float y, MyTime duration, MyTime delay, Easing ease){
+//	AnimationParam param(x, duration, delay, ease);
+//	AddPosXAnimation(param);
+//}
+
+void PosXAnimation::JumpToTarget(boolean isQueueBack) {
+	if (queue.empty()) return;
+	float value = isQueueBack ? queue.back().value : queue.front().value;
+	SetX(value);
 }

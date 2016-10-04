@@ -19,7 +19,7 @@ private:
 
 //表示位置用クラス
 //class Pos : public Animation {
-class Pos : public PosAnimation {
+class Pos : public PosXAnimation {
 public:
 	void ChangePos(const float x, const float y); //座標変更
 	void SetPos(const float x, const float y);	// ChangePosの別名
@@ -28,6 +28,8 @@ public:
 	//void Stop(boolean jumpF = FALSE);	// アニメーション中断
 	float GetX(); //x座標取得
 	float GetY(); //y座標取得
+	void SetX();
+	void SetY();
 protected:
 	Pos();
 	Pos(const float x, const float y); //初期化

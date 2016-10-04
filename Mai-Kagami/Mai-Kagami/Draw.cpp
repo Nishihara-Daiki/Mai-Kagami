@@ -33,12 +33,13 @@ Pos::Pos(const float x, const float y) {
 }
 
 //表示位置変更
-void Pos::ChangePos(const float x, const float y) {
+void Pos::SetPos(const float x, const float y) {
 	this->x = x / SIZE_RATE; this->y = y / SIZE_RATE;
 }
 
-void Pos::SetPos(const float x, const float y) {
-	ChangePos(x, y);
+// SetPos()の別名
+void Pos::ChangePos(const float x, const float y) {
+	SetPos(x, y);
 }
 
 //// アニメーション用パラメータセット Jaity
@@ -64,7 +65,7 @@ void Pos::SetPos(const float x, const float y) {
 //}
 
 void Pos::Update() {
-	UpdatePosAnimation();
+	UpdatePosXAnimation();
 }
 //
 //// アニメーション中断
@@ -84,6 +85,14 @@ float Pos::GetX() {
 //y座標取得
 float Pos::GetY() {
 	return y * SIZE_RATE;
+}
+
+void Pos::SetX() {
+	this->x = x / SIZE_RATE;
+}
+
+void Pos::SetY() {
+	this->y = y / SIZE_RATE;
 }
 
 //描画用クラスコンストラクタ
