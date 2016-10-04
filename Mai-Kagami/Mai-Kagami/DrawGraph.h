@@ -6,7 +6,7 @@
 #include <string>
 
 //画像関係
-class MyDrawGraph : public Draw{
+class MyDrawGraph : public Draw, public ExAnimation {
 public:
 	MyDrawGraph(const char *fileName); //初期化
 	MyDrawGraph(const float x, const float y, const char *fileName, const double ExRate = 1.0); //初期化
@@ -15,16 +15,13 @@ public:
 	void ChangeEx(const double ExRate); //倍率変更
 	void SetEx(const double ExRate); // ChangeEx の別名
 	double GetEx();
-	//void SetExAnimation(double target_ex, Easing ease = LINER);
-	//void Update();
-	//void Stop(boolean jumpF = FALSE);	// アニメーション中断
+	void Update();
+	void Stop(boolean jumpFlag = FALSE, boolean deleteFlag = FALSE);
 	void Release();
 protected:
 	std::string fileName; //ファイル名
 	int handle; //画像用ハンドル
 	double ex; //表示倍率
-	//double target_ex, default_ex;
-	//Easing ease_ex;
 };
 
 //動画関係

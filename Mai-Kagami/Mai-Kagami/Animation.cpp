@@ -2,15 +2,6 @@
 
 AnimationParam::AnimationParam(double value, MyTime duration, MyTime delay, Easing ease)
 	: value(value), duration(duration), delay(delay), ease(ease) {}
-//
-//PosAnimationParam::PosAnimationParam(float x, float y, MyTime duration, MyTime delay, Easing ease)
-//	: x(x), y(y), AnimationParam(duration, delay, ease) {}
-//
-//AlphaAnimationParam::AlphaAnimationParam(double alpha, MyTime duration, MyTime delay, Easing ease)
-//	: alpha(alpha), AnimationParam(duration, delay, ease) {}
-//
-//ExAnimationParam::ExAnimationParam(double ex, MyTime duration, MyTime delay, Easing ease)
-//	: ex(ex), AnimationParam(duration, delay, ease) {}
 
 
 // アニメーションの進行割合を更新して戻り値へ
@@ -57,26 +48,10 @@ double Animation::UpdateRate(Easing ease) {
 	return rate;
 }
 
-//// パラメータ代入
-////void Animation::SetRate(MyTime _duration, int _ease = LINER) {
-//void Animation::SetAnimationTime(MyTime duration, MyTime delay) {
-//	this->duration = duration <= 0 ? 0 : duration;
-//	this->delay = delay <= 0 ? 0 : delay;
-////	ease = _ease;
-//}
-
-//// アニメーション時刻を強制変更 (引数に0を入れれば時刻初期化)
-//void Animation::SetTime(MyTime _t) {
-//	t = _t;
-//}
-
 MyTime Animation::GetTime() {
 	return t;
 }
-//
-//void Animation::Reset() {
-//	SetTime(0);
-//}
+
 
 // アニメーション中断 (最終値にジャンプするかどうか, キューを全てクリアするかどうか)
 // TRUE,  TRUE	: Queue.back の最終値へジャンプし、キューを全てクリア
@@ -102,7 +77,6 @@ double Animation::UpdateValue(double nowvalue) {
 	AnimationParam param = queue.front();
 	if (GetTime() == 0) {
 		default_value = nowvalue;
-		//default_y = GetY();
 		duration = param.duration;
 		delay = param.delay;
 	}
@@ -123,35 +97,11 @@ void Animation::Add(double value, MyTime duration, MyTime delay, Easing ease) {
 	Add(param);
 }
 
+
 void PosXAnimation::UpdatePosXAnimation() {
-	//if (queue.empty())
-	//	return;
-
-	//AnimationParam param = queue.front();
-	//if (GetTime() == 0) {
-	//	default_value = GetX();
-	//	//default_y = GetY();
-	//	duration = param.duration;
-	//	delay = param.delay;
-	//}
-
-	//double r = UpdateRate(param.ease);
-	//if (GetTime() == 0) {
-	//	queue.pop();
-	//}
-	//float value = default_value + (param.value - default_value) * r;
 	float value = UpdateValue(GetX());
 	SetX(value);
 }
-//
-//void PosXAnimation::AddPosXAnimation(AnimationParam param) {
-//	queue.push(param);
-//}
-//
-//void PosXAnimation::AddPosXAnimation(float x, float y, MyTime duration, MyTime delay, Easing ease){
-//	AnimationParam param(x, duration, delay, ease);
-//	AddPosXAnimation(param);
-//}
 
 void PosXAnimation::JumpToTarget(boolean isQueueBack) {
 	if (queue.empty()) return;
@@ -169,4 +119,28 @@ void PosYAnimation::JumpToTarget(boolean isQueueBack) {
 	if (queue.empty()) return;
 	float value = isQueueBack ? queue.back().value : queue.front().value;
 	SetY(value);
+}
+
+
+void AlphaAnimation::UpdateAlphaAnimation() {
+	int value = (int)UpdateValue((double)GetAlpha());
+	SetAlpha(value);
+}
+
+void AlphaAnimation::JumpToTarget(boolean isQueueBack) {
+	if (queue.empty()) return;
+	int value = (int)(isQueueBack ? queue.back().value : queue.front().value);
+	SetAlpha(value);
+}
+
+
+void ExAnimation::UpdateExAnimation() {
+	double value = UpdateValue(GetEx());
+	SetEx(value);
+}
+
+void ExAnimation::JumpToTarget(boolean isQueueBack) {
+	if (queue.empty()) return;
+	double value = isQueueBack ? queue.back().value : queue.front().value;
+	SetEx(value);
 }

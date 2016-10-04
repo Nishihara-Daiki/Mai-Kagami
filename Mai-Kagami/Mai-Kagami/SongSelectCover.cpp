@@ -33,7 +33,7 @@ void SongSelectCover::Update(int num, int max) {
 	//static int t = 0;	// 邪魔 Jaity
 	Change(num, max);
 	int n = GetNow();
-	int duration = 20;
+	int duration = 10;
 	float y = CalcY();
 
 	if (num) {
@@ -43,14 +43,19 @@ void SongSelectCover::Update(int num, int max) {
 		coverWhite->PosXAnimation::Add(WIDTH * 0.5,	duration, 0, Easing::EaseOut_SINE);
 		coverGraph->PosYAnimation::Add(y,			duration, 0, Easing::EaseOut_SINE);
 		coverWhite->PosYAnimation::Add(y,			duration, 0, Easing::EaseOut_SINE);
+
+		coverGraph->AlphaAnimation::Add(CalcAlpha(), duration, 0, Easing::EaseOut_SINE);
+		coverWhite->AlphaAnimation::Add(CalcAlphaWhite(), duration, 0, Easing::EaseOut_SINE);
+		coverGraph->ExAnimation::Add(CalcEx(), duration, 0, Easing::EaseOut_SINE);
+		coverWhite->ExAnimation::Add(CalcEx(), duration, 0, Easing::EaseOut_SINE);
 	}
 	if (n == -2 && num > 0 || n == max - 3 && num < 0) {
 		//coverGraph->SetAnimationTime(0);
 		//coverGraph->SetPosAnimation(WIDTH * 0.5, y);
 		//coverWhite->SetAnimationTime(0);
 		//coverWhite->SetPosAnimation(WIDTH * 0.5, y);
-		coverGraph->Stop();
-		coverWhite->Stop();
+		coverGraph->Stop(TRUE, TRUE);
+		coverWhite->Stop(TRUE, TRUE);
 		//coverGraph->PosXAnimation::Stop();
 		//coverWhite->PosXAnimation::Stop();
 		//coverGraph->PosYAnimation::Stop();
@@ -75,14 +80,10 @@ void SongSelectCover::Update(int num, int max) {
 	//coverWhite->SetPos(WIDTH * 0.5, y);
 
 
-	//coverGraph->SetExAnimation(CalcEx(), Easing::EaseOut_SINE);
-	//coverGraph->SetAlphaAnimation(CalcAlpha(), Easing::EaseOut_SINE);
-	//coverWhite->SetExAnimation(CalcEx(), Easing::EaseOut_SINE);
-	//coverWhite->SetAlphaAnimation(CalcAlphaWhite(), Easing::EaseOut_SINE);
-	coverGraph->SetEx(CalcEx());
-	coverGraph->SetAlpha(CalcAlpha());
-	coverWhite->SetEx(CalcEx());
-	coverWhite->SetAlpha(CalcAlphaWhite());
+	//coverGraph->SetEx(CalcEx());
+	//coverGraph->SetAlpha(CalcAlpha());
+	//coverWhite->SetEx(CalcEx());
+	//coverWhite->SetAlpha(CalcAlphaWhite());
 
 	coverGraph->Update(); // アニメーション更新
 	coverWhite->Update();

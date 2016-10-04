@@ -42,41 +42,10 @@ void Pos::ChangePos(const float x, const float y) {
 	SetPos(x, y);
 }
 
-//// アニメーション用パラメータセット Jaity
-//void Pos::SetPosAnimation(float target_x, float target_y, Easing ease) {
-//	if (GetTime() != 0)
-//		return;
-//	default_x = GetX();
-//	default_y = GetY();
-//	this->target_x = target_x;
-//	this->target_y = target_y;
-//	ease_pos = ease;
-////	SetRate(duration, ease);
-//	//SetDuration(duration);
-//}
-//
-//
-//// アニメーション更新 Jaity
-//void Pos::Update() {
-//	double r = UpdateRate(ease_pos);
-//	float nx = default_x + (target_x - default_x) * r;
-//	float ny = default_y + (target_y - default_y) * r;
-//	ChangePos(nx, ny);
-//}
-
 void Pos::Update() {
 	UpdatePosXAnimation();
 	UpdatePosYAnimation();
 }
-//
-//// アニメーション中断
-//// 中断時に最終値に飛ぶかどうか
-//void Pos::Stop(boolean jumpF) {
-//	if (jumpF == TRUE)
-//		SetAnimationTime(0);
-//	Update();
-//	Reset();
-//}
 
 void Pos::Stop(boolean jumpFlag, boolean deleteFlag) {
 	PosXAnimation::Stop(jumpFlag, deleteFlag);
@@ -135,27 +104,15 @@ int Draw::GetAlpha() {
 	return alpha;
 }
 
-//void Draw::SetAlphaAnimation(int target_alpha, Easing ease) {
-//	if (GetTime() != 0)
-//		return;
-//	default_alpha = GetAlpha();
-//	this->target_alpha= target_alpha;
-//	ease_alpha = ease;
-//}
-//
-//void Draw::Update() {
-//	double r = UpdateRate(ease_alpha);
-//	int na = default_alpha + (target_alpha - default_alpha) * r;
-//	SetAlpha(na);
-//	Pos::Update();
-//}
-//
-//void Draw::Stop(boolean jumpF) {
-//	if (jumpF == TRUE)
-//		SetAnimationTime(0);
-//	Update();
-//	Reset();
-//}
+void Draw::Update() {
+	Pos::Update();
+	UpdateAlphaAnimation();
+}
+
+void Draw::Stop(boolean jumpFlag, boolean deleteFlag) {
+	Pos::Stop(jumpFlag, deleteFlag);
+	AlphaAnimation::Stop(jumpFlag, deleteFlag);
+}
 
 Draw2::Draw2(const int pos) {
 	p = pos;
