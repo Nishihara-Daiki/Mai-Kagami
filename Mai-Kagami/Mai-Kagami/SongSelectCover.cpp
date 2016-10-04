@@ -37,8 +37,12 @@ void SongSelectCover::Update(int num, int max) {
 	float y = CalcY();
 
 	if (num) {
-		coverGraph->AddPosAnimation(WIDTH * 0.5, y, duration, 0, Easing::EaseOut_SINE);
-		coverWhite->AddPosAnimation(WIDTH * 0.5, y, duration, 0, Easing::EaseOut_SINE);
+		//coverGraph->AddPosAnimation(WIDTH * 0.5, y, duration, 0, Easing::EaseOut_SINE);
+		//coverWhite->AddPosAnimation(WIDTH * 0.5, y, duration, 0, Easing::EaseOut_SINE);
+		coverGraph->PosXAnimation::Add(WIDTH * 0.5,	duration, 0, Easing::EaseOut_SINE);
+		coverWhite->PosXAnimation::Add(WIDTH * 0.5,	duration, 0, Easing::EaseOut_SINE);
+		coverGraph->PosYAnimation::Add(y,			duration, 0, Easing::EaseOut_SINE);
+		coverWhite->PosYAnimation::Add(y,			duration, 0, Easing::EaseOut_SINE);
 	}
 	if (n == -2 && num > 0 || n == max - 3 && num < 0) {
 		//coverGraph->SetAnimationTime(0);
@@ -47,8 +51,17 @@ void SongSelectCover::Update(int num, int max) {
 		//coverWhite->SetPosAnimation(WIDTH * 0.5, y);
 		coverGraph->Stop();
 		coverWhite->Stop();
-		coverGraph->AddPosAnimation(WIDTH * 0.5, y, 0);
-		coverWhite->AddPosAnimation(WIDTH * 0.5, y, 0);
+		//coverGraph->PosXAnimation::Stop();
+		//coverWhite->PosXAnimation::Stop();
+		//coverGraph->PosYAnimation::Stop();
+		//coverWhite->PosYAnimation::Stop();
+
+		//coverGraph->AddPosAnimation(WIDTH * 0.5, y, 0);
+		//coverWhite->AddPosAnimation(WIDTH * 0.5, y, 0);
+		coverGraph->PosXAnimation::Add(WIDTH * 0.5, 0);
+		coverWhite->PosXAnimation::Add(WIDTH * 0.5, 0);
+		coverGraph->PosYAnimation::Add(y, 0);
+		coverWhite->PosYAnimation::Add(y, 0);
 	}
 	//else if (coverGraph->GetTime() == 0) { // Å‰‚¾‚¯
 	//	coverGraph->SetAnimationTime(duration);

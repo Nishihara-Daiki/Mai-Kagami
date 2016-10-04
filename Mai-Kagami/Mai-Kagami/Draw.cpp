@@ -66,6 +66,7 @@ void Pos::ChangePos(const float x, const float y) {
 
 void Pos::Update() {
 	UpdatePosXAnimation();
+	UpdatePosYAnimation();
 }
 //
 //// アニメーション中断
@@ -77,6 +78,12 @@ void Pos::Update() {
 //	Reset();
 //}
 
+void Pos::Stop(boolean jumpFlag, boolean deleteFlag) {
+	PosXAnimation::Stop(jumpFlag, deleteFlag);
+	PosYAnimation::Stop(jumpFlag, deleteFlag);
+}
+
+
 //x座標取得
 float Pos::GetX() {
 	return x * SIZE_RATE;
@@ -87,11 +94,11 @@ float Pos::GetY() {
 	return y * SIZE_RATE;
 }
 
-void Pos::SetX() {
+void Pos::SetX(const float x) {
 	this->x = x / SIZE_RATE;
 }
 
-void Pos::SetY() {
+void Pos::SetY(const float y) {
 	this->y = y / SIZE_RATE;
 }
 

@@ -68,8 +68,8 @@ struct ExAnimationParam : public AnimationParam {
 class Animation {
 public:
 	void Stop(boolean jumpFlag = FALSE, boolean deleteFlag = FALSE);
-	void AddAnimation(AnimationParam param);
-	void AddAnimation(double value, MyTime duration, MyTime delay = 0, Easing ease = LINER);
+	void Add(AnimationParam param);
+	void Add(double value, MyTime duration, MyTime delay = 0, Easing ease = LINER);
 protected:
 	double UpdateRate(Easing);
 	double UpdateValue(double);
@@ -100,6 +100,18 @@ private:
 	//void PopQueue();
 	//float default_x;// , default_y;	// アニメーション開始時の座標
 };
+
+
+
+class PosYAnimation : public Animation {
+public:
+	void UpdatePosYAnimation();
+	virtual void SetY(const float y) = 0;
+	virtual float GetY() = 0;
+private:
+	void JumpToTarget(boolean isQueueBack);
+};
+
 
 
 

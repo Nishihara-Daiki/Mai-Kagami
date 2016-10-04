@@ -19,17 +19,18 @@ private:
 
 //表示位置用クラス
 //class Pos : public Animation {
-class Pos : public PosXAnimation {
+class Pos : public PosXAnimation, public PosYAnimation {
 public:
 	void ChangePos(const float x, const float y); //座標変更
 	void SetPos(const float x, const float y);	// ChangePosの別名
 	//void SetPosAnimation(float target_x, float target_y, Easing ease = LINER);  // Jaity
 	void Update();	// アニメーション更新
 	//void Stop(boolean jumpF = FALSE);	// アニメーション中断
+	void Stop(boolean jumpFlag = FALSE, boolean deleteFlag = FALSE);
 	float GetX(); //x座標取得
 	float GetY(); //y座標取得
-	void SetX();
-	void SetY();
+	void SetX(const float x);
+	void SetY(const float y);
 protected:
 	Pos();
 	Pos(const float x, const float y); //初期化

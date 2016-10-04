@@ -114,13 +114,13 @@ double Animation::UpdateValue(double nowvalue) {
 	return default_value + (param.value - default_value) * r;
 }
 
-void Animation::AddAnimation(AnimationParam param) {
+void Animation::Add(AnimationParam param) {
 	queue.push(param);
 }
 
-void Animation::AddAnimation(double value, MyTime duration, MyTime delay, Easing ease) {
+void Animation::Add(double value, MyTime duration, MyTime delay, Easing ease) {
 	AnimationParam param(value, duration, delay, ease);
-	AddAnimation(param);
+	Add(param);
 }
 
 void PosXAnimation::UpdatePosXAnimation() {
@@ -157,4 +157,16 @@ void PosXAnimation::JumpToTarget(boolean isQueueBack) {
 	if (queue.empty()) return;
 	float value = isQueueBack ? queue.back().value : queue.front().value;
 	SetX(value);
+}
+
+
+void PosYAnimation::UpdatePosYAnimation() {
+	float value = UpdateValue(GetY());
+	SetY(value);
+}
+
+void PosYAnimation::JumpToTarget(boolean isQueueBack) {
+	if (queue.empty()) return;
+	float value = isQueueBack ? queue.back().value : queue.front().value;
+	SetY(value);
 }
