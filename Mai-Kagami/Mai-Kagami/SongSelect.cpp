@@ -47,8 +47,11 @@ SongSelectPop::SongSelectPop(Font *font, Touch *touch) {
 }
 
 int SongSelectPop::Switch(const int scene) {
-	if (touch->Get(1) == 1)
+	if (touch->Get(1) == 1) {
+		blackBox->SetExceptFadeFlag(TRUE);
 		return BACK_TOP;
+	}
+	blackBox->SetExceptFadeFlag(FALSE);
 	if (touch->Get(2) == 1)
 		return MAIN;
 	return scene;
