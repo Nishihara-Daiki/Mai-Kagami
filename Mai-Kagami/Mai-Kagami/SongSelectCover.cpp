@@ -1,5 +1,6 @@
 #include "SongSelectCover.h"
 #include "Animation.h"
+#include "Scene.h"
 
 SongSelectCover::SongSelectCover(Font *font, Song *song, const int now)
 	: Song(*song) {
@@ -10,6 +11,8 @@ SongSelectCover::SongSelectCover(Font *font, Song *song, const int now)
 void SongSelectCover::Load(int max) {
 	danceMovie->ChangePos(WIDTH * 0.5, HEIGHT * 0.57);
 	danceMovie->ChangeEx(0.5);
+	danceMovie->SetAlpha(0);
+	danceMovie->AlphaAnimation::Add(255, SCENE_DURATION, SCENE_IN_WAIT);
 	coverGraph->Load();
 	coverWhite->Load();
 	Change(0, max);
@@ -58,6 +61,7 @@ void SongSelectCover::Update(int num, int max) {
 
 	coverGraph->Update(); // アニメーション更新
 	coverWhite->Update();
+	danceMovie->Update();
 }
 
 void SongSelectCover::Draw(int scene) {
