@@ -1,9 +1,11 @@
 #include "StartScreen.h"
 
-StartSceen::StartSceen(Font *f, const int startScene, const int playScene) {
+StartSceen::StartSceen(Font *f, const int startScene, const int playScene, const int pauseScene) {
 	this->startScene = startScene;
 	this->playScene = playScene;
+	this->pauseScene = pauseScene;
 	blackBox = new BlackBox();
+	blackBox->SetExceptFadeFlag(TRUE);
 	myDrawGraph = new MyDrawGraph(WIDTH * 0.5, HEIGHT * 0.45, "img/start.png");
 	myDrawGraph->Load();
 	wait = new MyDrawText(f, "", WIDTH * 0.5, HEIGHT * 0.3, 1, 40);
@@ -20,7 +22,9 @@ void StartSceen::ContentUpdate() {
 	if (nowScene == startScene) {
 		UpdateViewFlag(TRUE, 0, 0);
 	}
-	else {
+	else if (nowScene == pauseScene) {
+		UpdateViewFlag(FALSE);
+	} else {
 		UpdateViewFlag(FALSE, 0, 0);
 		if (nowScene = playScene) {
 			wait->ChangeText("ˆê’â~’†");

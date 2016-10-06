@@ -7,6 +7,7 @@ PauseScreen::PauseScreen(Font *font, Songs *songs, Touch *touch, const int pause
 	this->songSelectScene = songSelectScene;
 	this->settingScene = settingScene;
 	blackBox = new BlackBox();
+	blackBox->SetExceptFadeFlag(TRUE);
 	title = new MyDrawText(font, "- É|Å[ÉY -", WIDTH * 0.95, HEIGHT * 0.45, 2, 40, "Yellow");
 	button[0] = new CircleGraphTextButton(font, touch, "ñﬂÇÈ", 0, "img/play.png");
 	button[1] = new CircleGraphTextButton(font, touch, "ÇÕÇ∂ÇﬂÇ©ÇÁ", 1, "img/rewind.png");

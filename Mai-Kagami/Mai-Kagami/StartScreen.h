@@ -10,7 +10,7 @@
 
 class StartSceen : public SubScene {
 public:
-	StartSceen(Font *f, const int startScene, const int playScene);
+	StartSceen(Font *f, const int startScene, const int playScene, const int pauseScene);
 	void Load();
 	~StartSceen();
 private:
@@ -18,6 +18,7 @@ private:
 	void ContentView();
 	int startScene;
 	int playScene;
+	int pauseScene;
 	MyDrawGraph *myDrawGraph;
 	MyDrawText *wait;
 	MyDrawText *caution;

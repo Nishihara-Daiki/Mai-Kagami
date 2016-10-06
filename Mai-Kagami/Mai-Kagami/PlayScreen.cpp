@@ -14,6 +14,8 @@ void PlayScreen::Load() {
 	song = songs->GetSong(songs->GetNowSong());
 	song->danceMovie->ChangeEx(1.2);
 	song->danceMovie->ChangePos(WIDTH * 0.5, HEIGHT * 0.5);
+	song->danceMovie->SetAlpha(0);
+	song->danceMovie->AlphaAnimation::Add(255, SCENE_DURATION, SCENE_IN_WAIT);
 	song->danceMovie->Seek();
 	song->drawSongTitle->ChangePos(WIDTH * 0.2, HEIGHT * 0.03);
 	playBar->Load(song);
@@ -46,6 +48,7 @@ void PlayScreen::ContentUpdate() {
 		song->danceMovie->Start();
 	else
 		song->danceMovie->Stop();
+	song->danceMovie->Update();
 }
 
 void PlayScreen::ContentView() {
