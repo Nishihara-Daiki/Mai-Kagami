@@ -23,7 +23,13 @@ void ThroughResult::Load() {
 	song = songs->GetSong(songs->GetNowSong()); //現在選択中の曲を取得
 	song->coverGraph->Load(); //曲カバー画像をロード
 	song->coverGraph->ChangePos(WIDTH * 0.3, HEIGHT * 0.26); //カバー画像の表示位置変更
-	song->drawSongTitle->ChangePos(WIDTH * 0.6, HEIGHT * 0.24); //曲タイトルの表示位置変更
+	//song->drawSongTitle->ChangePos(WIDTH * 0.6, HEIGHT * 0.24); //曲タイトルの表示位置変更
+	song->drawSongTitle->PosXAnimation::Add(WIDTH * 0.6, 0, SCENE_IN_WAIT); //曲タイトルの表示位置変更
+	song->drawSongTitle->PosYAnimation::Add(HEIGHT * 0.24, 0, SCENE_IN_WAIT); //曲タイトルの表示位置変更
+	song->drawSongTitle->AddSongTitleAlphaAnimation(0, SCENE_DURATION);
+	song->drawSongTitle->AddSongArtistAlphaAnimation(0, SCENE_DURATION);
+	song->drawSongTitle->AddSongTitleAlphaAnimation(255, SCENE_DURATION);
+	song->drawSongTitle->AddSongArtistAlphaAnimation(255, SCENE_DURATION);
 }
 
 ThroughResultScene ThroughResult::Switch(const ThroughResultScene scene) {
@@ -37,6 +43,7 @@ void ThroughResult::ContentUpdate() {
 		UpdateViewFlag(TRUE, SCENE_IN_WAIT); //画面を表示
 	else //それ以外は
 		UpdateViewFlag(FALSE); //画面を非表示
+	song->drawSongTitle->Update();
 }
 
 void ThroughResult::ContentView() {

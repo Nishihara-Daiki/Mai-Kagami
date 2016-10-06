@@ -24,8 +24,8 @@ void PlayScreen::Load() {
 	//song->drawSongTitle->songArtist->SetAlpha(0);
 	song->drawSongTitle->AddSongTitleAlphaAnimation(0, SCENE_DURATION);
 	song->drawSongTitle->AddSongArtistAlphaAnimation(0, SCENE_DURATION);
-	song->drawSongTitle->AddSongTitleAlphaAnimation(255, SCENE_DURATION, SCENE_IN_WAIT);
-	song->drawSongTitle->AddSongArtistAlphaAnimation(255, SCENE_DURATION, SCENE_IN_WAIT);
+	song->drawSongTitle->AddSongTitleAlphaAnimation(255, SCENE_DURATION);
+	song->drawSongTitle->AddSongArtistAlphaAnimation(255, SCENE_DURATION);
 	playBar->Load(song);
 	UpdateViewFlag(TRUE, 0, 0);
 }
@@ -40,7 +40,8 @@ int PlayScreen::Switch(const int scene) {
 	else if (scene == countDownScene)
 		return countDown->Switch(scene);
 	else if (scene == playScene) {
-		if (song->danceMovie->GetNowFlame() == song->danceMovie->GetEndFlame()) {
+		//if (song->danceMovie->GetNowFlame() == song->danceMovie->GetEndFlame()) {
+		if (song->danceMovie->GetNowFlame() == 100) {
 			song->danceMovie->Stop();
 			return finishScene;
 		}
