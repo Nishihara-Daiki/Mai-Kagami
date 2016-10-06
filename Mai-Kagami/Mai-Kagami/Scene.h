@@ -12,6 +12,7 @@ enum {
 	FADING_IN,	// フェードイン中
 	FADING_OUT,	// フェードアウト中
 	FADE_WAIT,	// フェードイン・アウト開始までの待ち
+	FADE_END,	// フェードインが終わった瞬間の1フレーム
 };
 
 enum {

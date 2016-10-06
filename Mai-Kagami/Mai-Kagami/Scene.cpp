@@ -13,6 +13,12 @@ void ViewFlag::UpdateViewFlag(boolean flag, long wait, long duration) {
 	boolean isFirstTime = FALSE;	// (待ち時間前の)1ループ目かどうか
 	boolean isWaited = FALSE;		// 待ち時間終了時ループかどうか
 
+	if (fadeStatus == FADE_END) {
+		viewFlag = flag;
+		sceneOpacity = 1;
+		fadeStatus = NOT_FADE;
+		return;
+	}
 	if (viewFlag != flag && fadeStatus == NOT_FADE) {	// 1ループ目
 		isFirstTime = TRUE;
 	}
@@ -57,9 +63,7 @@ void ViewFlag::UpdateViewFlag(boolean flag, long wait, long duration) {
 	if (fadeCount > 0) {
 		fadeCount--;
 		if (fadeCount == 0) {
-			viewFlag = flag;
-			sceneOpacity = 1;
-			fadeStatus = NOT_FADE;
+			fadeStatus = FADE_END;
 		}
 	}
 	SetOpacity();
