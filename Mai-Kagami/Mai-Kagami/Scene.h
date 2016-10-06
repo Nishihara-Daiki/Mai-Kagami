@@ -4,8 +4,8 @@
 #include "DxLib.h"
 #include "Main.h"
 
-#define SCENE_DURATION	30	// 画面切り替えフェードアニメーション時間
-#define SCENE_IN_WAIT	30	// 画面切り替えフェードインまでの待ち時間
+#define SCENE_DURATION	10	// 画面切り替えフェードアニメーション時間
+#define SCENE_IN_WAIT	10	// 画面切り替えフェードインまでの待ち時間
 
 enum {
 	NOT_FADE,	// 場面切り替え中ではない
