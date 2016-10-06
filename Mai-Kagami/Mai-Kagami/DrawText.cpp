@@ -204,6 +204,18 @@ void MyDrawTextLine::ChangeText(char *str) {
 	myDrawText->ChangeText(str);
 	ChangePos(GetX(), GetY());
 }
+void MyDrawTextLine::UpdateAlphaAnimation() {
+	myDrawText->UpdateAlphaAnimation();
+	myDrawUnderLine->UpdateAlphaAnimation();
+}
+void MyDrawTextLine::AddMyDrawTextAlphaAnimation(double value, MyTime duration, MyTime delay, Easing ease) {
+	myDrawText->AlphaAnimation::Add(value, duration, delay, ease);
+}
+
+void MyDrawTextLine::AddMyDrawUnderLineAlphaAnimation(double value, MyTime duration, MyTime delay, Easing ease) {
+	myDrawUnderLine->AlphaAnimation::Add(value, duration, delay, ease);
+}
+
 
 //アンダーライン付きテキストデストラクタ
 MyDrawTextLine::~MyDrawTextLine() {

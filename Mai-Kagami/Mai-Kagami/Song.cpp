@@ -29,6 +29,22 @@ void DrawSongTitle::View() {
 	songArtist->View();
 }
 
+void DrawSongTitle::Update() {
+	songTitle->UpdateAlphaAnimation();
+	songArtist->AlphaAnimation::UpdateAlphaAnimation();
+	Pos::Update();
+	ChangePos(GetX(), GetY());
+}
+
+void DrawSongTitle::AddSongTitleAlphaAnimation(double value, MyTime duration, MyTime delay, Easing ease) {
+	songTitle->AddMyDrawTextAlphaAnimation(value, duration, delay, ease);
+	songTitle->AddMyDrawUnderLineAlphaAnimation(value, duration, delay, ease);
+}
+
+void DrawSongTitle::AddSongArtistAlphaAnimation(double value, MyTime duration, MyTime delay, Easing ease) {
+	songArtist->AlphaAnimation::Add(value, duration, delay, ease);
+}
+
 DrawSongTitle::~DrawSongTitle() {
 	delete songTitle;
 	delete songArtist;

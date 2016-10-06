@@ -17,7 +17,15 @@ void PlayScreen::Load() {
 	song->danceMovie->SetAlpha(0);
 	song->danceMovie->AlphaAnimation::Add(255, SCENE_DURATION, SCENE_IN_WAIT);
 	song->danceMovie->Seek();
-	song->drawSongTitle->ChangePos(WIDTH * 0.2, HEIGHT * 0.03);
+	//song->drawSongTitle->ChangePos(WIDTH * 0.2, HEIGHT * 0.03);
+	song->drawSongTitle->PosXAnimation::Add(WIDTH * 0.2, 0, SCENE_IN_WAIT);
+	song->drawSongTitle->PosYAnimation::Add(HEIGHT * 0.03, 0, SCENE_IN_WAIT);
+	//song->drawSongTitle->songTitle->SetAlpha(0);
+	//song->drawSongTitle->songArtist->SetAlpha(0);
+	song->drawSongTitle->AddSongTitleAlphaAnimation(0, SCENE_DURATION);
+	song->drawSongTitle->AddSongArtistAlphaAnimation(0, SCENE_DURATION);
+	song->drawSongTitle->AddSongTitleAlphaAnimation(255, SCENE_DURATION, SCENE_IN_WAIT);
+	song->drawSongTitle->AddSongArtistAlphaAnimation(255, SCENE_DURATION, SCENE_IN_WAIT);
 	playBar->Load(song);
 	UpdateViewFlag(TRUE, 0, 0);
 }
@@ -49,6 +57,7 @@ void PlayScreen::ContentUpdate() {
 	else
 		song->danceMovie->Stop();
 	song->danceMovie->Update();
+	song->drawSongTitle->Update();
 }
 
 void PlayScreen::ContentView() {

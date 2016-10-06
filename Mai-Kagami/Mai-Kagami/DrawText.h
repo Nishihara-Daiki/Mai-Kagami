@@ -63,6 +63,9 @@ public:
 	void ContentView();
 	void ChangePos(const float x, const float y);
 	void ChangeText(char *str); //テキスト変更
+	void UpdateAlphaAnimation();
+	void AddMyDrawTextAlphaAnimation(double value, MyTime duration, MyTime delay = 0, Easing ease = LINER);
+	void AddMyDrawUnderLineAlphaAnimation(double value, MyTime duration, MyTime delay = 0, Easing ease = LINER);
 	~MyDrawTextLine();
 private:
 	MyDrawText *myDrawText;
