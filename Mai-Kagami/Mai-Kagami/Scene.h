@@ -29,7 +29,7 @@ public:
 protected:
 	void UpdateViewFlag(boolean flag, long wait = 0, long duration = SCENE_DURATION);
 	boolean GetViewFlag();
-	long GetFadeCount();
+	boolean IsFadeEnd();
 	double GetSceneOpacity();
 	virtual void SetOpacity() = 0;  // グローバル変数にセット
 private:
@@ -37,6 +37,7 @@ private:
 	long fadeCount = 0;	// 場面切り替え時のフェードイン・アウトのカウンタ
 	short fadeStatus = NOT_FADE;	// 場面切り替えの状態
 	double sceneOpacity = 1.0;
+	boolean isFadeEnd = FALSE;
 };
 
 
