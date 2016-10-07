@@ -17,8 +17,10 @@ void ViewFlag::UpdateViewFlag(boolean flag, long wait, long duration) {
 		viewFlag = flag;
 		sceneOpacity = 1;
 		fadeStatus = NOT_FADE;
+		isFadeEnd = TRUE;
 		return;
 	}
+	isFadeEnd = FALSE;
 	if (viewFlag != flag && fadeStatus == NOT_FADE) {	// 1ÉãÅ[Évñ⁄
 		isFirstTime = TRUE;
 	}
@@ -73,8 +75,8 @@ boolean ViewFlag::GetViewFlag() {
 	return viewFlag;
 }
 
-long ViewFlag::GetFadeCount() {
-	return fadeCount;
+boolean ViewFlag::IsFadeEnd() {
+	return isFadeEnd;
 }
 
 double ViewFlag::GetSceneOpacity() {
@@ -151,7 +153,7 @@ void MainScene::Load() {
 //çÌèú
 void MainScene::Delete() {
 	if(deleteFlag == TRUE) {
-		if (GetFadeCount() == 0) {
+		if (IsFadeEnd()) {
 			ContentDelete();
 			loadStatus = UNLOADED;
 			deleteFlag = FALSE;
