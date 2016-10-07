@@ -21,10 +21,14 @@ ThroughResultScene ThroughFinish::Switch(const ThroughResultScene scene) {
 }
 
 void ThroughFinish::ContentUpdate() {
-	if (nowScene == THROUGH_RESULT_FINISH)
+	if (nowScene == THROUGH_RESULT_FINISH) {
+		blackBox->SetExceptFadeFlag(TRUE);
 		UpdateViewFlag(TRUE, SCENE_IN_WAIT);
-	else
+	}
+	else {
 		UpdateViewFlag(FALSE);
+		blackBox->SetExceptFadeFlag(TRUE);
+	}
 }
 
 void ThroughFinish::ContentView() {
