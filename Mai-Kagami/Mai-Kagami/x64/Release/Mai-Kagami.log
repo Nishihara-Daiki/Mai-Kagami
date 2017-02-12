@@ -1,0 +1,249 @@
+﻿  Button.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+Button.cpp(5): warning C4244: '引数': 'double' から 'const float' への変換です。データが失われる可能性があります。
+Button.cpp(17): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+Button.cpp(18): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+Button.cpp(35): warning C4244: '引数': 'double' から 'const float' への変換です。データが失われる可能性があります。
+Button.cpp(36): warning C4244: '引数': 'double' から 'const float' への変換です。データが失われる可能性があります。
+Button.cpp(39): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+Button.cpp(39): warning C4244: '引数': 'double' から 'const float' への変換です。データが失われる可能性があります。
+Button.cpp(40): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+Button.cpp(61): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+Button.cpp(62): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+Button.cpp(69): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+Button.cpp(85): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+Button.cpp(130): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+Button.cpp(132): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+  CommonText.cpp
+CommonText.cpp(5): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+  Draw.cpp
+  DrawGraph.cpp
+  DrawObject.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+DrawObject.cpp(38): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+DrawObject.cpp(39): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+DrawObject.cpp(54): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。
+DrawObject.cpp(59): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。
+DrawObject.cpp(123): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+  DrawText.cpp
+DrawText.cpp(68): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+DrawText.cpp(79): warning C4244: '=': 'const float' から 'int' への変換です。データが失われる可能性があります。
+DrawText.cpp(182): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+  Font.cpp
+  MaiKagami.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\ThroughResultObject.h(79): warning C4305: '初期化中': 'double' から 'const float' へ切り詰めます。
+  ModeSelect.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+ModeSelect.cpp(7): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+ModeSelect.cpp(8): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+  Nfc.cpp
+Nfc.cpp(97): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+  C:\Program Files (x86)\Windows Kits\8.1\Include\um\WinSock2.h(1850): note: 'inet_addr' の宣言を確認してください
+  PartMain.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+  PartOption.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+  PartOptionPop.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+PartOptionPop.cpp(67): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+PartOptionPop.cpp(68): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+PartOptionPop.cpp(70): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+PartOptionPop.cpp(71): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+PartOptionPop.cpp(72): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+  PartPause.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+  PartPlay.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+  PartResult.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+PartResult.cpp(13): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+PartResult.cpp(14): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+PartResult.cpp(18): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+PartResult.cpp(19): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+PartResult.cpp(20): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+PartResult.cpp(23): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+PartResult.cpp(24): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+  PartResultMain.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+  PauseScreen.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+  PlayScreen.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+  PlayScreenObject.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+PlayScreenObject.cpp(5): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+PlayScreenObject.cpp(6): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+PlayScreenObject.cpp(7): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+PlayScreenObject.cpp(8): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+PlayScreenObject.cpp(24): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+PlayScreenObject.cpp(25): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+PlayScreenObject.cpp(32): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+PlayScreenObject.cpp(35): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+PlayScreenObject.cpp(35): warning C4244: '引数': 'double' から 'const float' への変換です。データが失われる可能性があります。
+  コンパイル中...
+  Scene.cpp
+  SettingPop.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+SettingPop.cpp(15): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+SettingPop.cpp(16): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+SettingPop.cpp(52): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+SettingPop.cpp(53): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+SettingPop.cpp(54): warning C4244: '引数': 'double' から 'const float' への変換です。データが失われる可能性があります。
+SettingPop.cpp(54): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+SettingPop.cpp(55): warning C4244: '引数': 'double' から 'const float' への変換です。データが失われる可能性があります。
+SettingPop.cpp(55): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+  Song.cpp
+Song.cpp(24): warning C4244: '引数': 'double' から 'const float' への変換です。データが失われる可能性があります。
+  SongSelect.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+  SongSelectCommon.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+SongSelectCommon.cpp(73): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+SongSelectCommon.cpp(76): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+SongSelectCommon.cpp(77): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+SongSelectCommon.cpp(88): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+SongSelectCommon.cpp(124): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+  SongSelectCover.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+SongSelectCover.cpp(12): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+SongSelectCover.cpp(113): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+SongSelectCover.cpp(117): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  SongSelectMain.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+  Songs.cpp
+Songs.cpp(81): warning C4996: 'wcscat': This function or variable may be unsafe. Consider using wcscat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_wstring.h(101): note: 'wcscat' の宣言を確認してください
+Songs.cpp(80): warning C4996: 'mbstowcs': This function or variable may be unsafe. Consider using mbstowcs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdlib.h(920): note: 'mbstowcs' の宣言を確認してください
+  StartScreen.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+StartScreen.cpp(12): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+  ThroughDetail.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\ThroughResultObject.h(79): warning C4305: '初期化中': 'double' から 'const float' へ切り詰めます。
+  ThroughMain.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+  ThroughOption.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+  ThroughPause.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+  ThroughPlay.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+  ThroughResult.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+ThroughResult.cpp(12): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+ThroughResult.cpp(13): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+ThroughResult.cpp(14): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+ThroughResult.cpp(15): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+ThroughResult.cpp(16): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+ThroughResult.cpp(25): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+  ThroughResultMain.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\ThroughResultObject.h(79): warning C4305: '初期化中': 'double' から 'const float' へ切り詰めます。
+  ThroughResultObject.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\ThroughResultObject.h(79): warning C4305: '初期化中': 'double' から 'const float' へ切り詰めます。
+ThroughResultObject.cpp(51): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+ThroughResultObject.cpp(53): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+ThroughResultObject.cpp(56): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+ThroughResultObject.cpp(76): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+ThroughResultObject.cpp(127): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+ThroughResultObject.cpp(131): warning C4244: '引数': 'double' から 'const float' への変換です。データが失われる可能性があります。
+ThroughResultObject.cpp(155): warning C4244: '引数': 'double' から 'const float' への変換です。データが失われる可能性があります。
+  ThroughStart.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+  Top.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+  TopMain.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+TopMain.cpp(8): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+  Main.cpp
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(20): warning C4584: 'MyDrawCircleGauge': 基底クラス 'Pos' は既に 'MyDrawCircle' の基底クラスです。
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\Draw.h(22): note: 'Pos' の宣言を確認してください
+  e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\DrawObject.h(10): note: 'MyDrawCircle' の宣言を確認してください
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\ThroughResultObject.h(79): warning C4305: '初期化中': 'double' から 'const float' へ切り詰めます。
+  コード生成しています。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+e:\documents\高専関連ドキュメント\project\mai-kagami\mai-kagami\mai-kagami\scene.cpp(60): warning C4723: 除算の 2 番目のオペランドは、コンパイル時に 0 と評価され、不定の結果を返します。
+  185 of 925 functions (20.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    60 functions had inline decision re-evaluated but remain unchanged
+  コード生成が終了しました。
+  Mai-Kagami.vcxproj -> E:\Documents\高専関連ドキュメント\Project\Mai-Kagami\Mai-Kagami\x64\Release\Mai-Kagami.exe
